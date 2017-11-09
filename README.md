@@ -1,54 +1,93 @@
 # AC-iOS-Unit2Final
 
-# Setup
-
-1. Clone **your fork** locally to your laptop.
-2. Work on the assignment.
-3. Upon completion, commit locally.
-
-	```
-	git commit -a -m "I'm done"
-	```
-4. Push to your repo.
-
-	```
-	git push origin master
-	```
-5. Go to github and make a pull request.
-6. Paste **your fork** link into canvas 
-
 # The Assessment
 
 ### Overview
 
-Your app is to have two tabs. The first tab should contain a table that displays a list of Crayon names
-with their backgrounds set to the corresponding color. The second tab is to have a single view controller
-that has a Slider, a Stepper, a Text Field, and a Label whose values are all sync'd together. These two tabs
-don't have any relationship to each other, other than being tabs in the same app.
+Your app will display a table full of crayon colors, and clicking on a color will show you a view that lets you mess around with that color's values.
 
+### The Requirements 
 
-1. Build the View Controller architecture as depicted in this image:
+Your app is to have a ```TableViewController``` that segues to a Detail View once a row is tapped. 
 
-<img src="https://github.com/C4Q/AC-iOS-Unit2Final/blob/master/StoryBoard.png" />
+You will be provided with a ```Crayon``` model that has all these colors.
 
+The first view should contain a table that displays a list of ```Crayon``` names with the row backgrounds set to the corresponding color. The Detail View is a single ```ViewController``` that has:
 
-Set the background color of the rows by building a UIColor from with the crayon's red, green, and blue 
-properties and set the textLabel's text to the color name. You **don't** need to subclass the Table View Cell
+* 3 hidden ```Sliders```, for R, G, and B values, 
+* a hidden ```Stepper``` to "step" up or down for alpha values,
+* ```Labels``` to display information, and
+* a ```SegmentedControl``` to alterate between showing the ```Sliders``` or ```Stepper```.
+
+These values and outlets are all sync'd together. 
+
+### Steps to achieve MVP (Minimal Viable Product)
+
+1. Set the background color of the rows by building a ```UIColor``` from with the ```Crayon``` model's red, green, and blue properties and set the textLabel's text to the color name. You **don't** need to make a custom ```TableViewCell```
 to do this. Just use the default ```UITableViewCell```.
 
-1. Implement ```prepare(for:)``` (prepare for segue) on the table view controller in order to pass the
-color information over to the detail view controller (the rightmost in the screen shot above), which I named
-Crayon View Controller. This view controller should have a label with the color name and color its background
-just as you did with the table cell row.
+1. Implement ```prepare(for:)``` on the ```TableViewController``` in order to pass the color information over to the Detail ```ViewController```. This ```ViewController``` should have a label with the color name and color its background just as you did with the table cell row. The ```Sliders``` should be in the correct posititons as specifed by the tapped color's **RGB value**.
 
-1. In the other tab build your view controller, connecting outlets and actions as appropriate to 
-the Slider, Stepper, Text Field controls and Label in order to live update any value set on one to
-update all the others.
+1. When you build your view controller, connect outlets and actions as appropriate to the 	```Slider``` and ```Stepper``` controls. Use ```Labels``` to display the Color's name, and corresponding ones next to each ```Slider``` that live-update when the ```Sliders``` are moved. 
 
-1. Comment the methods you end up implementing, noting whether it's a target-action method or 
-a delegate method.
+1. Add your ```Stepper```, which increases or decreases your ```Alpha``` value by **0.1** when tapped. 
 
-1. Extra credit. Create a convenience initializer on the Crayon model that uses the "hex" field to populate the the red, green, blue properties for your crayons. 
+1. Don't forget you ```SegmentedControl```, which should alternate between your ```Sliders``` and ```Stepper```.
+
+1. ```// Comment``` on the methods you end up implementing, noting whether it's a target-action method or a delegate method.
+
+#### Things to note
+
+1. You should divide each R, G, and B value by 255 and cast them as a ```CGFloat``` to conform to the parameters for setting up a ```UIColor```. 
+
+1. The background color of the Detail View should update dynamically as the ```Sliders``` are slid or the ```Stepper``` is tapped. 
+
+1. It's fine to start your Detail View off with your ```Stepper``` hidden.
+
+#### Extra Credit
+Do any of the below, or none at all, or all of 'em.
+
+1. Create a convenience initializer on the ```Crayon``` model that uses the "hex" field to populate the the red, green, blue properties for your crayons. 
+
+1. Use ```TextFields```, instead of ```Labels```, to show each RGB value. Typing in a value manually should affect the respective slider's positions and update the background color.
+
+1. Have the ```Labels``` change to a lighter color to make it easier to read once the view gets too dark.
+
+# Rubric
+
+Criteria | Points
+:---|:---
+App uses AutoLayout | 8 Points
+Follows MVC design | 4 Points
+Naming and Readability | 4 Points
+Correct Colors are displayed in rows and can be passed along to Detail View | 4 Points
+Detail View's ```Sliders``` and ```Labels``` display the correct RGB values | 4 Points
+```Sliders``` update Colors dynamically | 4 Points
+```Labels``` are dynamically updated | 4 Points
+```Stepper``` changes Alpha dynamically and sensibly | 4 Points
+```SegmentedControl``` alternates between showing ```Sliders``` or ```Stepper``` and shows correct selection | 4 points
+
+A total of 40 points, with 4 extra credit.
 
 
+# Setup
 
+1. Clone **your fork** locally to your laptop.
+
+1. Work on the assignment.
+
+1. Upon completion, commit locally. Even before you're done, commit commit commit.
+
+	```
+	git commit -am "I'm done"
+	```
+
+1. Push to your repo.
+
+	```
+	git push origin master
+	```
+
+1. Go to github and make a pull request.
+
+1. Paste **your fork** link into canvas.
