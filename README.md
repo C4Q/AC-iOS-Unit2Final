@@ -4,9 +4,11 @@
 
 ### Overview
 
-**TL;DR:** Your app will display a table full of crayon colors, and clicking on a color will show you a view that lets you mess around with that color's values.
+Your app will display a table full of crayon colors, and clicking on a color will show you a view that lets you mess around with that color's values.
 
-**The Specifics:** Your app is to have a ```TableViewController``` that segues to a Detail View once a row is tapped. 
+### The Requirements 
+
+Your app is to have a ```TableViewController``` that segues to a Detail View once a row is tapped. 
 
 You will be provided with a ```Crayon``` model that has all these colors.
 
@@ -19,7 +21,7 @@ The first view should contain a table that displays a list of ```Crayon``` names
 
 These values and outlets are all sync'd together. 
 
-### Steps to achieve MVP
+### Steps to achieve MVP (Minimal Viable Product)
 
 1. Set the background color of the rows by building a ```UIColor``` from with the ```Crayon``` model's red, green, and blue properties and set the textLabel's text to the color name. You **don't** need to make a custom ```TableViewCell```
 to do this. Just use the default ```UITableViewCell```.
