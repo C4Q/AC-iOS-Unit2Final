@@ -49,7 +49,7 @@ Do any of the below, or none at all, or all of 'em.
 
 1. Use ```TextFields```, instead of ```Labels```, to show each RGB value. Typing in a value manually should affect the respective slider's positions and update the background color.
 
-1. Have the name ```Labels``` change to a lighter color to make it easier to read once the view gets too dark.
+1. Have the ```Labels``` change to a lighter color to make it easier to read once the view gets too dark.
 
 # Setup
 
