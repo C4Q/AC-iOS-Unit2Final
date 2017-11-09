@@ -26,7 +26,11 @@ to do this. Just use the default ```UITableViewCell```.
 
 1. Implement ```prepare(for:)``` on the ```TableViewController``` in order to pass the color information over to the Detail ```ViewController```. This ```ViewController``` should have a label with the color name and color its background just as you did with the table cell row. The ```Sliders``` should be in the correct posititons as specifed by the tapped color's **RGB value**.
 
-1. When you build your view controller, connect outlets and actions as appropriate to the 	```Slider``` and ```Stepper``` controls. Use ```Labels``` to display the Color's name, and corresponding ones next to each ```Slider``` that live-update when the ```Sliders``` are moved.
+1. When you build your view controller, connect outlets and actions as appropriate to the 	```Slider``` and ```Stepper``` controls. Use ```Labels``` to display the Color's name, and corresponding ones next to each ```Slider``` that live-update when the ```Sliders``` are moved. 
+
+1. Add your ```Stepper```, which increases or decreases your ```Alpha``` value by **0.1** when tapped. 
+
+1. Don't forget you ```SegmentedControl```, which should alternate between your ```Sliders``` and ```Stepper```.
 
 1. ```// Comment``` on the methods you end up implementing, noting whether it's a target-action method or a delegate method.
 
@@ -34,7 +38,9 @@ to do this. Just use the default ```UITableViewCell```.
 
 1. You should divide each R, G, and B value by 255 and cast them as a ```CGFloat``` to conform to the parameters for setting up a ```UIColor```. 
 
-1. The background color of the Detail View should update dynamically as the ```Sliders``` are slid or the ```Stepper``` is tapped.
+1. The background color of the Detail View should update dynamically as the ```Sliders``` are slid or the ```Stepper``` is tapped. 
+
+1. It's fine to start your Detail View off with your ```Stepper``` hidden.
 
 #### Extra Credit
 Do any of the below, or none at all, or all of 'em.
