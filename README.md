@@ -53,6 +53,23 @@ Do any of the below, or none at all, or all of 'em.
 
 1. Have the ```Labels``` change to a lighter color to make it easier to read once the view gets too dark.
 
+# Rubric
+
+Criteria | Points
+:---|:---
+App uses AutoLayout | 8 Points
+Follows MVC design | 4 Points
+Naming and Readability | 4 Points
+Correct Colors are displayed in rows and can be passed along to Detail View | 4 Points
+Detail View's ```Sliders``` and ```Labels``` display the correct RGB values | 4 Points
+```Sliders``` update Colors dynamically | 4 Points
+```Labels``` are dynamically updated | 4 Points
+```Stepper``` changes Alpha dynamically and sensibly | 4 Points
+```SegmentedControl``` alternates between showing ```Sliders``` or ```Stepper``` and shows correct selection | 4 points
+
+A total of 40 points, with 4 extra credit.
+
+
 # Setup
 
 1. Clone **your fork** locally to your laptop.
