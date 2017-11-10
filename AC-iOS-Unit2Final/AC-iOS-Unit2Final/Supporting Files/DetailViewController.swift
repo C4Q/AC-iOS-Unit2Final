@@ -16,35 +16,51 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var redValueLabel: UILabel!
     
-    @IBOutlet weak var redValueSlider: UISlider!
+    @IBAction func redValueSlider(_ sender: UISlider) {
+        self.currentValue = Double(sender.value)
+    }
     
     @IBOutlet weak var greenValueLabel: UILabel!
     
-    @IBOutlet weak var greenValueSlider: UISlider!
+    @IBAction func greenValueSlider(_ sender: UISlider) {
+        self.currentValue = Double(sender.value)
+    }
     
     @IBOutlet weak var blueValueLabel: UILabel!
     
-    @IBOutlet weak var blueValueSlider: UISlider!
+    @IBAction func blueValueSlider(_ sender: UISlider) {
+        self.currentValue = Double(sender.value)
+    }
     
     @IBOutlet weak var alphaLabel: UILabel!
     
-    @IBOutlet weak var alphaStepper: UIStepper!
+    @IBAction func alphaStepper(_ sender: UIStepper) {
+        self.currentValue = Double(sender.value)
+    }
     
     @IBAction func resetButton(_ sender: UIButton) {
     }
     
-    var currentValue: Double = 0 {
-        didSet {
-            redValueSlider.value = Float(currentValue)
-            greenValueSlider.value = Float(currentValue)
-            blueValueSlider.value = Float(currentValue)
-            alphaStepper.value = Double(currentValue)
-        }
-    }
-
+    var currentValue: Double = 0
+//    {
+//        didSet {
+//            redValueSlider(<#T##sender: UISlider##UISlider#>) = Float(currentValue)
+//            greenValueSlider.value = Float(currentValue)
+//            blueValueSlider.value = Float(currentValue)
+//            alphaStepper.value = Double(currentValue)
+//        }
+//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         currentColorLabel.text = crayonColorCluster!.name
+        currentColorLabel.textColor = .white
+        redValueLabel.textColor = .white
+        greenValueLabel.textColor = .white
+        blueValueLabel.textColor = .white
+        alphaLabel.textColor = .white
+        self.view.backgroundColor = UIColor(displayP3Red: CGFloat(crayonColorCluster!.red/255), green: CGFloat(crayonColorCluster!.green/255), blue: CGFloat(crayonColorCluster!.blue/255), alpha: 1)
+        currentValue = 0
     }
 
 }

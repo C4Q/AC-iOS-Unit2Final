@@ -107,12 +107,24 @@
                             </label>
                             <slider opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="A6r-u1-b4O">
                                 <rect key="frame" x="29" y="209" width="317" height="31"/>
+                                <color key="tintColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="redValueSlider:" destination="EKH-Au-koK" eventType="valueChanged" id="HZW-Tb-mZ0"/>
+                                </connections>
                             </slider>
                             <slider opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="pYc-6x-Sby">
                                 <rect key="frame" x="29" y="310" width="317" height="31"/>
+                                <color key="tintColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="greenValueSlider:" destination="EKH-Au-koK" eventType="valueChanged" id="fgl-YF-7dN"/>
+                                </connections>
                             </slider>
                             <slider opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="F8C-u3-bxH">
                                 <rect key="frame" x="29" y="411" width="317" height="31"/>
+                                <color key="tintColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="blueValueSlider:" destination="EKH-Au-koK" eventType="valueChanged" id="iNo-iK-myh"/>
+                                </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alpha" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NGB-wV-gXn">
                                 <rect key="frame" x="0.0" y="466" width="375" height="21"/>
@@ -122,10 +134,17 @@
                             </label>
                             <stepper opaque="NO" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Ica-5J-dB1">
                                 <rect key="frame" x="140" y="512" width="94" height="29"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="alphaStepper:" destination="EKH-Au-koK" eventType="valueChanged" id="Si5-Od-WcS"/>
+                                </connections>
                             </stepper>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Hu-Ef-mds">
                                 <rect key="frame" x="116" y="566" width="143" height="33"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="tintColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Reset"/>
                                 <connections>
                                     <action selector="resetButton:" destination="EKH-Au-koK" eventType="touchUpInside" id="ng8-Go-81b"/>
@@ -139,6 +158,7 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="A6r-u1-b4O" firstAttribute="top" secondItem="6mz-a6-J4A" secondAttribute="bottom" constant="25" id="5YH-RH-w7X"/>
                             <constraint firstItem="F8C-u3-bxH" firstAttribute="top" secondItem="Cdd-MA-Bku" secondAttribute="bottom" constant="25" id="7TA-d3-n7r"/>
@@ -177,14 +197,10 @@
                     </view>
                     <connections>
                         <outlet property="alphaLabel" destination="NGB-wV-gXn" id="9OM-I3-Cqc"/>
-                        <outlet property="alphaStepper" destination="Ica-5J-dB1" id="eE4-Ja-PGZ"/>
                         <outlet property="blueValueLabel" destination="Cdd-MA-Bku" id="yhM-w6-z9l"/>
-                        <outlet property="blueValueSlider" destination="F8C-u3-bxH" id="F58-k2-d0U"/>
                         <outlet property="currentColorLabel" destination="kT0-N3-AR5" id="eai-1g-d5M"/>
                         <outlet property="greenValueLabel" destination="qbq-o9-6m3" id="UC7-lj-P17"/>
-                        <outlet property="greenValueSlider" destination="pYc-6x-Sby" id="4pe-rV-hMe"/>
                         <outlet property="redValueLabel" destination="6mz-a6-J4A" id="9Qb-Uu-f6g"/>
-                        <outlet property="redValueSlider" destination="A6r-u1-b4O" id="aL7-gL-EFD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JTd-LJ-rR3" userLabel="First Responder" sceneMemberID="firstResponder"/>
