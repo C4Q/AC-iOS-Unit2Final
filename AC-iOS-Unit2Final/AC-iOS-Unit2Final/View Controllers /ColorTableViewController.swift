@@ -39,8 +39,11 @@ class ColorTableViewController: UIViewController, UITableViewDelegate, UITableVi
         let cell = tableView.dequeueReusableCell(withIdentifier: "crayonCell", for: indexPath)
         cell.textLabel?.text = aCrayon.name
         cell.detailTextLabel?.text = "Color Hex: \(aCrayon.hex)"
-//        cell.backgroundColor = aCrayon.(UIColor(blue)
-       // UIColor(displayP3Red:green:blue:alpha:)
+        if cell.textLabel!.text == "Black" {
+            cell.textLabel?.textColor = .white
+            cell.detailTextLabel?.textColor = .white
+        }
+        cell.backgroundColor = UIColor(displayP3Red: CGFloat(aCrayon.red / 255), green: CGFloat(aCrayon.green / 255), blue: CGFloat(aCrayon.blue / 255), alpha: 1.0)
         return cell
     }
     
