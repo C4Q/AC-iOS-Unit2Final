@@ -30,7 +30,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let colorCell = colors[indexPath.row]
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "color cell", for: indexPath)
         cell.textLabel?.text = colorCell.name
-        cell.detailTextLabel?.text = colorCell.hex
+        cell.detailTextLabel?.text = "Hex: " + colorCell.hex
         cell.backgroundColor = UIColor(red: CGFloat(colorCell.red / 255), green: CGFloat(colorCell.green / 255), blue: CGFloat(colorCell.blue / 255), alpha: 1.0)
         return cell
     }
