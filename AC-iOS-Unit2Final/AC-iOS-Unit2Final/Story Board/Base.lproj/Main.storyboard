@@ -192,6 +192,9 @@
                                 <state key="normal" title="Reset">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="resetAllValues:" destination="0cV-6c-bY1" eventType="touchUpInside" id="1cX-0h-7ZO"/>
+                                </connections>
                             </button>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" maximumValue="1" stepValue="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="nZF-le-8ht">
                                 <rect key="frame" x="140" y="462" width="94" height="29"/>

@@ -17,7 +17,7 @@ class DetailedViewController: UIViewController {
     //    var currentGreenValue = 0.0
     
     
-//Stepper Current Value
+    //Stepper Current Value
     var stepperCurrentValue: CGFloat = 1  {
         didSet {
             
@@ -30,7 +30,7 @@ class DetailedViewController: UIViewController {
     }
     
     
-//Slider Current Value
+    //Slider Current Value
     
     var sliderCurrentValue: CGFloat = 0 {
         didSet {
@@ -102,6 +102,16 @@ class DetailedViewController: UIViewController {
         redSliderValueLabel.text = "Red Value: \(redHueSlider.value)"
         blueSliderValueLabel.text = "Blue Value: \(blueHueSlider.value)"
         greenSliderValueLabel.text = "Green Value: \(greenHueSlider.value)"
+        
+        
+        
+        viewController.backgroundColor = UIColor(displayP3Red: CGFloat(redHueSlider.value), green: CGFloat(greenHueSlider.value), blue: CGFloat(blueHueSlider.value), alpha: 1.0)
+        
+        
+        
+        
+        
+        
         showResetButton()
         
     }
@@ -109,15 +119,15 @@ class DetailedViewController: UIViewController {
     
     
     
-//Stepper Value Changed
+    //Stepper Value Changed
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
         currentAlphaValueLabel.text = "Current Alpha Value: \(stepperCurrentValue)"
         self.stepperCurrentValue = CGFloat(sender.value)
         showResetButton()
     }
-   
     
-//Changes background colors
+    
+    //Changes background colors
     func changeAllBackgroundColors(){
         let thisColor = UIColor(displayP3Red: CGFloat(thisCrayon.red / 255), green: CGFloat(thisCrayon.green / 255), blue: CGFloat(thisCrayon.blue / 255), alpha: 1.0)
         
@@ -139,18 +149,34 @@ class DetailedViewController: UIViewController {
     }
     
     
-//    Shows Reset Button
+    //    Shows Reset Button
     func showResetButton() {
         resetButton.isHidden = false
         resetButton.isEnabled = true
     }
     
     
-//    Hides Reset Button
+    //    Hides Reset Button
     func hideResetButton() {
         resetButton.isHidden = true
         resetButton.isEnabled = false
     }
     
+    
+    //Reset Function
+    
+    @IBAction func resetAllValues(_ sender: UIButton) {
+        stepperCurrentValue = 1
+        currentAlphaStepper.value = Double(CGFloat(stepperCurrentValue))
+        currentAlphaValueLabel.text = "Current Alpha Value: \(stepperCurrentValue)"
+        redHueSlider.value = Float(CGFloat(thisCrayon.red / 255))
+        greenHueSlider.value = Float(CGFloat(thisCrayon.green / 255))
+        blueHueSlider.value = Float(CGFloat(thisCrayon.blue / 255))
+        redSliderValueLabel.text = "Red Value: \(redHueSlider.value)"
+        blueSliderValueLabel.text = "Blue Value: \(blueHueSlider.value)"
+        greenSliderValueLabel.text = "Green Value: \(greenHueSlider.value)"
+        let resetBackgroundColor = UIColor(displayP3Red: CGFloat(thisCrayon.red / 255), green: CGFloat(thisCrayon.green / 255), blue: CGFloat(thisCrayon.blue / 255), alpha: 1.0)
+        viewController.backgroundColor = resetBackgroundColor
+    }
     
 }
