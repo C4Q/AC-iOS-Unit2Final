@@ -25,7 +25,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell = tableView.dequeueReusableCell(withIdentifier: "CrayonProperties", for: indexPath)
         cell.textLabel?.text = colourful.name
         cell.detailTextLabel?.text = "Hex Number: " + colourful.hex
-        cell.backgroundColor = UIColor(displayP3Red: CGFloat(colourful.red/255), green: CGFloat(colourful.green/255), blue: CGFloat(colourful.blue/255), alpha: 1)
+        cell.backgroundColor = UIColor(displayP3Red: CGFloat(colourful.red/255), green: CGFloat(colourful.green/255), blue: CGFloat(colourful.blue/255), alpha: 1.0)
         cell.textLabel?.textColor = .white
         cell.detailTextLabel?.textColor = .white
         return cell
