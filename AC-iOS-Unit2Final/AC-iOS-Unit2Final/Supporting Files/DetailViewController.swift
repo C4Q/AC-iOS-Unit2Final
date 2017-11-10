@@ -14,35 +14,27 @@ class DetailViewController: UIViewController {
     
     var alphaStepperDefaultValue = 1.0
     
+    @IBOutlet weak var alphaStepperOutlet: UIStepper!
+    
     @IBOutlet weak var currentColorLabel: UILabel!
     
     @IBOutlet weak var redValueLabel: UILabel!
     
-    var currentVal: Double = 0.0 {
-        didSet {
-            self.view.backgroundColor = UIColor(displayP3Red: CGFloat(crayonColorCluster!.red/255), green: CGFloat(crayonColorCluster!.green/255), blue: CGFloat(crayonColorCluster!.blue/255), alpha: 1.0)
-        }
-    }
-    
-    @IBAction func redValueSlider(_ sender: UISlider) {
-        self.currentVal = Double(sender.value)
-        redValueLabel.text = "Current Red Value: " + String(sender.value)
-    }
+    @IBOutlet weak var redSliderOutlet: UISlider!
     
     @IBOutlet weak var greenValueLabel: UILabel!
     
-    @IBAction func greenValueSlider(_ sender: UISlider) {
-        self.currentVal = Double(sender.value)
-//        self.crayonColorCluster!.green = Double(sender.value)
-        greenValueLabel.text = "Current Green Value: " + String(sender.value)
-    }
+    @IBOutlet weak var greenSliderOutlet: UISlider!
     
     @IBOutlet weak var blueValueLabel: UILabel!
     
-    @IBAction func blueValueSlider(_ sender: UISlider) {
-        self.currentVal = Double(sender.value)
-  //      self.crayonColorCluster!.blue = Double(sender.value)
-        blueValueLabel.text = "Current Blue Value: " + String(sender.value)
+    @IBOutlet weak var blueSliderOutlet: UISlider!
+    
+    @IBAction func sliderAction(sender: AnyObject) {
+        self.view.backgroundColor = UIColor(displayP3Red: CGFloat(redSliderOutlet.value/255), green: CGFloat(greenSliderOutlet.value/255), blue: CGFloat(blueSliderOutlet.value/255), alpha: 1)
+        redValueLabel.text = "Current Red Value: " + String(Int(redSliderOutlet.value))
+        greenValueLabel.text = "Current Green Value: " + String(Int(greenSliderOutlet.value))
+        blueValueLabel.text = "Current Blue Value: " + String(Int(blueSliderOutlet.value))
     }
     
     @IBOutlet weak var alphaLabel: UILabel!
@@ -52,23 +44,13 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func resetButton(_ sender: UIButton) {
+        self.view.backgroundColor = UIColor(displayP3Red: CGFloat(crayonColorCluster!.red/255), green: CGFloat(crayonColorCluster!.green/255), blue: CGFloat(crayonColorCluster!.blue/255), alpha: 1)
         redValueLabel.text = "Current Red Value: " + crayonColorCluster!.red.description
         greenValueLabel.text = "Current Green Value: " + crayonColorCluster!.green.description
         blueValueLabel.text = "Current Blue Value: " + crayonColorCluster!.blue.description
+        alphaStepperOutlet.value = alphaStepperDefaultValue
         alphaLabel.text = "Current Alpha Value: " + alphaStepperDefaultValue.description
-        self.view.backgroundColor = UIColor(displayP3Red: CGFloat(crayonColorCluster!.red/255), green: CGFloat(crayonColorCluster!.green/255), blue: CGFloat(crayonColorCluster!.blue/255), alpha: 1.0)
     }
-    
-//    var currentValue: Double = 0
-//    {
-//        didSet {
-//            redValueSlider(<#T##sender: UISlider##UISlider#>) = Float(currentValue)
-//            greenValueSlider.value = Float(currentValue)
-//            blueValueSlider.value = Float(currentValue)
-//            alphaStepper.value = Double(currentValue)
-//
-//        }
-//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,12 +58,15 @@ class DetailViewController: UIViewController {
         currentColorLabel.textColor = .white
         redValueLabel.textColor = .white
         redValueLabel.text = "Current Red Value: " + crayonColorCluster!.red.description
+        redSliderOutlet.value = Float(crayonColorCluster!.red/255)
         greenValueLabel.textColor = .white
         greenValueLabel.text = "Current Green Value: " + crayonColorCluster!.green.description
+        greenSliderOutlet.value = Float(crayonColorCluster!.green/255)
         blueValueLabel.textColor = .white
         blueValueLabel.text = "Current Blue Value: " + crayonColorCluster!.blue.description
+        blueSliderOutlet.value = Float(crayonColorCluster!.blue/255)
         alphaLabel.textColor = .white
-        alphaLabel.text = "Current Alpha Value: " + alphaStepperDefaultValue.description
+        alphaLabel.text = "Current Alpha Value: " + alphaStepperOutlet.value.description
         self.view.backgroundColor = UIColor(displayP3Red: CGFloat(crayonColorCluster!.red/255), green: CGFloat(crayonColorCluster!.green/255), blue: CGFloat(crayonColorCluster!.blue/255), alpha: 1)
     }
     

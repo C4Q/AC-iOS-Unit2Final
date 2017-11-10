@@ -109,14 +109,14 @@
                                 <rect key="frame" x="29" y="310" width="317" height="31"/>
                                 <color key="tintColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <action selector="greenValueSlider:" destination="EKH-Au-koK" eventType="valueChanged" id="fgl-YF-7dN"/>
+                                    <action selector="sliderActionWithSender:" destination="EKH-Au-koK" eventType="valueChanged" id="Lx0-pN-bEx"/>
                                 </connections>
                             </slider>
                             <slider opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="256" translatesAutoresizingMaskIntoConstraints="NO" id="F8C-u3-bxH">
                                 <rect key="frame" x="29" y="411" width="317" height="31"/>
                                 <color key="tintColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <action selector="blueValueSlider:" destination="EKH-Au-koK" eventType="valueChanged" id="iNo-iK-myh"/>
+                                    <action selector="sliderActionWithSender:" destination="EKH-Au-koK" eventType="valueChanged" id="eTr-0S-vlp"/>
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alpha" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NGB-wV-gXn">
@@ -125,7 +125,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stepper opaque="NO" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.10000000000000001" maximumValue="1" stepValue="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="Ica-5J-dB1">
+                            <stepper opaque="NO" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="0.10000000000000001" maximumValue="1" stepValue="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="Ica-5J-dB1">
                                 <rect key="frame" x="140.5" y="512" width="94" height="29"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -149,11 +149,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="256" translatesAutoresizingMaskIntoConstraints="NO" id="A6r-u1-b4O">
+                            <slider opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="256" translatesAutoresizingMaskIntoConstraints="NO" id="A6r-u1-b4O">
                                 <rect key="frame" x="29" y="209" width="317" height="31"/>
                                 <color key="tintColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <action selector="redValueSlider:" destination="EKH-Au-koK" eventType="valueChanged" id="HZW-Tb-mZ0"/>
+                                    <action selector="sliderActionWithSender:" destination="EKH-Au-koK" eventType="valueChanged" id="agd-YR-AAZ"/>
                                 </connections>
                             </slider>
                         </subviews>
@@ -197,9 +197,13 @@
                     </view>
                     <connections>
                         <outlet property="alphaLabel" destination="NGB-wV-gXn" id="9OM-I3-Cqc"/>
+                        <outlet property="alphaStepperOutlet" destination="Ica-5J-dB1" id="4JI-aW-I4F"/>
+                        <outlet property="blueSliderOutlet" destination="F8C-u3-bxH" id="GU4-ds-klQ"/>
                         <outlet property="blueValueLabel" destination="Cdd-MA-Bku" id="yhM-w6-z9l"/>
                         <outlet property="currentColorLabel" destination="kT0-N3-AR5" id="eai-1g-d5M"/>
+                        <outlet property="greenSliderOutlet" destination="pYc-6x-Sby" id="dpA-ui-WZQ"/>
                         <outlet property="greenValueLabel" destination="qbq-o9-6m3" id="UC7-lj-P17"/>
+                        <outlet property="redSliderOutlet" destination="A6r-u1-b4O" id="ujL-aB-jvc"/>
                         <outlet property="redValueLabel" destination="6mz-a6-J4A" id="9Qb-Uu-f6g"/>
                     </connections>
                 </viewController>
