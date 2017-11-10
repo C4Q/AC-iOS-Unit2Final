@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8120BAAA1FB612360042FD67 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8120BAA91FB612360042FD67 /* Settings.swift */; };
+		8194F7D81FB5FDF90073616F /* CrayonColorsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8194F7D71FB5FDF90073616F /* CrayonColorsTableViewController.swift */; };
+		8194F7DA1FB5FE4E0073616F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8194F7D91FB5FE4E0073616F /* DetailViewController.swift */; };
 		C5E24D601FB2392D00578931 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E24D5F1FB2392D00578931 /* AppDelegate.swift */; };
 		C5E24D651FB2392D00578931 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5E24D631FB2392D00578931 /* Main.storyboard */; };
 		C5E24D671FB2392D00578931 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5E24D661FB2392D00578931 /* Assets.xcassets */; };
@@ -15,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8120BAA91FB612360042FD67 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		8194F7D71FB5FDF90073616F /* CrayonColorsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CrayonColorsTableViewController.swift; path = ../../CrayonColorsTableViewController.swift; sourceTree = "<group>"; };
+		8194F7D91FB5FE4E0073616F /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = "AC-iOS-Unit2Final/Models/View Controllers/DetailViewController.swift"; sourceTree = SOURCE_ROOT; };
 		C5E24D5C1FB2392D00578931 /* AC-iOS-Unit2Final.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AC-iOS-Unit2Final.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5E24D5F1FB2392D00578931 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C5E24D641FB2392D00578931 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -35,6 +41,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8194F7D61FB5FD4D0073616F /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8194F7D91FB5FE4E0073616F /* DetailViewController.swift */,
+				8194F7D71FB5FDF90073616F /* CrayonColorsTableViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
 		C5E24D531FB2392D00578931 = {
 			isa = PBXGroup;
 			children = (
@@ -76,6 +91,8 @@
 			isa = PBXGroup;
 			children = (
 				C5E24D711FB2395900578931 /* Crayon.swift */,
+				8120BAA91FB612360042FD67 /* Settings.swift */,
+				8194F7D61FB5FD4D0073616F /* View Controllers */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -153,7 +170,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5E24D601FB2392D00578931 /* AppDelegate.swift in Sources */,
+				8194F7D81FB5FDF90073616F /* CrayonColorsTableViewController.swift in Sources */,
 				C5E24D721FB2395900578931 /* Crayon.swift in Sources */,
+				8194F7DA1FB5FE4E0073616F /* DetailViewController.swift in Sources */,
+				8120BAAA1FB612360042FD67 /* Settings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,7 +247,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -278,7 +298,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -292,7 +312,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "AC-iOS-Unit2Final/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.c4q.AC-iOS-Unit2Final";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -307,7 +327,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "AC-iOS-Unit2Final/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.c4q.AC-iOS-Unit2Final";
 				PRODUCT_NAME = "$(TARGET_NAME)";
