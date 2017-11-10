@@ -15,6 +15,12 @@ class DetailViewController: UIViewController {
 	@IBOutlet weak var alphaStepper: UIStepper!
 	@IBOutlet weak var resetButtonLabel: UIButton!
 	
+	@IBOutlet weak var redLabel: UILabel!
+	@IBOutlet weak var greenLabel: UILabel!
+	@IBOutlet weak var blueLabel: UILabel!
+	@IBOutlet weak var alphaLabel: UILabel!
+	
+	
 	//Variables/Constants
 	var crayon: Crayon?
 	
@@ -23,10 +29,13 @@ class DetailViewController: UIViewController {
 		switch sender.tag {
 		case 0:
 			ColorTracker.cellColor.red = CGFloat(sender.value)
+			self.redLabel.text = "Red: \(sender.value)"
 		case 1:
 			ColorTracker.cellColor.green = CGFloat(sender.value)
+			self.greenLabel.text = "Green: \(sender.value)"
 		case 2:
 			ColorTracker.cellColor.blue = CGFloat(sender.value)
+			self.blueLabel.text = "Blue: \(sender.value)"
 		default:
 			break
 		}
@@ -36,10 +45,36 @@ class DetailViewController: UIViewController {
 	@IBAction func stepperValueChanged(_ sender: UIStepper) {
 		ColorTracker.cellColor.alpha = CGFloat(sender.value)
 		self.view.backgroundColor = UIColor(displayP3Red: ColorTracker.cellColor.red, green: ColorTracker.cellColor.green, blue: ColorTracker.cellColor.blue, alpha: CGFloat(alphaStepper.value))
+		self.alphaLabel.text = "Alpha: \(sender.value)"
+		
+		//EXTRA POINTS - Have the Labels change to a lighter color to make it easier to read once the view gets too dark.
+		if alphaStepper.value < 0.55 {
+			self.redLabel.textColor = UIColor(displayP3Red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+			self.greenLabel.textColor = UIColor(displayP3Red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+			self.blueLabel.textColor = UIColor(displayP3Red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+			self.alphaLabel.textColor = UIColor(displayP3Red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+			self.crayonNameLabel.textColor = UIColor(displayP3Red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+			self.resetButtonLabel.titleLabel?.textColor = UIColor(displayP3Red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+		}
 	}
+	
 	@IBAction func resetColor(_ sender: UIButton) {
 		updateColor()
-//		resetButtonLabel.setTitleColor(UIColor(crayon?.hex), for: .Normal)
+	}
+	
+	//EXTRA POINTS - 	Create a segmented control with two titles "Decimal" and "Hex". If "Decimal" is selected, the labels should all be in decimal between 0 and 1. If "Hex" is selected, the labels should all be in hex between 0 and FF.
+	@IBAction func segmentedSwitch(_ sender: UISegmentedControl) {
+		/*
+		switch sender.value {
+		case "Decimal":
+			let decimalValue = Float(hexadecimalValue, radix: 10)!
+		case "Hexadecimal":
+			let hexadecimalValue = Float(decimalValue, radix: 16)
+		default:
+			break
+		}
+*/
+		
 	}
 	
 	//views
@@ -53,6 +88,7 @@ class DetailViewController: UIViewController {
 		updateColor()
 	}
 	
+	
 	func updateColor() {
 		guard let crayon = crayon else { return }
 		self.crayonNameLabel.text = crayon.name
@@ -64,6 +100,20 @@ class DetailViewController: UIViewController {
 		self.redSlider.value = Float(red)
 		self.greenSlider.value = Float(green)
 		self.blueSlider.value = Float(blue)
-	}
-
+		self.redLabel.text = "Red: \(ColorTracker.cellColor.red)"
+		self.greenLabel.text = "Green:  \(ColorTracker.cellColor.green)"
+		self.blueLabel.text = "Blue:  \(ColorTracker.cellColor.blue)"
+		self.alphaLabel.text = "Alpha:  \(ColorTracker.cellColor.alpha)"
+}
+	
+	
+	/*
+	//Create a convenience initializer on the Crayon model that uses the "hex" field to populate the the red, green, blue properties for your crayons.
+		let decimalValue = Float(hexadecimalValue, radix: 10)!
+		case "Hexadecimal":
+		let hexadecimalValue = Float(decimalValue, radix: 16)
+	
+	Use TextFields, instead of Labels, to show each RGB value. Typing in a value manually should affect the respective slider's positions and update the background color.
+	*/
+	
 }
