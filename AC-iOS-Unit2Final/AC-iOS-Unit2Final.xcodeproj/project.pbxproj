@@ -12,6 +12,7 @@
 		C5E24D671FB2392D00578931 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5E24D661FB2392D00578931 /* Assets.xcassets */; };
 		C5E24D6A1FB2392D00578931 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5E24D681FB2392D00578931 /* LaunchScreen.storyboard */; };
 		C5E24D721FB2395900578931 /* Crayon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E24D711FB2395900578931 /* Crayon.swift */; };
+		E2CDCADB1FB5F88600BD96D3 /* CrayonMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CDCADA1FB5F88600BD96D3 /* CrayonMainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		C5E24D691FB2392D00578931 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C5E24D6B1FB2392D00578931 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5E24D711FB2395900578931 /* Crayon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crayon.swift; sourceTree = "<group>"; };
+		E2CDCADA1FB5F88600BD96D3 /* CrayonMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrayonMainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,8 @@
 				C5E24D741FB23F8500578931 /* Models */,
 				C5E24D731FB23F6D00578931 /* Supporting Files */,
 				C5E24D6B1FB2392D00578931 /* Info.plist */,
+				C5E24D631FB2392D00578931 /* Main.storyboard */,
+				E2CDCADA1FB5F88600BD96D3 /* CrayonMainViewController.swift */,
 			);
 			path = "AC-iOS-Unit2Final";
 			sourceTree = "<group>";
@@ -66,7 +70,6 @@
 			children = (
 				C5E24D5F1FB2392D00578931 /* AppDelegate.swift */,
 				C5E24D661FB2392D00578931 /* Assets.xcassets */,
-				C5E24D631FB2392D00578931 /* Main.storyboard */,
 				C5E24D681FB2392D00578931 /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
@@ -153,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5E24D601FB2392D00578931 /* AppDelegate.swift in Sources */,
+				E2CDCADB1FB5F88600BD96D3 /* CrayonMainViewController.swift in Sources */,
 				C5E24D721FB2395900578931 /* Crayon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
