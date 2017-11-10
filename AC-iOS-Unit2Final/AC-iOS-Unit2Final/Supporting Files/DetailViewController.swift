@@ -13,6 +13,7 @@ class DetailViewController: UIViewController {
 	@IBOutlet weak var greenSlider: UISlider!
 	@IBOutlet weak var blueSlider: UISlider!
 	@IBOutlet weak var alphaStepper: UIStepper!
+	@IBOutlet weak var resetButtonLabel: UIButton!
 	
 	//Variables/Constants
 	var crayon: Crayon?
@@ -35,6 +36,10 @@ class DetailViewController: UIViewController {
 	@IBAction func stepperValueChanged(_ sender: UIStepper) {
 		ColorTracker.cellColor.alpha = CGFloat(sender.value)
 		self.view.backgroundColor = UIColor(displayP3Red: ColorTracker.cellColor.red, green: ColorTracker.cellColor.green, blue: ColorTracker.cellColor.blue, alpha: CGFloat(alphaStepper.value))
+	}
+	@IBAction func resetColor(_ sender: UIButton) {
+		updateColor()
+//		resetButtonLabel.setTitleColor(UIColor(crayon?.hex), for: .Normal)
 	}
 	
 	//views
