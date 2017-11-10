@@ -56,7 +56,6 @@ class DetailViewController: UIViewController {
 	@IBAction func stepperValueChanged(_ sender: UIStepper) {
 		ColorTracker.cellColor.alpha = CGFloat(sender.value)
 		self.view.backgroundColor = UIColor(displayP3Red: ColorTracker.cellColor.red, green: ColorTracker.cellColor.green, blue: ColorTracker.cellColor.blue, alpha: CGFloat(alphaStepper.value))
-		self.alphaLabel.text = "Alpha: \(sender.value)"
 		
 		//EXTRA POINTS - Have the Labels change to a lighter color to make it easier to read once the view gets too dark.
 		if alphaStepper.value < 0.55 {
@@ -66,6 +65,12 @@ class DetailViewController: UIViewController {
 			self.alphaLabel.textColor = UIColor(displayP3Red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
 			self.crayonNameLabel.textColor = UIColor(displayP3Red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
 			self.resetButtonLabel.titleLabel?.textColor = UIColor(displayP3Red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+		}
+		//Extra point for hexadecimal in segmented control
+		if segmentedControl.selectedSegmentIndex == 0 {
+			self.alphaLabel.text = "Alpha: \(sender.value))"
+		} else {
+			self.alphaLabel.text = "Alpha: \(String(Int(alphaStepper.value * 255), radix: 16))"
 		}
 	}
 	
@@ -109,7 +114,7 @@ class DetailViewController: UIViewController {
 		updateColor()
 	}
 	
-	
+
 	func updateColor() {
 		guard let crayon = crayon else { return }
 		self.crayonNameLabel.text = crayon.name
@@ -121,10 +126,19 @@ class DetailViewController: UIViewController {
 		self.redSlider.value = Float(red)
 		self.greenSlider.value = Float(green)
 		self.blueSlider.value = Float(blue)
-		self.redLabel.text = "Red: \(ColorTracker.cellColor.red)"
-		self.greenLabel.text = "Green:  \(ColorTracker.cellColor.green)"
-		self.blueLabel.text = "Blue:  \(ColorTracker.cellColor.blue)"
-		self.alphaLabel.text = "Alpha:  \(ColorTracker.cellColor.alpha)"
+		
+		//Extra point: to maintain segmented Control persistence
+		if segmentedControl.selectedSegmentIndex == 0 {
+			self.redLabel.text = "Red: \(ColorTracker.cellColor.red)"
+			self.greenLabel.text = "Green:  \(ColorTracker.cellColor.green)"
+			self.blueLabel.text = "Blue:  \(ColorTracker.cellColor.blue)"
+			self.alphaLabel.text = "Alpha:  \(ColorTracker.cellColor.alpha)"
+		} else {
+			self.redLabel.text = "Red: \(String(Int(redSlider.value * 255), radix: 16))"
+			self.greenLabel.text = "Green: \(String(Int(greenSlider.value * 255), radix: 16))"
+			self.blueLabel.text = "Blue: \(String(Int(blueSlider.value * 255), radix: 16))"
+			self.alphaLabel.text = "Alpha: \(String(Int(alphaStepper.value * 255), radix: 16))"
+		}
 	}
 	
 	

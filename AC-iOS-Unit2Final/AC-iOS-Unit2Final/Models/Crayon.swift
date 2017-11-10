@@ -37,22 +37,35 @@ class Crayon {
         Crayon(name: "Blue Violet", red: 115, green: 102, blue: 189, hex: "#7366BD")
     ]
 	
+	
 	/*
 	//EXTRA POINTS - 	//Create a convenience initializer on the Crayon model that uses the "hex" field to populate the the red, green, blue properties for your crayons.
 	convenience init?(hex: String) {
-		let hexChars = CharacterSet(charactersIn: "0123456789abcdef")
-		let str = hex.lowercased().trimmingCharacters(in: hexChars.inverted)
-		let r: Double; let g: Double; let b: Double
-		var a: Int = 1
+		let hex = hex
+		let redIndexStart = hex.index(hex.startIndex, offsetBy: 1)
+		let redIndexEnd = hex.index(hex.endIndex, offsetBy: -4)
+		let redSubstring = hex[redIndexStart..<redIndexEnd] // "Hello"
+		let redHex = redSubstring
 		
-		r = Double(String(str[str.startIndex...str.index(str.startIndex, offsetBy: 1)]), radix: 16)!
-		g = Double(String(str[str.index(str.startIndex, offsetBy: 2)...str.index(str.startIndex, offsetBy: 3)]), radix: 16)!
-		b = Double(String(str[str.index(str.startIndex, offsetBy: 4)...str.index(str.startIndex, offsetBy: 5)]), radix: 16)!
+		let greenIndexStart = hex.index(hex.startIndex, offsetBy: 3)
+		let greenIndexEnd = hex.index(hex.endIndex, offsetBy: -2)
+		let greenSubstring = hex[greenIndexStart..<greenIndexEnd] // "Hello"
+		let greenHex = greenSubstring
 		
-		override self.init(red: r, green: g, blue: b, alpha: a)
+		let blueIndexStart = hex.index(hex.startIndex, offsetBy: 5)
+		let blueIndexEnd = hex.index(hex.endIndex, offsetBy: 0)
+		let blueSubstring = hex[blueIndexStart..<blueIndexEnd] // "Hello"
+		let blueHex = blueSubstring
+		
+		// Hexadecimal to decimal
+		let red = Double(Int(redHex, radix: 16)!)
+		let green = Double(Int(greenHex, radix: 16)!)
+		let blue = Double(Int(blueHex, radix: 16)!)
+//
+		self.init(name: name, red: red, green: green, blue: blue, hex: hex)
+//		self.init(red: red, green: green, blue: blue)
 	}
-	*/
-
-
+*/
+	
 }
 
