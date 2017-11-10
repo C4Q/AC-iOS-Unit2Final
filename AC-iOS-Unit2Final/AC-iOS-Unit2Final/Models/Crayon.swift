@@ -38,9 +38,9 @@ class Crayon {
     ]
 	
 	
-	/*
+	
 	//EXTRA POINTS - 	//Create a convenience initializer on the Crayon model that uses the "hex" field to populate the the red, green, blue properties for your crayons.
-	convenience init?(hex: String) {
+	convenience init?(name: String, hex: String) {
 		let hex = hex
 		let redIndexStart = hex.index(hex.startIndex, offsetBy: 1)
 		let redIndexEnd = hex.index(hex.endIndex, offsetBy: -4)
@@ -61,11 +61,13 @@ class Crayon {
 		let red = Double(Int(redHex, radix: 16)!)
 		let green = Double(Int(greenHex, radix: 16)!)
 		let blue = Double(Int(blueHex, radix: 16)!)
-//
+		
 		self.init(name: name, red: red, green: green, blue: blue, hex: hex)
+//
+//		self.init(name: name, red: red, green: green, blue: blue, hex: hex)
 //		self.init(red: red, green: green, blue: blue)
 	}
-*/
+
 	
 }
 
