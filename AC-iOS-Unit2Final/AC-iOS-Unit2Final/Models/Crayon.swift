@@ -14,6 +14,7 @@ class Crayon {
     var green: Double
     var blue: Double
     var hex: String
+    
     init(name: String, red: Double, green: Double, blue: Double, hex: String) {
         self.name = name
         self.red = red
@@ -21,6 +22,18 @@ class Crayon {
         self.blue = blue
         self.hex = hex
     }
+    
+    convenience init(name: String, hex: String) {
+        self.init(name: name, hex: hex)
+        var hexAsArr = Array(hex)
+        let redHex = String(hexAsArr[1]) + String(hexAsArr[2])
+        let greenHex = String(hexAsArr[3]) + String(hexAsArr[4])
+        let blueHex = String(hexAsArr[5]) + String(hexAsArr[6])
+        self.red = Double(Int(redHex, radix: 16)!)
+        self.green = Double(Int(greenHex, radix: 16)!)
+        self.blue = Double(Int(blueHex, radix: 16)!)
+    }
+    
     static let allTheCrayons = [
         Crayon(name: "Almond", red: 239, green: 222, blue: 205, hex: "#EFDECD"),
         Crayon(name: "Antique Brass", red: 205, green: 149, blue: 117, hex: "#CD9575"),
