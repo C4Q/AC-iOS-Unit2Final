@@ -12,6 +12,8 @@
 		C5E24D671FB2392D00578931 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5E24D661FB2392D00578931 /* Assets.xcassets */; };
 		C5E24D6A1FB2392D00578931 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5E24D681FB2392D00578931 /* LaunchScreen.storyboard */; };
 		C5E24D721FB2395900578931 /* Crayon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E24D711FB2395900578931 /* Crayon.swift */; };
+		D20D6C221FB5FA2100221694 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20D6C211FB5FA2100221694 /* ViewController.swift */; };
+		D20D6C241FB603E700221694 /* detailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20D6C231FB603E700221694 /* detailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		C5E24D691FB2392D00578931 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C5E24D6B1FB2392D00578931 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5E24D711FB2395900578931 /* Crayon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crayon.swift; sourceTree = "<group>"; };
+		D20D6C211FB5FA2100221694 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D20D6C231FB603E700221694 /* detailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +42,8 @@
 		C5E24D531FB2392D00578931 = {
 			isa = PBXGroup;
 			children = (
+				D20D6C211FB5FA2100221694 /* ViewController.swift */,
+				D20D6C231FB603E700221694 /* detailViewController.swift */,
 				C5E24D5E1FB2392D00578931 /* AC-iOS-Unit2Final */,
 				C5E24D5D1FB2392D00578931 /* Products */,
 			);
@@ -152,8 +158,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D20D6C221FB5FA2100221694 /* ViewController.swift in Sources */,
 				C5E24D601FB2392D00578931 /* AppDelegate.swift in Sources */,
 				C5E24D721FB2395900578931 /* Crayon.swift in Sources */,
+				D20D6C241FB603E700221694 /* detailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
