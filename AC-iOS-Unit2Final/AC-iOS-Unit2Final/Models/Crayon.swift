@@ -21,6 +21,19 @@ class Crayon {
         self.blue = blue
         self.hex = hex
     }
+    
+    convenience init(name: String, hex: String) {
+        let arr = Array(hex)
+        let str1 = String(arr[1...2])
+        let str2 = String(arr[3...4])
+        let str3 = String(arr[5...6])
+        let redNum = Int(str1, radix: 16)
+        let greenNum = Int(str2, radix: 16)
+        let blueNum = Int(str3, radix: 16)
+        
+        self.init(name: name, red: Double(redNum!), green: Double(greenNum!), blue: Double(blueNum!), hex: hex)
+        
+    }
     static let allTheCrayons = [
         Crayon(name: "Almond", red: 239, green: 222, blue: 205, hex: "#EFDECD"),
         Crayon(name: "Antique Brass", red: 205, green: 149, blue: 117, hex: "#CD9575"),
