@@ -33,7 +33,7 @@ class CrayonDetailViewController: UIViewController {
     @IBOutlet weak var greenSlider: UISlider!
     @IBOutlet weak var blueSlider: UISlider!
     @IBAction func colorSliders(_ sender: UISlider) {
-        view.backgroundColor = UIColor(displayP3Red: redSlider, green: greenSlider.value, blue: blueSlider.value, alpha: 1.0)
+        view.backgroundColor = UIColor(displayP3Red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1.0)
         switch sender.tag {
         case 0:
             redSlider.value = Float(sender.value)
