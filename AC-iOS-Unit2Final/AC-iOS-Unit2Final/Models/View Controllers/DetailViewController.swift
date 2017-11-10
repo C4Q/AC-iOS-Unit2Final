@@ -83,6 +83,7 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func resetButtonClicked(_ sender: UIButton) {
+        
     }
     
     
