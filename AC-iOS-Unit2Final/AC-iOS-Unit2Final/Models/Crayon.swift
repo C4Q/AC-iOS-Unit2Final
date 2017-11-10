@@ -36,5 +36,23 @@ class Crayon {
         Crayon(name: "Blue Green", red: 13, green: 152, blue: 186, hex: "#0D98BA"),
         Crayon(name: "Blue Violet", red: 115, green: 102, blue: 189, hex: "#7366BD")
     ]
+	
+	/*
+	//EXTRA POINTS - 	//Create a convenience initializer on the Crayon model that uses the "hex" field to populate the the red, green, blue properties for your crayons.
+	convenience init?(hex: String) {
+		let hexChars = CharacterSet(charactersIn: "0123456789abcdef")
+		let str = hex.lowercased().trimmingCharacters(in: hexChars.inverted)
+		let r: Double; let g: Double; let b: Double
+		var a: Int = 1
+		
+		r = Double(String(str[str.startIndex...str.index(str.startIndex, offsetBy: 1)]), radix: 16)!
+		g = Double(String(str[str.index(str.startIndex, offsetBy: 2)...str.index(str.startIndex, offsetBy: 3)]), radix: 16)!
+		b = Double(String(str[str.index(str.startIndex, offsetBy: 4)...str.index(str.startIndex, offsetBy: 5)]), radix: 16)!
+		
+		override self.init(red: r, green: g, blue: b, alpha: a)
+	}
+	*/
+
+
 }
 

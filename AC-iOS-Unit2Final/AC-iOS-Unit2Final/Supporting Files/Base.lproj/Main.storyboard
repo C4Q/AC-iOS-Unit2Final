@@ -201,6 +201,7 @@
                         <outlet property="redLabel" destination="gax-7g-fD3" id="HOY-Hd-j0P"/>
                         <outlet property="redSlider" destination="YWl-ri-CCj" id="47m-Fn-aVd"/>
                         <outlet property="resetButtonLabel" destination="UMX-vS-iLb" id="wVj-Db-vIT"/>
+                        <outlet property="segmentedControl" destination="RxA-qt-CY1" id="NFq-t3-pHZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3vg-DC-kjM" userLabel="First Responder" sceneMemberID="firstResponder"/>

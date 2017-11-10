@@ -14,12 +14,11 @@ class DetailViewController: UIViewController {
 	@IBOutlet weak var blueSlider: UISlider!
 	@IBOutlet weak var alphaStepper: UIStepper!
 	@IBOutlet weak var resetButtonLabel: UIButton!
-	
 	@IBOutlet weak var redLabel: UILabel!
 	@IBOutlet weak var greenLabel: UILabel!
 	@IBOutlet weak var blueLabel: UILabel!
 	@IBOutlet weak var alphaLabel: UILabel!
-	
+	@IBOutlet weak var segmentedControl: UISegmentedControl!
 	
 	//Variables/Constants
 	var crayon: Crayon?
@@ -29,13 +28,25 @@ class DetailViewController: UIViewController {
 		switch sender.tag {
 		case 0:
 			ColorTracker.cellColor.red = CGFloat(sender.value)
-			self.redLabel.text = "Red: \(sender.value)"
+			if segmentedControl.selectedSegmentIndex == 0 {
+				self.redLabel.text = "Red: \(sender.value)"
+			} else {
+				self.redLabel.text = "Red: \(String(Int(redSlider.value * 255), radix: 16))"
+			}
 		case 1:
 			ColorTracker.cellColor.green = CGFloat(sender.value)
-			self.greenLabel.text = "Green: \(sender.value)"
+			if segmentedControl.selectedSegmentIndex == 0 {
+				self.greenLabel.text = "Green: \(sender.value)"
+			} else {
+				self.greenLabel.text = "Green: \(String(Int(greenSlider.value * 255), radix: 16))"
+			}
 		case 2:
 			ColorTracker.cellColor.blue = CGFloat(sender.value)
-			self.blueLabel.text = "Blue: \(sender.value)"
+			if segmentedControl.selectedSegmentIndex == 0 {
+				self.blueLabel.text = "Blue: \(sender.value)"
+			} else {
+				self.blueLabel.text = "Blue: \(String(Int(blueSlider.value * 255), radix: 16))"
+			}
 		default:
 			break
 		}
@@ -60,22 +71,32 @@ class DetailViewController: UIViewController {
 	
 	@IBAction func resetColor(_ sender: UIButton) {
 		updateColor()
+		self.redLabel.textColor = UIColor(displayP3Red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
+		self.greenLabel.textColor = UIColor(displayP3Red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
+		self.blueLabel.textColor = UIColor(displayP3Red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
+		self.alphaLabel.textColor = UIColor(displayP3Red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
+		self.crayonNameLabel.textColor = UIColor(displayP3Red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
+		self.resetButtonLabel.titleLabel?.textColor = UIColor(displayP3Red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
 	}
 	
 	//EXTRA POINTS - 	Create a segmented control with two titles "Decimal" and "Hex". If "Decimal" is selected, the labels should all be in decimal between 0 and 1. If "Hex" is selected, the labels should all be in hex between 0 and FF.
 	@IBAction func segmentedSwitch(_ sender: UISegmentedControl) {
-		/*
-		switch sender.value {
-		case "Decimal":
-			let decimalValue = Float(hexadecimalValue, radix: 10)!
-		case "Hexadecimal":
-			let hexadecimalValue = Float(decimalValue, radix: 16)
+		switch sender.selectedSegmentIndex {
+		case 0:
+			self.redLabel.text = "Red: \(redSlider.value)"
+			self.greenLabel.text = "Green:  \(greenSlider.value)"
+			self.blueLabel.text = "Blue:  \(blueSlider.value)"
+			self.alphaLabel.text = "Alpha:  \(alphaStepper.value)"
+		case 1:
+			self.redLabel.text = "Red: \(String(Int(redSlider.value * 255), radix: 16))"
+			self.greenLabel.text = "Green: \(String(Int(greenSlider.value * 255), radix: 16))"
+			self.blueLabel.text = "Blue: \(String(Int(blueSlider.value * 255), radix: 16))"
+			self.alphaLabel.text = "Alpha: \(String(Int(alphaStepper.value * 255), radix: 16))"
 		default:
 			break
 		}
-*/
-		
 	}
+
 	
 	//views
     override func viewDidLoad() {
@@ -104,15 +125,10 @@ class DetailViewController: UIViewController {
 		self.greenLabel.text = "Green:  \(ColorTracker.cellColor.green)"
 		self.blueLabel.text = "Blue:  \(ColorTracker.cellColor.blue)"
 		self.alphaLabel.text = "Alpha:  \(ColorTracker.cellColor.alpha)"
-}
+	}
 	
 	
 	/*
-	//Create a convenience initializer on the Crayon model that uses the "hex" field to populate the the red, green, blue properties for your crayons.
-		let decimalValue = Float(hexadecimalValue, radix: 10)!
-		case "Hexadecimal":
-		let hexadecimalValue = Float(decimalValue, radix: 16)
-	
 	Use TextFields, instead of Labels, to show each RGB value. Typing in a value manually should affect the respective slider's positions and update the background color.
 	*/
 	
