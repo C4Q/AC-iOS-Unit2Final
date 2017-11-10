@@ -8,6 +8,24 @@
 
 import Foundation
 
+//private func HexToColor(hexString: String, tag: String) {
+//    // Convert hex string to an integer
+//    let hexint = Int(intFromHexString(hexString))
+//    let red = CGFloat((hexint & 0xff0000) >> 16) / 255.0
+//    let green = CGFloat((hexint & 0xff00) >> 8) / 255.0
+//    let blue = CGFloat((hexint & 0xff) >> 0) / 255.0
+//}
+//private func intFromHexString(_ hexStr: String) -> UInt32 {
+//    var hexInt: UInt32 = 0
+//    // Create scanner
+//    let scanner: Scanner = Scanner(string: hexStr)
+//    // Tell scanner to skip the # character
+//    scanner.charactersToBeSkipped = NSCharacterSet(charactersIn: "#") as CharacterSet
+//    // Scan hex value
+//    scanner.scanHexInt32(&hexInt)
+//    return hexInt
+//}
+
 class Crayon {
     var name: String
     var red: Double
@@ -21,6 +39,9 @@ class Crayon {
         self.blue = blue
         self.hex = hex
     }
+//    convenience init(hex: String){
+//        self.init(name: "Unknown", red: 25.2, green: 25.3, blue: 22.1, hex: hex)
+//    }
     static let allTheCrayons = [
         Crayon(name: "Almond", red: 239, green: 222, blue: 205, hex: "#EFDECD"),
         Crayon(name: "Antique Brass", red: 205, green: 149, blue: 117, hex: "#CD9575"),
