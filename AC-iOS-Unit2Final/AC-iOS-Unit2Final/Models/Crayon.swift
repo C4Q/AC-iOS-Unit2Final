@@ -1,10 +1,7 @@
-//
 //  Crayon.swift
 //  AC-iOS-Unit2Final
-//
 //  Created by Karen Fuentes on 11/7/17.
 //  Copyright © 2017 Karen Fuentes. All rights reserved.
-//
 
 import Foundation
 
