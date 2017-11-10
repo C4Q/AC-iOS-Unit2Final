@@ -21,6 +21,13 @@ class Crayon {
         self.blue = blue
         self.hex = hex
     }
+    convenience init(name: String, hex: String) {
+        let redVal = UInt8((String(Array(hex)[0]) + String(Array(hex)[1])), radix: 16)!
+        let greenVal = UInt8((String(Array(hex)[0]) + String(Array(hex)[1])), radix: 16)!
+        let blueVal = UInt8((String(Array(hex)[0]) + String(Array(hex)[1])), radix: 16)!
+        self.init(name: name, red: Double(redVal), green: Double(greenVal), blue: Double(blueVal), hex: hex)
+    }
+    
     static let allTheCrayons = [
         Crayon(name: "Almond", red: 239, green: 222, blue: 205, hex: "#EFDECD"),
         Crayon(name: "Antique Brass", red: 205, green: 149, blue: 117, hex: "#CD9575"),
