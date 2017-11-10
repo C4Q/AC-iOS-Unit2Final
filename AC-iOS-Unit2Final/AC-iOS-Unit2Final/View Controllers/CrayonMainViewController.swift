@@ -31,22 +31,29 @@ class CrayonMainViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let crayonCell = tableView.dequeueReusableCell(withIdentifier: "Crayon Cell", for: indexPath)
-        let crayonRow = allCrayons[indexPath.row]
-        crayonCell.textLabel?.text = crayonRow.name
-        crayonCell.detailTextLabel?.text = crayonRow.hex
-        crayonCell.backgroundColor = UIColor(displayP3Red: CGFloat(crayonRow.red/255), green: CGFloat(crayonRow.green/255), blue: CGFloat(crayonRow.blue/255), alpha: 1)
+        let crayonSelected = allCrayons[indexPath.row]
+        guard let labelText = crayonCell.textLabel, let detailLabel = crayonCell.detailTextLabel else {
+            return crayonCell
+        }
+        labelText.text = crayonSelected.name
+        detailLabel.text = crayonSelected.hex
+        if crayonSelected.hex == "#000000" {
+            labelText.textColor = .white
+            detailLabel.textColor = .white
+        }
+        crayonCell.backgroundColor = UIColor(displayP3Red: CGFloat(crayonSelected.red/255), green: CGFloat(crayonSelected.green/255), blue: CGFloat(crayonSelected.blue/255), alpha: 1)
         return crayonCell
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if let destination = segue.destination as? CrayonDetailedViewController {
+            guard let tableRowSelectedPath = crayonTableView.indexPathForSelectedRow else {
+                return
+            }
+            let selectedRow = tableRowSelectedPath.row
+            let selectedCrayon = self.allCrayons[selectedRow]
+            destination.crayon = selectedCrayon
+        }
     }
-    */
-
+ 
 }

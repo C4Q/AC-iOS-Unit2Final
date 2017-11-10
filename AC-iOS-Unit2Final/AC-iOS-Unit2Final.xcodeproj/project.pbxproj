@@ -13,6 +13,7 @@
 		C5E24D6A1FB2392D00578931 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5E24D681FB2392D00578931 /* LaunchScreen.storyboard */; };
 		C5E24D721FB2395900578931 /* Crayon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E24D711FB2395900578931 /* Crayon.swift */; };
 		E2CDCADB1FB5F88600BD96D3 /* CrayonMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CDCADA1FB5F88600BD96D3 /* CrayonMainViewController.swift */; };
+		E2CDCADD1FB5FD2200BD96D3 /* CrayonDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CDCADC1FB5FD2200BD96D3 /* CrayonDetailedViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		C5E24D6B1FB2392D00578931 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5E24D711FB2395900578931 /* Crayon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crayon.swift; sourceTree = "<group>"; };
 		E2CDCADA1FB5F88600BD96D3 /* CrayonMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrayonMainViewController.swift; sourceTree = "<group>"; };
+		E2CDCADC1FB5FD2200BD96D3 /* CrayonDetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrayonDetailedViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +62,7 @@
 				C5E24D731FB23F6D00578931 /* Supporting Files */,
 				C5E24D6B1FB2392D00578931 /* Info.plist */,
 				C5E24D631FB2392D00578931 /* Main.storyboard */,
-				E2CDCADA1FB5F88600BD96D3 /* CrayonMainViewController.swift */,
+				E2CDCADE1FB5FD2C00BD96D3 /* View Controllers */,
 			);
 			path = "AC-iOS-Unit2Final";
 			sourceTree = "<group>";
@@ -81,6 +83,15 @@
 				C5E24D711FB2395900578931 /* Crayon.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		E2CDCADE1FB5FD2C00BD96D3 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E2CDCADC1FB5FD2200BD96D3 /* CrayonDetailedViewController.swift */,
+				E2CDCADA1FB5F88600BD96D3 /* CrayonMainViewController.swift */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,6 +166,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2CDCADD1FB5FD2200BD96D3 /* CrayonDetailedViewController.swift in Sources */,
 				C5E24D601FB2392D00578931 /* AppDelegate.swift in Sources */,
 				E2CDCADB1FB5F88600BD96D3 /* CrayonMainViewController.swift in Sources */,
 				C5E24D721FB2395900578931 /* Crayon.swift in Sources */,
