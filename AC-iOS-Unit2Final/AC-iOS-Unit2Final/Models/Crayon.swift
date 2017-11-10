@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class Crayon {
     var name: String
@@ -21,6 +22,24 @@ class Crayon {
         self.blue = blue
         self.hex = hex
     }
+    /*
+     https://gist.github.com/yannickl/16f0ed38f0698d9a8ae7
+     ^ used as reference
+     */
+    convenience init(name: String, hex: String) {
+        var hexCopy = hex
+        hexCopy.remove(at: hexCopy.startIndex)
+        guard let hexAsInt = UInt32(hexCopy, radix: 16) else {
+            self.init(name: name,red: 0, green: 0, blue: 0, hex: hex)
+            return
+        }
+        let theRed = CGFloat((hexAsInt >> 16) & 0x000000FF)
+        let theGreen = CGFloat((hexAsInt >> 8) & 0x000000FF)
+        let theBlue = CGFloat(hexAsInt & 0x000000FF)
+        self.init(name: name,red: Double(theRed), green: Double(theGreen), blue: Double(theBlue), hex: hex)
+        print(theRed, theGreen, theBlue, separator: " ")
+    }
+    
     static let allTheCrayons = [
         Crayon(name: "Almond", red: 239, green: 222, blue: 205, hex: "#EFDECD"),
         Crayon(name: "Antique Brass", red: 205, green: 149, blue: 117, hex: "#CD9575"),
@@ -40,4 +59,3 @@ class Crayon {
         Crayon(name: "Blue Violet", red: 115, green: 102, blue: 189, hex: "#7366BD")
     ]
 }
-
