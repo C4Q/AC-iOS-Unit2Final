@@ -33,6 +33,13 @@ class CrayonViewController: UIViewController,UITableViewDelegate,UITableViewData
         return crayonCell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationCrayon = segue.destination as? DetailViewController {
+            let selectedRow = crayonTableView.indexPathForSelectedRow!.row
+            let selectedCrayon = crayons[selectedRow]
+            destinationCrayon.myCrayon = selectedCrayon
+        }
+    }
     
     
     override func viewDidLoad() {

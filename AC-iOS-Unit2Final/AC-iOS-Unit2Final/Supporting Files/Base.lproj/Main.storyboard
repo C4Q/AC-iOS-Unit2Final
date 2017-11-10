@@ -70,10 +70,10 @@
             </objects>
             <point key="canvasLocation" x="168.80000000000001" y="179.46026986506749"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="0AK-Zz-eqK">
             <objects>
-                <viewController id="hqY-5S-sIe" sceneMemberID="viewController">
+                <viewController id="hqY-5S-sIe" customClass="DetailViewController" customModule="AC_iOS_Unit2Final" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6k8-Wg-WBF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -150,6 +150,17 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="D8O-bl-qkP"/>
                     </view>
+                    <connections>
+                        <outlet property="alphaLabel" destination="Ocw-3p-pBn" id="yQr-d1-a6M"/>
+                        <outlet property="alphaStepper" destination="G0L-tv-M7c" id="a0q-rA-FNu"/>
+                        <outlet property="blueValueLabel" destination="mCa-hm-UKi" id="Ch0-Ly-knf"/>
+                        <outlet property="blueValueSlider" destination="ume-KD-RI7" id="bjA-NF-6YV"/>
+                        <outlet property="crayonName" destination="mYk-9f-bas" id="ChD-DG-N92"/>
+                        <outlet property="greenValueLabel" destination="AEo-6r-oeP" id="7mg-sK-1wW"/>
+                        <outlet property="greenValueSlider" destination="cVG-vp-Uf1" id="sOY-GG-6lc"/>
+                        <outlet property="redValueLabel" destination="rTQ-bR-4l6" id="aUQ-4I-7ir"/>
+                        <outlet property="redValueSlider" destination="jaW-rY-HQL" id="ck6-jU-oGm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bvl-Pd-2yl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
