@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		937A04311FB5FA0B00B7A915 /* DetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937A04301FB5FA0B00B7A915 /* DetailedViewController.swift */; };
+		937A04351FB5FAA500B7A915 /* ColorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937A04341FB5FAA500B7A915 /* ColorTableViewController.swift */; };
 		C5E24D601FB2392D00578931 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E24D5F1FB2392D00578931 /* AppDelegate.swift */; };
 		C5E24D651FB2392D00578931 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5E24D631FB2392D00578931 /* Main.storyboard */; };
 		C5E24D671FB2392D00578931 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5E24D661FB2392D00578931 /* Assets.xcassets */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		937A04301FB5FA0B00B7A915 /* DetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedViewController.swift; sourceTree = "<group>"; };
+		937A04341FB5FAA500B7A915 /* ColorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTableViewController.swift; sourceTree = "<group>"; };
 		C5E24D5C1FB2392D00578931 /* AC-iOS-Unit2Final.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AC-iOS-Unit2Final.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5E24D5F1FB2392D00578931 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C5E24D641FB2392D00578931 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -35,6 +39,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		937A04321FB5FA1200B7A915 /* View Controllers  */ = {
+			isa = PBXGroup;
+			children = (
+				937A04301FB5FA0B00B7A915 /* DetailedViewController.swift */,
+				937A04341FB5FAA500B7A915 /* ColorTableViewController.swift */,
+			);
+			path = "View Controllers ";
+			sourceTree = "<group>";
+		};
+		937A04331FB5FA3400B7A915 /* Story Board */ = {
+			isa = PBXGroup;
+			children = (
+				C5E24D631FB2392D00578931 /* Main.storyboard */,
+			);
+			path = "Story Board";
+			sourceTree = "<group>";
+		};
 		C5E24D531FB2392D00578931 = {
 			isa = PBXGroup;
 			children = (
@@ -54,6 +75,8 @@
 		C5E24D5E1FB2392D00578931 /* AC-iOS-Unit2Final */ = {
 			isa = PBXGroup;
 			children = (
+				937A04331FB5FA3400B7A915 /* Story Board */,
+				937A04321FB5FA1200B7A915 /* View Controllers  */,
 				C5E24D741FB23F8500578931 /* Models */,
 				C5E24D731FB23F6D00578931 /* Supporting Files */,
 				C5E24D6B1FB2392D00578931 /* Info.plist */,
@@ -66,7 +89,6 @@
 			children = (
 				C5E24D5F1FB2392D00578931 /* AppDelegate.swift */,
 				C5E24D661FB2392D00578931 /* Assets.xcassets */,
-				C5E24D631FB2392D00578931 /* Main.storyboard */,
 				C5E24D681FB2392D00578931 /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
@@ -153,6 +175,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5E24D601FB2392D00578931 /* AppDelegate.swift in Sources */,
+				937A04311FB5FA0B00B7A915 /* DetailedViewController.swift in Sources */,
+				937A04351FB5FAA500B7A915 /* ColorTableViewController.swift in Sources */,
 				C5E24D721FB2395900578931 /* Crayon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
