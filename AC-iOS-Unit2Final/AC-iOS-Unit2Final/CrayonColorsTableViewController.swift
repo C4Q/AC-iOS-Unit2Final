@@ -10,7 +10,7 @@ import UIKit
 
 class CrayonColorsTableViewController: UITableViewController {
     var crayonsArr = [Crayon]()
-    var valueToPass: UIColor!
+    var valueToPass: Crayon!
     var colorNameToPass: String!
     var redsliderValueToPass: Double!
 
@@ -54,11 +54,13 @@ class CrayonColorsTableViewController: UITableViewController {
         // Get Cell Label
         let indexPath = tableView.indexPathForSelectedRow;
         let currentCell = tableView.cellForRow(at: indexPath!) as UITableViewCell!;
-        valueToPass = currentCell?.backgroundColor
+        valueToPass = crayonsArr[indexPath!.row]
+            //currentCell?.backgroundColor
         colorNameToPass = currentCell?.textLabel?.text
         //Pass slider values
         //redsliderValueToPass = (currentCell?.backgroundColor)!
         performSegue(withIdentifier: "ColorDetailSegue", sender: self)
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -66,7 +68,7 @@ class CrayonColorsTableViewController: UITableViewController {
             // initialize new view controller and cast it as your view controller
             let destinationVC = segue.destination as! DetailViewController
             // your new view controller should have property that will store passed value
-            destinationVC.passedCrayonColor = valueToPass
+            destinationVC.selectedCrayon = valueToPass
             destinationVC.passedCrayonColorName = colorNameToPass
         }
         

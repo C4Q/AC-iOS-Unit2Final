@@ -14,5 +14,5 @@ class Settings {
 //    static var greenSliderValue = 0
 //    static var blueSliderValue = 0
     static var AlphaStepperValue = 1.0
-    static var cellColor: (red: CGFloat, green: CGFloat, blue: CGFloat) = (1, 1, 1)
+    static var cellColor: (red: CGFloat, green: CGFloat, blue: CGFloat) = (1, 1, 1) 
 }

@@ -9,7 +9,7 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-    var passedCrayonColor: UIColor?
+    var selectedCrayon: Crayon!
     var passedCrayonColorName: String?
     
 
@@ -40,7 +40,7 @@ class DetailViewController: UIViewController {
     
 
     func setupValues() {
-        self.view.backgroundColor = passedCrayonColor
+        self.view.backgroundColor = UIColor(red: (CGFloat(selectedCrayon.red))/225, green: CGFloat(selectedCrayon.green)/225, blue: CGFloat(selectedCrayon.blue)/225, alpha:1.0)
         //guard let safeCrayon = passedCrayonColorName else { return }
         self.selectedCrayonNameLabel.text = passedCrayonColorName
         //red
@@ -72,6 +72,9 @@ class DetailViewController: UIViewController {
         default:
             break
         }
+        
+        // after sliders moved, updated bg color
+    self.view.backgroundColor = UIColor(displayP3Red: Settings.cellColor.red, green: Settings.cellColor.green, blue: Settings.cellColor.blue, alpha: 1.0)
     }
     
     @IBAction func stepperPressed(_ sender: UIStepper) {

@@ -67,82 +67,98 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="vsv-hI-Ynt">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="376" height="530"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Color Name  Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tae-mV-b5L">
-                                        <rect key="frame" x="88.5" y="0.0" width="198" height="36.5"/>
+                                        <rect key="frame" x="89" y="0.0" width="198" height="30"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="aZb-dI-A4n">
-                                        <rect key="frame" x="19.5" y="56.5" width="336" height="38"/>
+                                        <rect key="frame" x="16" y="50" width="344" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="340" id="Hcu-h6-CtD"/>
+                                        </constraints>
                                         <connections>
                                             <action selector="sliderValueChanged:" destination="Dbj-Ds-xjF" eventType="valueChanged" id="jWo-c7-QMy"/>
                                         </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Red Value: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mXp-Fd-gbM">
-                                        <rect key="frame" x="145" y="113.5" width="85.5" height="36.5"/>
+                                        <rect key="frame" x="145.5" y="100" width="85" height="30"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="37" id="a3t-20-TlJ"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <slider opaque="NO" tag="1" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="44w-uV-gAO">
-                                        <rect key="frame" x="19.5" y="170" width="336" height="37.5"/>
+                                        <rect key="frame" x="16" y="150" width="344" height="31"/>
                                         <connections>
                                             <action selector="sliderValueChanged:" destination="Dbj-Ds-xjF" eventType="valueChanged" id="Rea-11-kei"/>
                                         </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Green Value:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5bs-zK-ljb">
-                                        <rect key="frame" x="139" y="226.5" width="97.5" height="36.5"/>
+                                        <rect key="frame" x="139.5" y="200" width="97.5" height="30"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <slider opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="5eO-dB-edW">
-                                        <rect key="frame" x="19.5" y="283" width="336" height="38"/>
+                                        <rect key="frame" x="16" y="250" width="344" height="31"/>
                                         <connections>
                                             <action selector="sliderValueChanged:" destination="Dbj-Ds-xjF" eventType="valueChanged" id="QX0-z5-nhh"/>
                                         </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blue Value:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V1y-Kc-AF7">
-                                        <rect key="frame" x="145" y="340" width="85" height="36.5"/>
+                                        <rect key="frame" x="145.5" y="300" width="85" height="30"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="85" id="Qym-Cw-hFd"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="HtI-gQ-MXz">
-                                        <rect key="frame" x="140.5" y="396.5" width="94" height="29"/>
+                                        <rect key="frame" x="141" y="350" width="94" height="29"/>
                                         <connections>
                                             <action selector="stepperPressed:" destination="Dbj-Ds-xjF" eventType="valueChanged" id="GGk-w1-xm2"/>
                                         </connections>
                                     </stepper>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alpha Value:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIq-7I-XHF">
-                                        <rect key="frame" x="140" y="453" width="95" height="36.5"/>
+                                        <rect key="frame" x="141" y="400" width="94" height="30"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="VFc-3X-T4I">
-                                        <rect key="frame" x="124" y="509.5" width="127" height="38"/>
+                                        <rect key="frame" x="124.5" y="450" width="127" height="31"/>
                                         <segments>
                                             <segment title="Decimal"/>
                                             <segment title="Hex"/>
                                         </segments>
                                     </segmentedControl>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="neQ-Bf-Qfl">
-                                        <rect key="frame" x="143" y="566.5" width="89" height="36.5"/>
+                                        <rect key="frame" x="143.5" y="500" width="89" height="30"/>
                                         <state key="normal" title="Reset Values"/>
                                         <connections>
                                             <action selector="resetButtonClicked:" destination="Dbj-Ds-xjF" eventType="touchUpInside" id="WLT-x4-QYq"/>
                                         </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="44w-uV-gAO" firstAttribute="leading" secondItem="5eO-dB-edW" secondAttribute="leading" id="Uuo-o8-LgO"/>
+                                    <constraint firstItem="aZb-dI-A4n" firstAttribute="leading" secondItem="44w-uV-gAO" secondAttribute="leading" id="duE-xz-wtK"/>
+                                    <constraint firstItem="aZb-dI-A4n" firstAttribute="leading" secondItem="vsv-hI-Ynt" secondAttribute="leading" constant="18" id="lqk-TR-Mdo"/>
+                                    <constraint firstItem="HtI-gQ-MXz" firstAttribute="trailing" secondItem="YIq-7I-XHF" secondAttribute="trailing" id="vcR-9s-gEV"/>
+                                    <constraint firstItem="mXp-Fd-gbM" firstAttribute="leading" secondItem="V1y-Kc-AF7" secondAttribute="leading" id="yVh-nK-Kvk"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
