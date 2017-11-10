@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailedViewController: UIViewController {
+class DetailedViewController: UIViewController, UITextFieldDelegate {
     
     //The Instance of the Segued Cell
     var detailedCrayon: Crayon?
@@ -95,6 +95,40 @@ class DetailedViewController: UIViewController {
     }
     
     //Outlets
+    @IBOutlet weak var redTextField: UITextField!
+    @IBOutlet weak var greenTextField: UITextField!
+    @IBOutlet weak var blueTextField: UITextField!
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let characterSet = CharacterSet.decimalDigits
+        
+        if string.rangeOfCharacter(from: characterSet.inverted) != nil {
+            return false
+        }
+        if textField == redTextField {
+            guard redTextField.text != nil else {return true}
+            let redText = "." + redTextField.text! + string
+            if let newInt = Float(redText) {
+                self.sliderRedValue = newInt
+            }
+        }
+        if textField == greenTextField {
+            guard greenTextField.text != nil else {return true}
+            let greenText = "." + greenTextField.text! + string
+            if let newInt = Float(greenText) {
+                self.sliderGreenValue = newInt
+            }
+        }
+        if textField == blueTextField {
+            guard blueTextField.text != nil else {return true}
+            let blueText = "." + blueTextField.text! + string
+            if let newInt = Float(blueText) {
+                self.sliderBlueValue = newInt
+            }
+        }
+        return true
+    }
+    
     @IBOutlet weak var colorView: UIView!
     @IBOutlet weak var redSliderOutlet: UISlider!
     @IBOutlet weak var greenSliderOutlet: UISlider!
@@ -104,6 +138,9 @@ class DetailedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.redTextField.delegate = self
+        self.greenTextField.delegate = self
+        self.blueTextField.delegate = self
         guard let detailedCrayon = detailedCrayon else {
             return
         }//This is to make sure there is a Crayon to show details for
@@ -132,6 +169,9 @@ class DetailedViewController: UIViewController {
         self.greenLabel.text = "Green: " + String(sliderGreenValue)
         self.blueLabel.text = "Blue: " + String(sliderBlueValue)
         self.redLabel.text = "Red: " + String(sliderRedValue)
+        redTextField.text = ""
+        blueTextField.text = ""
+        greenTextField.text = ""
     }
 
 }
