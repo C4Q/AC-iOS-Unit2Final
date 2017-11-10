@@ -112,21 +112,24 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
             return false
         }
         if Float(redEntry) != nil && Float(greenEntry) != nil && Float(blueEntry) != nil {
-            
-            redSlider.value = Float(redEntry)!
-            redLabel.text = "Red: " + String(redSlider.value)
-            greenSlider.value = Float(greenEntry)!
-            greenLabel.text = "Green: " + String(greenSlider.value)
-            blueSlider.value = Float(blueEntry)!
-            blueLabel.text = "Blue: " + String(blueSlider.value)
+            if Float(redEntry)! >= Float(0) && Float(redEntry)! <= Float(1) {
+                redSlider.value = Float(redEntry)!
+                redLabel.text = "Red: " + String(redSlider.value)
+            }
+            if Float(greenEntry)! >= Float(0) && Float(greenEntry)! <= Float(1) {
+                greenSlider.value = Float(greenEntry)!
+                greenLabel.text = "Green: " + String(greenSlider.value)
+            }
+            if Float(blueEntry)! >= Float(0) && Float(blueEntry)! <= Float(1) {
+                blueSlider.value = Float(blueEntry)!
+                blueLabel.text = "Blue: " + String(blueSlider.value)
+            }
             viewBg.backgroundColor = UIColor(displayP3Red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: CGFloat(alphaStepper.value))
         }
         return false
     }
 
-    
-    
-    
+
     
     @IBAction func resetButtonPressed(_ sender: UIButton) {
         setUpViews()
