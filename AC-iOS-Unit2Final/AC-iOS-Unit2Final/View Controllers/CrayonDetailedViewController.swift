@@ -46,6 +46,16 @@ class CrayonDetailedViewController: UIViewController {
     
     var currentAlphaStepperValue: Double = 1 {
         didSet {
+            if currentAlphaStepperValue < 0.3 {
+                changeFontColorToWhite()
+            }
+            if currentAlphaStepperValue > 0.7 {
+                changeFontColorToBlack()
+            }
+            if currentAlphaStepperValue < 0.1 {
+                alphaStepper.value = 0.0
+                currentAlphaStepperValue = 0
+            }
             self.alphaStepperLabel.text = "alpha: \(currentAlphaStepperValue)"
             view.backgroundColor = UIColor(displayP3Red: CGFloat(currentRedSliderValue), green: CGFloat(currentGreenSliderValue), blue: CGFloat(currentBlueSliderValue), alpha: CGFloat(currentAlphaStepperValue))
         }
@@ -112,6 +122,14 @@ class CrayonDetailedViewController: UIViewController {
         greenSliderLabel.textColor = .white
         blueSliderLabel.textColor = .white
         alphaStepperLabel.textColor = .white
+    }
+    
+    func changeFontColorToBlack() {
+        crayonName.textColor = .black
+        redSliderLabel.textColor = .black
+        greenSliderLabel.textColor = .black
+        blueSliderLabel.textColor = .black
+        alphaStepperLabel.textColor = .black
     }
     
 }
