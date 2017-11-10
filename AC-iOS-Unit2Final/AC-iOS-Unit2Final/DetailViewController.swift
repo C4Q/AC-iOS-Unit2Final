@@ -22,25 +22,63 @@ class DetailViewController: UIViewController {
     
    
     var myCrayon: Crayon?
+    var currentRed: CGFloat = 0
+    var currentGreen: CGFloat = 0
+    var currentBlue: CGFloat = 0
+    var currentAlpha: CGFloat = 1
+    var originalAlpha: CGFloat = 1
 
     
     
     func setup() {
-        let redColor = CGFloat((myCrayon?.red)!/255)
-        let greenColor = CGFloat((myCrayon?.green)!/255)
-        let blueColor = CGFloat((myCrayon?.blue)!/255)
+        currentRed = CGFloat((myCrayon?.red)!/255)
+        currentGreen = CGFloat((myCrayon?.green)!/255)
+        currentBlue = CGFloat((myCrayon?.blue)!/255)
         crayonName.text = myCrayon?.name
-        redValueLabel.text = "red: \(redColor)"
-        greenValueLabel.text = "green: \(greenColor)"
-        blueValueLabel.text = "blue:\(blueColor)"
-        view.backgroundColor = UIColor(displayP3Red: redColor, green: greenColor, blue: blueColor, alpha: 1)
-        
+        redValueLabel.text = "red: \(currentRed)"
+        greenValueLabel.text = "green: \(currentGreen)"
+        blueValueLabel.text = "blue:\(currentBlue)"
+        alphaLabel.text = "Alpha: \(currentAlpha)"
+        view.backgroundColor = UIColor(displayP3Red: currentRed, green: currentGreen, blue: currentBlue, alpha: 1)
         
     }
     
     
+    @IBAction func sliderValueChanged(_ sender: UISlider) {
+        switch sender.tag {
+        case 0 :
+            currentRed = CGFloat(sender.value)
+            redValueLabel.text = "red:" + String(sender.value)
+        case 1:
+            currentGreen = CGFloat(sender.value)
+            greenValueLabel.text = "green:" + String(sender.value)
+        case 2:
+            currentBlue = CGFloat(sender.value)
+            blueValueLabel.text = "blue:" + String(sender.value)
+        default :
+            break
+        }
+        view.backgroundColor = UIColor(displayP3Red: currentRed, green: currentGreen, blue: currentBlue, alpha: currentAlpha)
+    
+    }
     
     
+    @IBAction func stepperValueChanged(_ sender: UIStepper) {
+        currentAlpha = CGFloat(sender.value)
+        view.backgroundColor = UIColor(displayP3Red: currentRed, green: currentGreen, blue: currentBlue, alpha: currentAlpha)
+        alphaLabel.text = "Alpha: \(currentAlpha)"
+        
+    }
+    
+    
+    @IBAction func resetButtonPressed(_ sender: UIButton) {
+        setup()
+        currentAlpha = originalAlpha
+        alphaStepper.value = Double(currentAlpha)
+        alphaLabel.text = "Alpha: \(currentAlpha)"
+    
+       
+    }
     
     
     override func viewDidLoad() {

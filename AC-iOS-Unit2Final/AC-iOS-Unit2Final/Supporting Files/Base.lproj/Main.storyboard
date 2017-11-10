@@ -68,7 +68,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UOK-Ju-RjG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="168.80000000000001" y="179.46026986506749"/>
+            <point key="canvasLocation" x="127" y="179"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="0AK-Zz-eqK">
@@ -87,8 +87,11 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="G0L-tv-M7c">
+                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" maximumValue="1" stepValue="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="G0L-tv-M7c">
                                         <rect key="frame" x="140.5" y="40.5" width="94" height="29"/>
+                                        <connections>
+                                            <action selector="stepperValueChanged:" destination="hqY-5S-sIe" eventType="valueChanged" id="Qqi-sd-tvW"/>
+                                        </connections>
                                     </stepper>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mYk-9f-bas">
                                         <rect key="frame" x="0.0" y="89.5" width="375" height="20.5"/>
@@ -104,6 +107,9 @@
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="jaW-rY-HQL">
                                         <rect key="frame" x="-2" y="170.5" width="379" height="31"/>
+                                        <connections>
+                                            <action selector="sliderValueChanged:" destination="hqY-5S-sIe" eventType="valueChanged" id="Lfw-hg-TKF"/>
+                                        </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="green:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AEo-6r-oeP">
                                         <rect key="frame" x="0.0" y="220.5" width="375" height="20.5"/>
@@ -111,8 +117,11 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="cVG-vp-Uf1">
+                                    <slider opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="cVG-vp-Uf1">
                                         <rect key="frame" x="-2" y="261" width="379" height="31"/>
+                                        <connections>
+                                            <action selector="sliderValueChanged:" destination="hqY-5S-sIe" eventType="valueChanged" id="pvQ-Wm-fRH"/>
+                                        </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="blue:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mCa-hm-UKi">
                                         <rect key="frame" x="0.0" y="311" width="375" height="20.5"/>
@@ -120,12 +129,18 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ume-KD-RI7">
+                                    <slider opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ume-KD-RI7">
                                         <rect key="frame" x="-2" y="351.5" width="379" height="31"/>
+                                        <connections>
+                                            <action selector="sliderValueChanged:" destination="hqY-5S-sIe" eventType="valueChanged" id="q3q-09-8fR"/>
+                                        </connections>
                                     </slider>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tYQ-6D-JXQ">
                                         <rect key="frame" x="131.5" y="401.5" width="112.5" height="30"/>
                                         <state key="normal" title="reset"/>
+                                        <connections>
+                                            <action selector="resetButtonPressed:" destination="hqY-5S-sIe" eventType="touchUpInside" id="or0-Bh-Dpx"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -164,7 +179,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bvl-Pd-2yl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="876" y="178.56071964017991"/>
+            <point key="canvasLocation" x="770" y="179"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Veo-Vd-KQF">
