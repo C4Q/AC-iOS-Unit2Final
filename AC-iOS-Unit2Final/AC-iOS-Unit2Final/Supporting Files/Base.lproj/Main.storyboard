@@ -19,7 +19,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lgc-sG-JqL">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="0.68802352866411531" blue="0.45256412756487818" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="hT7-Bh-XLV" detailTextLabel="NaD-Mq-j6l" style="IBUITableViewCellStyleSubtitle" id="gFR-Tg-jT0">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -44,6 +44,10 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.59047656243298663" green="0.84223198951512679" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <connections>
+                                            <segue destination="Hm7-hc-Zmx" kind="show" id="UiC-Ik-wSH"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -60,17 +64,16 @@
                     <navigationItem key="navigationItem" id="RHF-NM-29e"/>
                     <connections>
                         <outlet property="tableView" destination="lgc-sG-JqL" id="V1d-qa-hwI"/>
-                        <segue destination="Hm7-hc-Zmx" kind="show" id="tW9-Vb-NYI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jzy-jS-JRw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="823" y="90"/>
         </scene>
-        <!--Color Detail View Controller-->
+        <!--Color Detail-->
         <scene sceneID="wBK-lw-A4j">
             <objects>
-                <viewController id="Hm7-hc-Zmx" customClass="ColorDetailViewController" customModule="AC_iOS_Unit2Final" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Color Detail" id="Hm7-hc-Zmx" customClass="ColorDetailViewController" customModule="AC_iOS_Unit2Final" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="J8o-gb-NeJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -172,10 +175,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="j7U-JM-NcT"/>
                     </view>
+                    <connections>
+                        <outlet property="colorName" destination="T7u-49-Ugd" id="azJ-VC-6j5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5jo-97-bC6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1484" y="89.505247376311857"/>
+            <point key="canvasLocation" x="1596" y="90"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gFp-hM-V4m">
