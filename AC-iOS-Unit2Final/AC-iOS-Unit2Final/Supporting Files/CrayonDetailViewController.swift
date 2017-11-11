@@ -11,14 +11,11 @@ import UIKit
 class CrayonDetailViewController: UIViewController {
     
     var color: Crayon!
-    var alphaVal = Float()
-    var redVal = Float()
-    var greenVal = Float()
-    var blueVal = Float()
-//    var alphaVal = 1.0
-//    var selectedColor = UIColor(displayP3Red: CGFloat(color.red/255), green: CGFloat(color.green/255), blue: CGFloat(color.blue/255), alpha: CGFloat(alphaVal))
-   
-    
+    var alphaVal = CGFloat()
+    var redVal = CGFloat()
+    var greenVal = CGFloat()
+    var blueVal = CGFloat()
+
     @IBOutlet weak var colorNameLabel: UILabel!
     @IBAction func colorResetButton(_ sender: UIButton) {
         loadData()
@@ -33,7 +30,10 @@ class CrayonDetailViewController: UIViewController {
     @IBOutlet weak var greenSlider: UISlider!
     @IBOutlet weak var blueSlider: UISlider!
     @IBAction func colorSliders(_ sender: UISlider) {
-        view.backgroundColor = UIColor(displayP3Red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1.0)
+        redVal = CGFloat(redSlider.value)
+        greenVal = CGFloat(greenSlider.value)
+        blueVal = CGFloat(blueSlider.value)
+        view.backgroundColor = UIColor(displayP3Red: redVal, green: greenVal, blue: blueVal, alpha: 1.0)
         switch sender.tag {
         case 0:
             redSlider.value = Float(sender.value)
@@ -51,6 +51,9 @@ class CrayonDetailViewController: UIViewController {
     //Stepper
     @IBOutlet weak var alphaStepper: UIStepper!
     @IBAction func stepper(_ sender: UIStepper) {
+        alphaVal = CGFloat(sender.value)
+        transparencyLabel.text = "Transparency: \(alphaVal)"
+        view.backgroundColor = UIColor(displayP3Red: redVal, green: greenVal, blue: blueVal, alpha: alphaVal)
     }
     
     override func viewDidLoad() {
@@ -59,20 +62,19 @@ class CrayonDetailViewController: UIViewController {
     }
 
     func loadData(){
-//        var alphaVal = 1.0
-//        var redVal = color.red/255
-//        var greenVal = color.green/255
-//        var blueVal = color.blue/255
-        let selectedColor = UIColor(displayP3Red: CGFloat(color.red/255), green: CGFloat(color.green/255), blue: CGFloat(color.blue/255), alpha: 1.0)
+        alphaStepper.value = 1
+        let selectedColor = UIColor(displayP3Red: CGFloat(color.red / 255), green: CGFloat(color.green / 255), blue: CGFloat(color.blue / 255), alpha: 1.0)
         colorNameLabel.text = "\(color.name)"
-        redLabel.text = "Red: \(color.red/255)"
-        greenLabel.text = "Green : \(color.green/255)"
-        blueLabel.text = "Blue : \(color.blue/255)"
+        redLabel.text = "Red: \(color.red / 255)"
+        greenLabel.text = "Green : \(color.green / 255)"
+        blueLabel.text = "Blue : \(color.blue / 255)"
         transparencyLabel.text = "Transparency: 1.0)"
         view.backgroundColor = selectedColor
-        redSlider.value = Float(color.red/255)
-        greenSlider.value = Float(color.green/255)
-        blueSlider.value = Float(color.blue/255)
+        redSlider.value = Float(color.red / 255)
+        greenSlider.value = Float(color.green / 255)
+        blueSlider.value = Float(color.blue / 255)
+        blueVal = CGFloat(color.blue / 255)
+        redVal = CGFloat(color.red / 255)
+        greenVal = CGFloat(color.green / 255)
     }
-
 }
