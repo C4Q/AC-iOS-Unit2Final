@@ -13,23 +13,35 @@ class DetailCrayonViewController: UIViewController {
     var color: Crayon?
     var colorBackGround: UIColor = .brown {
         didSet{
-            view.backgroundColor = colorBackGround
-            redValue.text = "\(SettingColor.redColor)"
-            greenValue.text = "\(SettingColor.greenColor)"
-            blueValue.text = "\(SettingColor.blueColor)"
-            alphaValue.text = "\(SettingColor.alphaColor)"
+            loadColorLabel()
+            let setColor = UIColor(displayP3Red: abs(CGFloat(1.0 - (SettingColor.redColor * SettingColor.alphaColor))), green: abs(CGFloat(1.0 - (SettingColor.greenColor * SettingColor.alphaColor))), blue: abs(CGFloat(1.0 - (SettingColor.blueColor * SettingColor.alphaColor))), alpha: 1.0)
+            redValue.textColor = setColor
+            greenValue.textColor = setColor
+            blueValue.textColor = setColor
+            alphaValue.textColor = setColor
+            buttonReset.tintColor = setColor
+            sliderRed.tintColor = setColor
+            sliderGreen.tintColor = setColor
+            sliderBlue.tintColor = setColor
+            
+            crayonName.textColor = setColor
+            redLabel.textColor = setColor
+            greenLabel.textColor = setColor
+            blueLabel.textColor = setColor
+            alphaLabel.textColor = setColor
         }
     }
     
     @IBOutlet weak var crayonName: UILabel!
-//    @IBOutlet weak var redValue: UITextField!
-//    @IBOutlet weak var greenValue: UITextField!
-//    @IBOutlet weak var blueValue: UITextField!
-//    @IBOutlet weak var alphaValue: UITextField!
+    @IBOutlet weak var redLabel: UILabel!
+    @IBOutlet weak var greenLabel: UILabel!
+    @IBOutlet weak var blueLabel: UILabel!
+    @IBOutlet weak var alphaLabel: UILabel!
+    
     @IBOutlet weak var redValue: UILabel!
     @IBOutlet weak var greenValue: UILabel!
-    @IBOutlet weak var alphaValue: UILabel!
     @IBOutlet weak var blueValue: UILabel!
+    @IBOutlet weak var alphaValue: UILabel!
     
     @IBOutlet weak var sliderRed: UISlider!
     @IBOutlet weak var sliderGreen: UISlider!
@@ -37,6 +49,7 @@ class DetailCrayonViewController: UIViewController {
     
     @IBOutlet weak var stepperAlpha: UIStepper!
     
+    @IBOutlet weak var buttonReset: UIButton!
     
     @IBAction func sliderChangingColor(_ sender: UISlider) {
         switch sender.tag {
@@ -59,20 +72,20 @@ class DetailCrayonViewController: UIViewController {
     
     
     @IBAction func resetButton(_ sender: UIButton) {
-        loadCurrentColor()
+        loadOriginalColor()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadColorLabel()
-        view.backgroundColor = colorBackGround
+        loadOriginalColor()
+//        view.backgroundColor = colorBackGround
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        loadCurrentColor()
+        loadOriginalColor()
     }
     
-    func loadCurrentColor() {
+    func loadOriginalColor() {
         guard let unWrappedColor = color else {
             return
         }
@@ -81,19 +94,19 @@ class DetailCrayonViewController: UIViewController {
         SettingColor.blueColor = Double(unWrappedColor.blue/255)
         SettingColor.alphaColor = 1.0
         colorBackGround = UIColor(displayP3Red: CGFloat(SettingColor.redColor), green: CGFloat(SettingColor.greenColor), blue: CGFloat(SettingColor.blueColor), alpha: CGFloat(SettingColor.alphaColor))
-        loadColorLabel()
     }
     
     func loadColorLabel() {
         crayonName.text = color?.name
-        redValue.text = "\(SettingColor.redColor)"
+        redValue.text = "\(Int(SettingColor.redColor * 255))"
         sliderRed.value = Float(SettingColor.redColor)
-        greenValue.text = "\(SettingColor.greenColor)"
+        greenValue.text = "\(Int(SettingColor.greenColor * 255))"
         sliderGreen.value = Float(SettingColor.greenColor)
-        blueValue.text = "\(SettingColor.blueColor)"
+        blueValue.text = "\(Int(SettingColor.blueColor * 255))"
         sliderBlue.value = Float(SettingColor.blueColor)
         alphaValue.text = "\(SettingColor.alphaColor)"
         stepperAlpha.value = SettingColor.alphaColor
+        view.backgroundColor = colorBackGround
     }
     
     

@@ -8,23 +8,7 @@
 
 import Foundation
 
-//private func HexToColor(hexString: String, tag: String) {
-//    // Convert hex string to an integer
-//    let hexint = Int(intFromHexString(hexString))
-//    let red = CGFloat((hexint & 0xff0000) >> 16) / 255.0
-//    let green = CGFloat((hexint & 0xff00) >> 8) / 255.0
-//    let blue = CGFloat((hexint & 0xff) >> 0) / 255.0
-//}
-//private func intFromHexString(_ hexStr: String) -> UInt32 {
-//    var hexInt: UInt32 = 0
-//    // Create scanner
-//    let scanner: Scanner = Scanner(string: hexStr)
-//    // Tell scanner to skip the # character
-//    scanner.charactersToBeSkipped = NSCharacterSet(charactersIn: "#") as CharacterSet
-//    // Scan hex value
-//    scanner.scanHexInt32(&hexInt)
-//    return hexInt
-//}
+
 
 class Crayon {
     var name: String
@@ -39,9 +23,42 @@ class Crayon {
         self.blue = blue
         self.hex = hex
     }
-//    convenience init(hex: String){
-//        self.init(name: "Unknown", red: 25.2, green: 25.3, blue: 22.1, hex: hex)
-//    }
+    convenience init(hex: String){
+        func hexToRGB(_ hex: String, _ color: String) -> Double {
+            var hex = Array(hex)
+            var hexToDecimal = ["1": 1, "2": 2, "3": 3, "4": 4, "5": 5,
+                                "6": 6, "7": 7, "8": 8, "9": 9, "A": 10,
+                                "B": 11, "C": 12, "D": 13, "E": 14, "F": 15]
+            var rgbDecimal: Int = 0
+            var index: Int = 0
+            var endIndex: Int = 0
+            var idx: Int = 0
+            switch color {
+            case "red":
+                index = 1
+            case "green":
+                index = 3
+            case "blue":
+                index = 5
+            default:
+                break
+            }
+            endIndex = index + 1
+            for chr in (index...endIndex).reversed() {
+                print(chr)
+                guard let convertedLetter = hexToDecimal[String(hex[chr])] else {
+                    continue
+                }
+                print(convertedLetter)
+                rgbDecimal += (convertedLetter * (Int(pow(Double(16),Double(idx)))))
+                print(rgbDecimal)
+                idx += 1
+            }
+            return Double(rgbDecimal)
+        }
+        self.init(name: Crayon.allTheCrayons.filter{$0.hex == hex}[0].name, red: hexToRGB(hex, "red"), green: hexToRGB(hex, "green"), blue: hexToRGB(hex, "blue"), hex: hex)
+    }
+    
     static let allTheCrayons = [
         Crayon(name: "Almond", red: 239, green: 222, blue: 205, hex: "#EFDECD"),
         Crayon(name: "Antique Brass", red: 205, green: 149, blue: 117, hex: "#CD9575"),
