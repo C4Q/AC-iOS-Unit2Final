@@ -8,14 +8,7 @@
 
 import Foundation
 class Settings {
-    
-//    guard let crayon = crayon else {
-//    return
-//    }
-    static var redSlider: Float = 1.0
-    static var blueSlider: Float = 1.0
-    static var greenSlider: Float = 1.0
     static var alphaStepperLevel: Float = 1.0
-    
 }
+
 

@@ -12,7 +12,6 @@ import UIKit
 class CrayonViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var crayons: [Crayon] = []
-    let colorName = "blue"
     
     @IBOutlet weak var crayonTableView: UITableView!
     override func viewDidLoad() {
