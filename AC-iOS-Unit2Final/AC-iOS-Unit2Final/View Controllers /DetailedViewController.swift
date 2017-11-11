@@ -12,9 +12,6 @@ class DetailedViewController: UIViewController {
     
     
     var thisCrayon: Crayon!
-    //    var currentRedValue = 0.0
-    //    var currentBlueValue = 0.0
-    //    var currentGreenValue = 0.0
     
     
     //Stepper Current Value
@@ -54,6 +51,9 @@ class DetailedViewController: UIViewController {
     @IBOutlet weak var greenSliderValueLabel: UILabel!
     @IBOutlet weak var blueSliderValueLabel: UILabel!
     @IBOutlet weak var currentAlphaValueLabel: UILabel!
+
+    
+    
     
     //Controls
     @IBOutlet weak var redHueSlider: UISlider!
@@ -63,25 +63,7 @@ class DetailedViewController: UIViewController {
     @IBOutlet weak var resetButton: UIButton!
     
     
-    
-    
     //View Did Load
-    //    override func viewDidLoad() {
-    //        super.viewDidLoad()
-    //        colorNameLabel.text = thisCrayon.name
-    ////        self.currentRedValue = thisCrayon.red
-    ////        self.currentBlueValue = thisCrayon.blue
-    ////        self.currentGreenValue = thisCrayon.green
-    //
-    //        resetButton.isHidden = true
-    //        resetButton.isEnabled = false
-    //        stepperCurrentValue = 1
-    //        sliderCurrentValue = 0
-    //        changeAllBackgroundColors()
-    //    }
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         colorNameLabel.text = thisCrayon.name
@@ -96,22 +78,16 @@ class DetailedViewController: UIViewController {
     
     //Slider Value Changed
     @IBAction func sliderValueChanged(_ sender: UISlider) {
-        //self.sliderCurrentValue = CGFloat(sender.value)
-        
+    
+        let changingColor = UIColor(displayP3Red: CGFloat(redHueSlider.value), green: CGFloat(greenHueSlider.value), blue: CGFloat(blueHueSlider.value), alpha: 1.0)
         
         redSliderValueLabel.text = "Red Value: \(redHueSlider.value)"
         blueSliderValueLabel.text = "Blue Value: \(blueHueSlider.value)"
         greenSliderValueLabel.text = "Green Value: \(greenHueSlider.value)"
         
-        
-        
-        viewController.backgroundColor = UIColor(displayP3Red: CGFloat(redHueSlider.value), green: CGFloat(greenHueSlider.value), blue: CGFloat(blueHueSlider.value), alpha: 1.0)
-        
-        
-        
-        
-        
-        
+        viewController.backgroundColor = changingColor
+
+       
         showResetButton()
         
     }
@@ -127,14 +103,15 @@ class DetailedViewController: UIViewController {
     }
     
     
-    //Changes background colors
+    //Changes background colors to original colors
     func changeAllBackgroundColors(){
         let thisColor = UIColor(displayP3Red: CGFloat(thisCrayon.red / 255), green: CGFloat(thisCrayon.green / 255), blue: CGFloat(thisCrayon.blue / 255), alpha: 1.0)
         
+        
+        viewController.backgroundColor = thisColor
         redSliderValueLabel.backgroundColor = thisColor
         greenSliderValueLabel.backgroundColor = thisColor
         blueSliderValueLabel.backgroundColor = thisColor
-        viewController.backgroundColor = thisColor
         blueHueSlider.backgroundColor = thisColor
         greenHueSlider.backgroundColor = thisColor
         redHueSlider.backgroundColor = thisColor
@@ -146,6 +123,7 @@ class DetailedViewController: UIViewController {
             blueSliderValueLabel.textColor = UIColor.white
             currentAlphaValueLabel.textColor = UIColor.white
         }
+        
     }
     
     
@@ -164,8 +142,7 @@ class DetailedViewController: UIViewController {
     
     
     //Reset Function
-    
-    @IBAction func resetAllValues(_ sender: UIButton) {
+        @IBAction func resetAllValues(_ sender: UIButton) {
         stepperCurrentValue = 1
         currentAlphaStepper.value = Double(CGFloat(stepperCurrentValue))
         currentAlphaValueLabel.text = "Current Alpha Value: \(stepperCurrentValue)"
@@ -175,8 +152,7 @@ class DetailedViewController: UIViewController {
         redSliderValueLabel.text = "Red Value: \(redHueSlider.value)"
         blueSliderValueLabel.text = "Blue Value: \(blueHueSlider.value)"
         greenSliderValueLabel.text = "Green Value: \(greenHueSlider.value)"
-        let resetBackgroundColor = UIColor(displayP3Red: CGFloat(thisCrayon.red / 255), green: CGFloat(thisCrayon.green / 255), blue: CGFloat(thisCrayon.blue / 255), alpha: 1.0)
-        viewController.backgroundColor = resetBackgroundColor
+        changeAllBackgroundColors()
     }
     
 }
