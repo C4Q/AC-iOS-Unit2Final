@@ -8,17 +8,13 @@
 
 import UIKit
 
-class DetailCrayonViewController: UIViewController {
+class DetailCrayonViewController: UIViewController, UITextFieldDelegate {
 
     var color: Crayon?
     var colorBackGround: UIColor = .brown {
         didSet{
             loadColorLabel()
             let setColor = UIColor(displayP3Red: abs(CGFloat(1.0 - (SettingColor.redColor * SettingColor.alphaColor))), green: abs(CGFloat(1.0 - (SettingColor.greenColor * SettingColor.alphaColor))), blue: abs(CGFloat(1.0 - (SettingColor.blueColor * SettingColor.alphaColor))), alpha: 1.0)
-            redValue.textColor = setColor
-            greenValue.textColor = setColor
-            blueValue.textColor = setColor
-            alphaValue.textColor = setColor
             buttonReset.tintColor = setColor
             sliderRed.tintColor = setColor
             sliderGreen.tintColor = setColor
@@ -29,6 +25,7 @@ class DetailCrayonViewController: UIViewController {
             greenLabel.textColor = setColor
             blueLabel.textColor = setColor
             alphaLabel.textColor = setColor
+            alphaValue.textColor = setColor
         }
     }
     
@@ -37,11 +34,11 @@ class DetailCrayonViewController: UIViewController {
     @IBOutlet weak var greenLabel: UILabel!
     @IBOutlet weak var blueLabel: UILabel!
     @IBOutlet weak var alphaLabel: UILabel!
-    
-    @IBOutlet weak var redValue: UILabel!
-    @IBOutlet weak var greenValue: UILabel!
-    @IBOutlet weak var blueValue: UILabel!
     @IBOutlet weak var alphaValue: UILabel!
+    
+    @IBOutlet weak var redValue: UITextField!
+    @IBOutlet weak var greenValue: UITextField!
+    @IBOutlet weak var blueValue: UITextField!
     
     @IBOutlet weak var sliderRed: UISlider!
     @IBOutlet weak var sliderGreen: UISlider!
@@ -62,12 +59,12 @@ class DetailCrayonViewController: UIViewController {
         default:
             break
         }
-        colorBackGround = UIColor(displayP3Red: CGFloat(SettingColor.redColor), green: CGFloat(SettingColor.greenColor), blue: CGFloat(SettingColor.blueColor), alpha: CGFloat(SettingColor.alphaColor))
+        updateColorBackground()
     }
     
     @IBAction func stepperAlpha(_ sender: UIStepper) {
         SettingColor.alphaColor = Double(sender.value)
-        colorBackGround = UIColor(displayP3Red: CGFloat(SettingColor.redColor), green: CGFloat(SettingColor.greenColor), blue: CGFloat(SettingColor.blueColor), alpha: CGFloat(SettingColor.alphaColor))
+        updateColorBackground()
     }
     
     
@@ -77,11 +74,9 @@ class DetailCrayonViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadOriginalColor()
-//        view.backgroundColor = colorBackGround
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
+        self.redValue.delegate = self
+        self.greenValue.delegate = self
+        self.blueValue.delegate = self
         loadOriginalColor()
     }
     
@@ -93,6 +88,10 @@ class DetailCrayonViewController: UIViewController {
         SettingColor.greenColor = Double(unWrappedColor.green/255)
         SettingColor.blueColor = Double(unWrappedColor.blue/255)
         SettingColor.alphaColor = 1.0
+        updateColorBackground()
+    }
+    
+    func updateColorBackground() {
         colorBackGround = UIColor(displayP3Red: CGFloat(SettingColor.redColor), green: CGFloat(SettingColor.greenColor), blue: CGFloat(SettingColor.blueColor), alpha: CGFloat(SettingColor.alphaColor))
     }
     
@@ -109,7 +108,45 @@ class DetailCrayonViewController: UIViewController {
         view.backgroundColor = colorBackGround
     }
     
+    //MARK: TextField Delegate
     
-    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let allowedCharacters = CharacterSet.decimalDigits
+        let characterSet = CharacterSet(charactersIn: string)
+        if allowedCharacters.isSuperset(of: characterSet) {
+            return true
+        }
+        return false
+    }
 
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let colorValue = Int(textField.text!) {
+            if colorValue >= 0 && colorValue <= 255 {
+                switch textField {
+                case redValue:
+                    SettingColor.redColor = Double(colorValue) / Double(255)
+                case greenValue:
+                    SettingColor.greenColor = Double(colorValue) / Double(255)
+                case blueValue:
+                    SettingColor.blueColor = Double(colorValue) / Double(255)
+                default:
+                    break
+                }
+                updateColorBackground()
+                return false
+            }
+        }
+        switch textField {
+        case redValue:
+            SettingColor.redColor = 0.0
+        case greenValue:
+            SettingColor.greenColor = 0.0
+        case blueValue:
+            SettingColor.blueColor = 0.0
+        default:
+            break
+        }
+        updateColorBackground()
+        return true
+    }
 }
