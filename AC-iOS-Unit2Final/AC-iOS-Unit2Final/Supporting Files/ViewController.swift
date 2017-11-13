@@ -35,8 +35,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if let destination = segue.destination as? DetailViewController {
 			let row = crayonsTableView.indexPathForSelectedRow!.row
-			let crayon = allCrayons[row]
-			destination.crayon = crayon
+			destination.crayon = allCrayons[row]
 		}
 	}
 

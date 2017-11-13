@@ -202,6 +202,11 @@
                         <outlet property="redSlider" destination="YWl-ri-CCj" id="47m-Fn-aVd"/>
                         <outlet property="resetButtonLabel" destination="UMX-vS-iLb" id="wVj-Db-vIT"/>
                         <outlet property="segmentedControl" destination="RxA-qt-CY1" id="NFq-t3-pHZ"/>
+                        <outletCollection property="labelGroup" destination="7g0-H5-xnw" collectionClass="NSMutableArray" id="6sQ-jp-fWn"/>
+                        <outletCollection property="labelGroup" destination="gax-7g-fD3" collectionClass="NSMutableArray" id="Ksb-AE-aVW"/>
+                        <outletCollection property="labelGroup" destination="bem-BV-pbd" collectionClass="NSMutableArray" id="K1x-EB-7gt"/>
+                        <outletCollection property="labelGroup" destination="Crq-Qb-tat" collectionClass="NSMutableArray" id="hNo-QU-K3x"/>
+                        <outletCollection property="labelGroup" destination="NAh-Zu-LOu" collectionClass="NSMutableArray" id="h1v-hh-5ne"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3vg-DC-kjM" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -36,26 +36,13 @@ class Crayon {
         Crayon(name: "Blue Green", red: 13, green: 152, blue: 186, hex: "#0D98BA"),
         Crayon(name: "Blue Violet", red: 115, green: 102, blue: 189, hex: "#7366BD")
     ]
-	
-	
-	
+		
 	//EXTRA POINTS - 	//Create a convenience initializer on the Crayon model that uses the "hex" field to populate the the red, green, blue properties for your crayons.
 	convenience init?(name: String, hex: String) {
 		let hex = hex
-		let redIndexStart = hex.index(hex.startIndex, offsetBy: 1)
-		let redIndexEnd = hex.index(hex.endIndex, offsetBy: -4)
-		let redSubstring = hex[redIndexStart..<redIndexEnd] // "Hello"
-		let redHex = redSubstring
-		
-		let greenIndexStart = hex.index(hex.startIndex, offsetBy: 3)
-		let greenIndexEnd = hex.index(hex.endIndex, offsetBy: -2)
-		let greenSubstring = hex[greenIndexStart..<greenIndexEnd] // "Hello"
-		let greenHex = greenSubstring
-		
-		let blueIndexStart = hex.index(hex.startIndex, offsetBy: 5)
-		let blueIndexEnd = hex.index(hex.endIndex, offsetBy: 0)
-		let blueSubstring = hex[blueIndexStart..<blueIndexEnd] // "Hello"
-		let blueHex = blueSubstring
+		let redHex = hex[hex.index(hex.startIndex, offsetBy: 1)..<hex.index(hex.endIndex, offsetBy: -4)]
+		let greenHex = hex[hex.index(hex.startIndex, offsetBy: 3)..<hex.index(hex.endIndex, offsetBy: -2)]
+		let blueHex = hex[hex.index(hex.startIndex, offsetBy: 5)..<hex.index(hex.endIndex, offsetBy: 0)]
 		
 		// Hexadecimal to decimal
 		let red = Double(Int(redHex, radix: 16)!)
@@ -63,11 +50,6 @@ class Crayon {
 		let blue = Double(Int(blueHex, radix: 16)!)
 		
 		self.init(name: name, red: red, green: green, blue: blue, hex: hex)
-//
-//		self.init(name: name, red: red, green: green, blue: blue, hex: hex)
-//		self.init(red: red, green: green, blue: blue)
 	}
-
-	
 }
 

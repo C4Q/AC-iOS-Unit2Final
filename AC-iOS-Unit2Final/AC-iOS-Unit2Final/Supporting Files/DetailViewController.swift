@@ -1,13 +1,13 @@
 //  CrayonsDetailViewController.swift
 //  AC-iOS-Unit2Final
 //  Created by C4Q on 11/10/17.
-//  Copyright © 2017 Karen Fuentes. All rights reserved.
 
 import UIKit
 
 class DetailViewController: UIViewController {
 
 	//Outlets
+	@IBOutlet var labelGroup: [UILabel]!
 	@IBOutlet weak var crayonNameLabel: UILabel!
 	@IBOutlet weak var redSlider: UISlider!
 	@IBOutlet weak var greenSlider: UISlider!
@@ -58,17 +58,13 @@ class DetailViewController: UIViewController {
 		self.view.backgroundColor = UIColor(displayP3Red: ColorTracker.cellColor.red, green: ColorTracker.cellColor.green, blue: ColorTracker.cellColor.blue, alpha: CGFloat(alphaStepper.value))
 		
 		//EXTRA POINTS - Have the Labels change to a lighter color to make it easier to read once the view gets too dark.
-		if alphaStepper.value < 0.55 {
-			self.redLabel.textColor = UIColor(displayP3Red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-			self.greenLabel.textColor = UIColor(displayP3Red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-			self.blueLabel.textColor = UIColor(displayP3Red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-			self.alphaLabel.textColor = UIColor(displayP3Red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-			self.crayonNameLabel.textColor = UIColor(displayP3Red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-			self.resetButtonLabel.titleLabel?.textColor = UIColor(displayP3Red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+		if alphaStepper.value < 0.60 || self.view.backgroundColor == UIColor.black {
+			labelGroup.forEach{ label in label.textColor = UIColor.white }
+			self.resetButtonLabel.titleLabel?.textColor = UIColor.white
 		}
 		//Extra point for hexadecimal in segmented control
 		if segmentedControl.selectedSegmentIndex == 0 {
-			self.alphaLabel.text = "Alpha: \(sender.value))"
+			self.alphaLabel.text = "Alpha: \(sender.value)"
 		} else {
 			self.alphaLabel.text = "Alpha: \(String(Int(alphaStepper.value * 255), radix: 16))"
 		}
@@ -76,12 +72,8 @@ class DetailViewController: UIViewController {
 	
 	@IBAction func resetColor(_ sender: UIButton) {
 		updateColor()
-		self.redLabel.textColor = UIColor(displayP3Red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
-		self.greenLabel.textColor = UIColor(displayP3Red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
-		self.blueLabel.textColor = UIColor(displayP3Red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
-		self.alphaLabel.textColor = UIColor(displayP3Red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
-		self.crayonNameLabel.textColor = UIColor(displayP3Red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
-		self.resetButtonLabel.titleLabel?.textColor = UIColor(displayP3Red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
+		labelGroup.forEach{ label in label.textColor = UIColor.black }
+		self.resetButtonLabel.titleLabel?.textColor = UIColor.black
 	}
 	
 	//EXTRA POINTS - 	Create a segmented control with two titles "Decimal" and "Hex". If "Decimal" is selected, the labels should all be in decimal between 0 and 1. If "Hex" is selected, the labels should all be in hex between 0 and FF.
@@ -102,7 +94,6 @@ class DetailViewController: UIViewController {
 		}
 	}
 
-	
 	//views
     override func viewDidLoad() {
 		super.viewDidLoad()
@@ -114,7 +105,6 @@ class DetailViewController: UIViewController {
 		updateColor()
 	}
 	
-
 	func updateColor() {
 		guard let crayon = crayon else { return }
 		self.crayonNameLabel.text = crayon.name
@@ -139,11 +129,18 @@ class DetailViewController: UIViewController {
 			self.blueLabel.text = "Blue: \(String(Int(blueSlider.value * 255), radix: 16))"
 			self.alphaLabel.text = "Alpha: \(String(Int(alphaStepper.value * 255), radix: 16))"
 		}
+	}	
+}
+
+/*
+Use TextFields, instead of Labels, to show each RGB value. Typing in a value manually should affect the respective slider's positions and update the background color.
+*/
+extension DetailViewController: UITextFieldDelegate {
+	
+	
+	func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+		
+		
+		return true
 	}
-	
-	
-	/*
-	Use TextFields, instead of Labels, to show each RGB value. Typing in a value manually should affect the respective slider's positions and update the background color.
-	*/
-	
 }
