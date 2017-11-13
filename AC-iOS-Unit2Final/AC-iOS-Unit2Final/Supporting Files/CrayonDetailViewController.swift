@@ -114,7 +114,7 @@ class CrayonDetailViewController: UIViewController {
             
             if red <= 0.5 && blue <= 0.5 && green <= 0.5 {
                 whiteTextForBlack()
-            } else if alpha <= 0.1{
+            } else if alpha <= 0.3{
                 whiteTextForBlack()
             }else{
                 blackText()
@@ -131,7 +131,7 @@ class CrayonDetailViewController: UIViewController {
             
              if red <= 0.5 && blue <= 0.5 && green <= 0.5 {
                 whiteTextForBlack()
-            } else if alpha <= 0.1{
+            } else if alpha <= 0.3{
                 whiteTextForBlack()
             }else{
                 blackText()
@@ -148,7 +148,7 @@ class CrayonDetailViewController: UIViewController {
            
             if red <= 0.5 && blue <= 0.5 && green <= 0.5 {
                 whiteTextForBlack()
-            } else if alpha <= 0.1{
+            } else if alpha <= 0.3{
                 whiteTextForBlack()
             }else{
                 blackText()
@@ -174,7 +174,7 @@ class CrayonDetailViewController: UIViewController {
         view.backgroundColor = backgroundColor
         
        
-        if alpha <= 0.1 {
+        if alpha <= 0.3 {
             whiteTextForBlack()
         }else if red <= 0.5 && blue <= 0.5 && green <= 0.5{
             whiteTextForBlack()
