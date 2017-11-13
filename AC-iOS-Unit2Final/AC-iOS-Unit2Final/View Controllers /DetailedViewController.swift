@@ -94,6 +94,19 @@ class DetailedViewController: UIViewController {
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
         currentAlphaValueLabel.text = "Current Alpha Value: \(stepperCurrentValue)"
         self.stepperCurrentValue = CGFloat(sender.value / 10)
+        
+        if stepperCurrentValue <= 0.3 {
+            redSliderValueLabel.textColor = UIColor.white
+            greenSliderValueLabel.textColor = UIColor.white
+            blueSliderValueLabel.textColor = UIColor.white
+            currentAlphaValueLabel.textColor = UIColor.white
+        } else {
+            redSliderValueLabel.textColor = UIColor.black
+            greenSliderValueLabel.textColor = UIColor.black
+            blueSliderValueLabel.textColor = UIColor.black
+            currentAlphaValueLabel.textColor = UIColor.black
+        }
+        
         showResetButton()
         
         
@@ -134,7 +147,6 @@ class DetailedViewController: UIViewController {
     //Reset Function
     @IBAction func resetAllValues(_ sender: UIButton) {
         stepperCurrentValue = 1
-        currentAlphaStepper.value = Double(CGFloat(stepperCurrentValue))
         currentAlphaValueLabel.text = "Current Alpha Value: \(stepperCurrentValue)"
         redHueSlider.value = Float(CGFloat(thisCrayon.red / 255))
         greenHueSlider.value = Float(CGFloat(thisCrayon.green / 255))
@@ -142,6 +154,7 @@ class DetailedViewController: UIViewController {
         redSliderValueLabel.text = "Red Value: \(redHueSlider.value)"
         blueSliderValueLabel.text = "Blue Value: \(blueHueSlider.value)"
         greenSliderValueLabel.text = "Green Value: \(greenHueSlider.value)"
+        resetButton.isHidden = true
         changeAllBackgroundColors()
     }
     
