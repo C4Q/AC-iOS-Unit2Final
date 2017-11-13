@@ -15,8 +15,10 @@ class ColorDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         colorName.text = crayon?.name
+        let color = UIColor(displayP3Red: CGFloat(crayon.red/255), green: CGFloat(crayon.green/255), blue: CGFloat(crayon.blue/255), alpha: 1)
+   self.view.backgroundColor = color
     }
-    var crayon: Crayon?
+    var crayon: Crayon!
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
