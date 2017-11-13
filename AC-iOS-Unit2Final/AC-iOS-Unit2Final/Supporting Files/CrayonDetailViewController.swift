@@ -27,20 +27,12 @@ class CrayonDetailViewController: UIViewController {
     
     
     var red  = CGFloat()
-    
     var blue = CGFloat()
     var green = CGFloat()
-    
     var alpha = CGFloat()
     
     
-    
-    
-    
-    
-    
-    
-    
+
     
     
     func convertToCGFloatFromDouble (colorValue: Double) -> CGFloat{
