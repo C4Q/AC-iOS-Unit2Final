@@ -101,7 +101,7 @@ class CrayonDetailViewController: UIViewController {
             let colorChanged = CGFloat(sender.value)
             red = colorChanged
             backgroundColor = UIColor(displayP3Red: red, green: green, blue: blue, alpha: alpha)
-            redSliderLabel.text = "Red: " + red.description
+            redSliderLabel.text = "Red: " + sender.value.description
             view.backgroundColor = backgroundColor
             
             if red <= 0.5 && blue <= 0.5 && green <= 0.5 {
@@ -118,7 +118,7 @@ class CrayonDetailViewController: UIViewController {
             let colorChanged = CGFloat(sender.value)
             blue = colorChanged
             backgroundColor = UIColor(displayP3Red: red , green: green, blue: blue, alpha: alpha)
-            blueSliderLabel.text = "Blue: " + blue.description
+            blueSliderLabel.text = "Blue: " + sender.value.description
             view.backgroundColor = backgroundColor
             
              if red <= 0.5 && blue <= 0.5 && green <= 0.5 {
@@ -135,7 +135,7 @@ class CrayonDetailViewController: UIViewController {
             let colorChanged = CGFloat(sender.value)
             green = colorChanged
             backgroundColor = UIColor(displayP3Red: red, green: green, blue: blue, alpha: alpha)
-            greenSliderLabel.text = "Green: " + green.description
+            greenSliderLabel.text = "Green: " + sender.value.description
             view.backgroundColor = backgroundColor
            
             if red <= 0.5 && blue <= 0.5 && green <= 0.5 {
