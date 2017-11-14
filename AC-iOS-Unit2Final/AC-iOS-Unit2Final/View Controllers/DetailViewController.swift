@@ -48,6 +48,24 @@ class DetailViewController: UIViewController {
     
     var currentBackgroundColor = UIColor()
     
+    func changeLabelValues () {
+        for label in textLabels {
+            switch label.tag {
+            case 0:
+                label.text = String(redSlider.value)
+            case 1:
+                label.text = String(greenSlider.value)
+            case 2:
+                label.text = String(blueSlider.value)
+            case 3:
+                label.text = String(alphaSlider.value)
+            default:
+                break
+                
+            }
+        }
+    }
+    
     
     func changeBackgroundColor () {
         currentBackgroundColor = UIColor(displayP3Red: Settings.red, green: Settings.green, blue: Settings.blue, alpha: Settings.alpha)
@@ -61,6 +79,7 @@ class DetailViewController: UIViewController {
         Settings.red = CGFloat((sender.value))
         changeBackgroundColor()
         lightenLabels()
+        changeLabelValues()
     }
     
     
@@ -68,6 +87,7 @@ class DetailViewController: UIViewController {
         Settings.green = CGFloat(sender.value)
         changeBackgroundColor()
         lightenLabels()
+        changeLabelValues()
     }
     
     
@@ -75,6 +95,7 @@ class DetailViewController: UIViewController {
         Settings.blue = CGFloat(sender.value)
         changeBackgroundColor()
         lightenLabels()
+        changeLabelValues()
     }
     
     
@@ -83,6 +104,7 @@ class DetailViewController: UIViewController {
         alphaStepper.value = Double(Settings.alpha)
         changeBackgroundColor()
         lightenLabels()
+        changeLabelValues()
     }
     
     
@@ -108,6 +130,7 @@ class DetailViewController: UIViewController {
         alphaSlider.value = Float(Settings.alpha)
         changeBackgroundColor()
         lightenLabels()
+        changeLabelValues()
         
     }
     
@@ -168,7 +191,8 @@ class DetailViewController: UIViewController {
         }
     }
     
-
+//Change labels to display current value
+//Move sliders to collection 
     
     /*
      // MARK: - Navigation
