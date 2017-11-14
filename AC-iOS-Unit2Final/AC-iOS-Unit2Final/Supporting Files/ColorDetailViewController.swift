@@ -15,26 +15,27 @@ class ColorDetailViewController: UIViewController {
     @IBOutlet var allSliders: [UISlider]!
     
     @IBOutlet var allLabels: [UILabel]!
-   
+    
+    @IBOutlet weak var stepper: UIStepper!
+    
     struct CurrentColor {
     var red: Double = 0
     var green: Double = 0
     var blue: Double = 0
+    var alpha: Double = 1
     }
     
     var currentColor = CurrentColor() {
         didSet {
-            self.view.backgroundColor = UIColor(red: CGFloat(currentColor.red), green: CGFloat(currentColor.green), blue: CGFloat(currentColor.blue), alpha: 1)
+            self.view.backgroundColor = UIColor(red: CGFloat(currentColor.red), green: CGFloat(currentColor.green), blue: CGFloat(currentColor.blue), alpha: CGFloat(currentColor.alpha))
         }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         //setToOriginal func call it here 
         colorName.text = crayon?.name
-        self.currentColor = CurrentColor(red: Double(crayon.red/255), green: Double(crayon.green/255), blue: Double(crayon.blue/255))
-        allSliders[0].value = Float(currentColor.red)
-        allSliders[1].value = Float(currentColor.blue)
-        allSliders[2].value = Float(currentColor.green)
+        setBackGroundColor()
+        
 
     }
     var crayon: Crayon!
@@ -43,7 +44,16 @@ class ColorDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
    // func setToOriginal and put it in reset
+    func setBackGroundColor() {
+        self.currentColor = CurrentColor(red: Double(crayon.red/255), green: Double(crayon.green/255), blue: Double(crayon.blue/255), alpha: 1)
+        allSliders[0].value = Float(currentColor.red)
+        allSliders[1].value = Float(currentColor.blue)
+        allSliders[2].value = Float(currentColor.green)
+       stepper.value = 100
+    }
 
+    
+    // Mark - Actions
     @IBAction func redSlidder(_ sender: UISlider) {
        let currentValue = sender.value
         currentColor.red = Double(currentValue)
@@ -56,6 +66,15 @@ class ColorDetailViewController: UIViewController {
     @IBAction func greenSlidder(_ sender: UISlider) {
         let currentValue = sender.value
         currentColor.green = Double(currentValue)
+        
+    }
+    
+    @IBAction func resetButton(_ sender: UIButton) {
+        setBackGroundColor()
+    }
+    @IBAction func stepper(_ sender: UIStepper) {
+        let currentValue = Double(sender.value)/100
+        currentColor.alpha = currentValue
     }
 }
 

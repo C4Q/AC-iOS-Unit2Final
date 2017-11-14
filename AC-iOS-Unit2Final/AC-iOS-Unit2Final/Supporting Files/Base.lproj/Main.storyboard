@@ -109,6 +109,9 @@
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="drt-qO-92L">
                                 <rect key="frame" x="117" y="430" width="94" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="stepper:" destination="Hm7-hc-Zmx" eventType="valueChanged" id="dg6-1M-Zzr"/>
+                                </connections>
                             </stepper>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m4V-6N-KsN">
                                 <rect key="frame" x="13" y="488" width="288" height="21"/>
@@ -117,11 +120,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="apo-3K-1yq">
-                                <rect key="frame" x="164" y="483" width="0.0" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="avC-cr-o2v">
                                 <rect key="frame" x="0.0" y="262" width="288" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -136,6 +134,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HQh-2T-tzt">
+                                <rect key="frame" x="142" y="527" width="39" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Reset"/>
+                                <connections>
+                                    <action selector="resetButton:" destination="Hm7-hc-Zmx" eventType="touchUpInside" id="qnS-1I-ZkV"/>
+                                </connections>
+                            </button>
                             <slider opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ptg-K3-KnI">
                                 <rect key="frame" x="126" y="225" width="63" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -149,6 +155,7 @@
                     </view>
                     <connections>
                         <outlet property="colorName" destination="T7u-49-Ugd" id="azJ-VC-6j5"/>
+                        <outlet property="stepper" destination="drt-qO-92L" id="Xyc-Bu-Hmz"/>
                         <outletCollection property="allSliders" destination="ptg-K3-KnI" collectionClass="NSMutableArray" id="c12-pW-33U"/>
                         <outletCollection property="allSliders" destination="7v7-A3-SgE" collectionClass="NSMutableArray" id="p4J-wc-QEW"/>
                         <outletCollection property="allSliders" destination="BEw-Ou-dkJ" collectionClass="NSMutableArray" id="oyO-BO-qz5"/>
