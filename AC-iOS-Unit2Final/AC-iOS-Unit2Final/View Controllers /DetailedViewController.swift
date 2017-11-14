@@ -146,6 +146,7 @@ class DetailedViewController: UIViewController {
     
     //Reset Function
     @IBAction func resetAllValues(_ sender: UIButton) {
+        currentAlphaStepper.value = 10
         stepperCurrentValue = 1
         currentAlphaValueLabel.text = "Current Alpha Value: \(stepperCurrentValue)"
         redHueSlider.value = Float(CGFloat(thisCrayon.red / 255))
@@ -154,7 +155,7 @@ class DetailedViewController: UIViewController {
         redSliderValueLabel.text = "Red Value: \(redHueSlider.value)"
         blueSliderValueLabel.text = "Blue Value: \(blueHueSlider.value)"
         greenSliderValueLabel.text = "Green Value: \(greenHueSlider.value)"
-        resetButton.isHidden = true
+        hideResetButton()
         changeAllBackgroundColors()
     }
     
