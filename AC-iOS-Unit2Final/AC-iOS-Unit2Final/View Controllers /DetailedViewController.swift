@@ -95,16 +95,18 @@ class DetailedViewController: UIViewController {
         currentAlphaValueLabel.text = "Current Alpha Value: \(stepperCurrentValue)"
         self.stepperCurrentValue = CGFloat(sender.value / 10)
         
-        if stepperCurrentValue <= 0.3 {
-            redSliderValueLabel.textColor = UIColor.white
-            greenSliderValueLabel.textColor = UIColor.white
-            blueSliderValueLabel.textColor = UIColor.white
-            currentAlphaValueLabel.textColor = UIColor.white
-        } else {
-            redSliderValueLabel.textColor = UIColor.black
-            greenSliderValueLabel.textColor = UIColor.black
-            blueSliderValueLabel.textColor = UIColor.black
-            currentAlphaValueLabel.textColor = UIColor.black
+        if !backgroundIsBlack() {
+            if stepperCurrentValue <= 0.3 {
+                redSliderValueLabel.textColor = UIColor.white
+                greenSliderValueLabel.textColor = UIColor.white
+                blueSliderValueLabel.textColor = UIColor.white
+                currentAlphaValueLabel.textColor = UIColor.white
+            } else {
+                redSliderValueLabel.textColor = UIColor.black
+                greenSliderValueLabel.textColor = UIColor.black
+                blueSliderValueLabel.textColor = UIColor.black
+                currentAlphaValueLabel.textColor = UIColor.black
+            }
         }
         
         showResetButton()
@@ -114,18 +116,26 @@ class DetailedViewController: UIViewController {
     }
     
     
+    //If Background Color Is Black
+    func backgroundIsBlack() -> Bool {
+        if thisCrayon.red == 0 && thisCrayon.blue == 0 && thisCrayon.green == 0 {
+            redSliderValueLabel.textColor = UIColor.white
+            greenSliderValueLabel.textColor = UIColor.white
+            blueSliderValueLabel.textColor = UIColor.white
+            currentAlphaValueLabel.textColor = UIColor.white
+            return true
+        }
+        return false
+    }
+    
     //Changes background colors to original colors
     func changeAllBackgroundColors(){
         let thisColor = UIColor(displayP3Red: CGFloat(thisCrayon.red / 255), green: CGFloat(thisCrayon.green / 255), blue: CGFloat(thisCrayon.blue / 255), alpha: stepperCurrentValue)
         
         viewController.backgroundColor = thisColor
         
-        if thisCrayon.red == 0 && thisCrayon.blue == 0 && thisCrayon.green == 0 {
-            redSliderValueLabel.textColor = UIColor.white
-            greenSliderValueLabel.textColor = UIColor.white
-            blueSliderValueLabel.textColor = UIColor.white
-            currentAlphaValueLabel.textColor = UIColor.white
-        }
+        backgroundIsBlack()
+        
         
     }
     
