@@ -12,9 +12,13 @@ class ColorDetailViewController: UIViewController {
     
     @IBOutlet weak var colorName: UILabel!
     
+    @IBOutlet weak var redLabel: UILabel!
     @IBOutlet var allSliders: [UISlider]!
     
-    @IBOutlet var allLabels: [UILabel]!
+    @IBOutlet weak var stepperLabel: UILabel!
+    @IBOutlet weak var blueLabel: UILabel!
+    
+    @IBOutlet weak var greenLabel: UILabel!
     
     @IBOutlet weak var stepper: UIStepper!
     
@@ -50,6 +54,10 @@ class ColorDetailViewController: UIViewController {
         allSliders[1].value = Float(currentColor.blue)
         allSliders[2].value = Float(currentColor.green)
        stepper.value = 100
+       stepperLabel.text = String(stepper.value)
+       redLabel.text = String(currentColor.red)
+       blueLabel.text = String(currentColor.blue)
+       greenLabel.text = String(currentColor.green)
     }
 
     
@@ -57,16 +65,19 @@ class ColorDetailViewController: UIViewController {
     @IBAction func redSlidder(_ sender: UISlider) {
        let currentValue = sender.value
         currentColor.red = Double(currentValue)
+        redLabel.text = String(currentValue)
     }
     @IBAction func blueSlidder(_ sender: UISlider) {
         let currentValue = sender.value
         currentColor.blue = Double(currentValue)
+        blueLabel.text = String(currentValue)
     }
     
     @IBAction func greenSlidder(_ sender: UISlider) {
         let currentValue = sender.value
         currentColor.green = Double(currentValue)
-        
+        greenLabel.text = String(currentValue)
+//
     }
     
     @IBAction func resetButton(_ sender: UIButton) {
@@ -75,6 +86,8 @@ class ColorDetailViewController: UIViewController {
     @IBAction func stepper(_ sender: UIStepper) {
         let currentValue = Double(sender.value)/100
         currentColor.alpha = currentValue
+     stepperLabel.text = String(currentValue)
+        
     }
 }
 
@@ -87,8 +100,7 @@ class ColorDetailViewController: UIViewController {
 
 
 
-//Code for help
- // UIColor(displayP3Red: CGFloat(crayon.red/255), green: CGFloat(crayon.green/255), blue: CGFloat(crayon.blue/255), alpha: 1)
+
 ////    let currentColor: (red: Double, green: Double, blue: Double, alpha: Double)!   //{
 //        didSet {
 //self.view.backgroundColor = UIColor(dispalyP3Red: CGFloat(currentColor.red), green: CGFloat(currentColor.green etc
@@ -109,5 +121,3 @@ class ColorDetailViewController: UIViewController {
 //        }
 //    }
 // func setBackGroundColor() {
-// let red = CGFloat(currentColor.red/ 255)
-//  self.view.backgroundColor = UIcolor(displayP3Red: red, green: green, blue: blue)
