@@ -18,7 +18,7 @@ class DetailedViewController: UIViewController {
     var stepperCurrentValue = CGFloat(){
         didSet {
             
-            self.viewController.backgroundColor? = UIColor(displayP3Red: CGFloat(thisCrayon.red / 255), green: CGFloat(thisCrayon.green / 255), blue: CGFloat(thisCrayon.blue / 255), alpha: stepperCurrentValue)
+            self.viewController.backgroundColor? = UIColor(displayP3Red: CGFloat(redHueSlider.value), green: CGFloat(greenHueSlider.value), blue: CGFloat(blueHueSlider.value), alpha: stepperCurrentValue)
             currentAlphaValueLabel.text = "Current Alpha Value: \(stepperCurrentValue)"
             
         }
