@@ -42,19 +42,15 @@ class CrayonTableViewController: UIViewController, UITableViewDelegate, UITableV
         let color = crayonColors[indexPath.row]
         cell.textLabel?.text = color.name
         cell.detailTextLabel?.text = color.hex
+        if color.name == "Black" {
+            cell.textLabel?.textColor = .white
+            cell.detailTextLabel?.textColor = .white
+        }
         cell.backgroundColor = UIColor(displayP3Red: CGFloat(color.red/255), green: CGFloat(color.green/255), blue: CGFloat(color.blue/255), alpha: 1)
         
         return cell
     }
     
-    
-    
-    
-    
-    
-    
-    
-
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? DetailViewController {

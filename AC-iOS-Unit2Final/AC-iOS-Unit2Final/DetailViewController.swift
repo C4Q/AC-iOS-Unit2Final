@@ -44,7 +44,7 @@ class DetailViewController: UIViewController {
                 currentAlphaValue = stepper.minimumValue
             }
             updateLabelsAndChangeBackgroundColor(color!)
-            stepper.value = Double( Int(currentAlphaValue * 10) ) / 10
+            stepper.value = currentAlphaValue
         }
     }
     
@@ -70,9 +70,9 @@ class DetailViewController: UIViewController {
         originalColor = Crayon(name: color.name, red: color.red, green: color.green, blue: color.blue, hex: color.hex)
         updateLabelsAndChangeBackgroundColor(originalColor!)
 
-        redSlider.value = Float(currentRedVal)
-        greenSlider.value = Float(currentGreenVal)
-        blueSlider.value = Float(currentBlueVal)
+        redSlider.value = Float((originalColor?.red)! / 255)
+        greenSlider.value = Float((originalColor?.green)! / 255)
+        blueSlider.value = Float((originalColor?.blue)! / 255)
         
     }
     
@@ -113,6 +113,7 @@ class DetailViewController: UIViewController {
         setBackgroundColor(color, currentAlphaValue)
         changeLabels(color)
         changeFontColor(color)
+        
     }
     
     
@@ -124,6 +125,9 @@ class DetailViewController: UIViewController {
     @IBAction func resetButtonPressed(_ sender: UIButton) {
         setBackgroundColor(originalColor!, 1)
         changeLabels(originalColor!)
+        redSlider.value = Float((originalColor?.red)! / 255)
+        greenSlider.value = Float((originalColor?.green)! / 255)
+        blueSlider.value = Float((originalColor?.blue)! / 255)
     }
     
     @IBAction func stepperPressed(_ sender: UIStepper) {
@@ -144,6 +148,7 @@ class DetailViewController: UIViewController {
         self.currentBlueVal = Double(sender.value)
 
     }
+    
     
     
     /*
