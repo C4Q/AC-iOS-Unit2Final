@@ -35,6 +35,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
           let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
           let crayon = allCrayons[indexPath.row]
+        if crayon.name == "Black" {
+            cell.textLabel?.textColor = .white
+        }
           cell.textLabel?.text = crayon.name
           cell.detailTextLabel?.text = "Hex \(crayon.hex)"
           cell.backgroundColor = UIColor(red: CGFloat(crayon.red/255), green: CGFloat(crayon.green/255), blue: CGFloat(crayon.blue/255), alpha: 1)
