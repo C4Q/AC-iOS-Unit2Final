@@ -33,7 +33,7 @@ class CrayonDetailViewController: UIViewController {
         redVal = CGFloat(redSlider.value)
         greenVal = CGFloat(greenSlider.value)
         blueVal = CGFloat(blueSlider.value)
-        view.backgroundColor = UIColor(displayP3Red: redVal, green: greenVal, blue: blueVal, alpha: 1.0)
+        view.backgroundColor = UIColor(displayP3Red: redVal, green: greenVal, blue: blueVal, alpha: alphaVal)
         switch sender.tag {
         case 0:
             redSlider.value = Float(sender.value)
@@ -76,5 +76,6 @@ class CrayonDetailViewController: UIViewController {
         blueVal = CGFloat(color.blue / 255)
         redVal = CGFloat(color.red / 255)
         greenVal = CGFloat(color.green / 255)
+        alphaVal = CGFloat(1.0)
     }
 }

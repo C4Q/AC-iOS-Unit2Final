@@ -22,7 +22,7 @@ class CrayonColorsViewController: UIViewController, UITableViewDataSource, UITab
         let crayonCell = colorTableView.dequeueReusableCell(withIdentifier: "colorCell", for: indexPath)
         let currentColor = crayons[indexPath.row]
         
-        if let colorCell = crayonCell as? UITableViewCell {
+        
             if currentColor.name == "Black"{
                 crayonCell.textLabel?.textColor = UIColor.white
                 crayonCell.detailTextLabel?.textColor = UIColor.white
@@ -30,10 +30,10 @@ class CrayonColorsViewController: UIViewController, UITableViewDataSource, UITab
             crayonCell.textLabel?.text = currentColor.name
             crayonCell.detailTextLabel?.text = "Hex Value: \(currentColor.hex)"
             crayonCell.backgroundColor = UIColor(displayP3Red: CGFloat(currentColor.red/255), green: CGFloat(currentColor.green/255), blue: CGFloat(currentColor.blue/255), alpha: 1.0)
-            return colorCell
+            return crayonCell
         }
-        return crayonCell
-    }
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
