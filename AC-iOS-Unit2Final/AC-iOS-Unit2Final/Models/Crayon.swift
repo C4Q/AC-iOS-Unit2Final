@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class Crayon {
     var name: String
@@ -39,5 +40,13 @@ class Crayon {
         Crayon(name: "Blue Green", red: 13, green: 152, blue: 186, hex: "#0D98BA"),
         Crayon(name: "Blue Violet", red: 115, green: 102, blue: 189, hex: "#7366BD")
     ]
+}
+
+class SetColor: Crayon {
+    static var red: CGFloat = 0
+    static var green: CGFloat = 0
+    static var blue: CGFloat = 0
+    static var alpha: CGFloat = 1
+    static var cellColor: (red: CGFloat, green: CGFloat, blue: CGFloat) = (1, 1, 1)
 }
 
