@@ -15,8 +15,7 @@ class CrayonDetailViewController: UIViewController {
         didSet {
             self.view.backgroundColor = currentColor
             
-            // move sliders?
-            // change textfield when sliders are moved?
+            
         }
     }
     
@@ -42,6 +41,7 @@ class CrayonDetailViewController: UIViewController {
         self.greenField.placeholder = String(self.crayon.green/255)
         self.blueField.placeholder = String(self.crayon.blue/255)
         self.alphaField.placeholder = "1.0"
+        
     }
     
     @IBAction func resetButtonWasTapped(_ sender: UIButton) {
@@ -67,7 +67,14 @@ class CrayonDetailViewController: UIViewController {
             return
         }
         
-        self.currentColor = self.createColor(red: self.redField.placeholder!, green: self.greenField.placeholder!, blue: self.blueField.placeholder!, alpha: self.alphaField.placeholder!)
+        let red = self.redField.placeholder!
+        let green = self.greenField.placeholder!
+        let blue = self.blueField.placeholder!
+        let alpha = self.alphaField.placeholder!
+        
+        self.colorNameLabel.textColor = self.makeTextLegible(red: red, green: green, blue: blue, alpha: alpha)
+        
+        self.currentColor = self.createColor(red: red, green: green, blue: blue, alpha: alpha)
     }
     
     private func createColor(red: String, green: String, blue: String, alpha: String) -> UIColor {
@@ -78,6 +85,19 @@ class CrayonDetailViewController: UIViewController {
         let cgAlpha = CGFloat(Double(alpha)!)
         
         return UIColor(displayP3Red: cgRed, green: cgGreen, blue: cgBlue, alpha: cgAlpha)
+    }
+    
+    private func makeTextLegible(red: String, green: String, blue: String, alpha: String) -> UIColor {
+        let cgRed = CGFloat(Double(red)!)
+        let cgGreen = CGFloat(Double(green)!)
+        let cgBlue = CGFloat(Double(blue)!)
+        let cgAlpha = CGFloat(Double(alpha)!)
+        
+        if cgRed + cgGreen + cgBlue <= 1.5 && cgAlpha > 0.7 {
+            return UIColor.white
+        } else {
+            return UIColor.black
+        }
     }
     
 }
