@@ -10,13 +10,12 @@ import UIKit
 
 class CrayonDetailViewController: UIViewController {
     var crayon: Crayon!
-    // these start off derived from self.crayon, but then we let the sliders give them values
-    var red: Double!
-    var green: Double!
-    var blue: Double!
+    // this start off derived from self.crayon, but then we let the sliders give it values
+    var currentColor: UIColor!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.view.backgroundColor = currentColor
     }
 }

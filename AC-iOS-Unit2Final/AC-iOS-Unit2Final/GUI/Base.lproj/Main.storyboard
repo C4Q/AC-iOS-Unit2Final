@@ -41,6 +41,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Pzf-ab-YIb" kind="show" identifier="segue to detail screen" id="9k2-Kd-COM"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

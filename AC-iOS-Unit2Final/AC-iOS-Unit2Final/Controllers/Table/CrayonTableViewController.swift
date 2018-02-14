@@ -57,8 +57,6 @@ class CrayonTableViewController: UITableViewController {
         
         // send over color information
                 
-        nextVC.red = selectedCrayon.red
-        nextVC.green = selectedCrayon.green
-        nextVC.blue = selectedCrayon.blue
+        nextVC.currentColor = selectedCrayon.getUIColor()
     }
 }
