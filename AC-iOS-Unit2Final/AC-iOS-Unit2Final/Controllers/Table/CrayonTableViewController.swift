@@ -9,7 +9,8 @@
 import UIKit
 
 class CrayonTableViewController: UITableViewController {
-
+    let crayons = Crayon.allTheCrayons
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,7 +24,7 @@ class CrayonTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return self.crayons.count
     }
 
     
@@ -33,18 +34,26 @@ class CrayonTableViewController: UITableViewController {
         return cell
     }
 
-
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        if segue.identifier == Identifier.segueToDetailScreen {
-            let newVC = segue.destination as! CrayonDetailViewController
-            newVC
-        }
+        guard segue.identifier == Identifier.segueToDetailScreen else { return }
         
+        let nextVC = segue.destination as! CrayonDetailViewController
+        let cell = sender as? UITableViewCell
         
-        // Pass the selected object to the new view controller.
-        // get crayon selected, pass it over to detail
+        guard let indexPath = tableView.indexPath(for: cell!) else { return }
+        
+        let selectedCrayon = self.crayons[indexPath.row]
+        
+        nextVC.crayon = selectedCrayon
+        
+        // send over color information
+        
+        guard let unwrappedCell = cell as? CrayonTableViewCell else { return }
+        
+        nextVC.red = selectedCrayon.red
+        nextVC.green = selectedCrayon.green
+        nextVC.blue = selectedCrayon.blue
     }
 }
