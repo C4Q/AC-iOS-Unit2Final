@@ -38,10 +38,10 @@ class CrayonDetailViewController: UIViewController {
         
         self.colorNameLabel.text = self.crayon.name
         
-        self.redField.placeholder = String((Int(self.crayon.red)))
-        self.greenField.placeholder = String(Int((self.crayon.green)))
-        self.blueField.placeholder = String((Int(self.crayon.blue)))
-        self.alphaField.placeholder = "100"
+        self.redField.placeholder = String(self.crayon.red/255)
+        self.greenField.placeholder = String(self.crayon.green/255)
+        self.blueField.placeholder = String(self.crayon.blue/255)
+        self.alphaField.placeholder = "1.0"
     }
     
     @IBAction func resetButtonWasTapped(_ sender: UIButton) {
@@ -52,6 +52,20 @@ class CrayonDetailViewController: UIViewController {
         self.redField.placeholder = String((Int(self.crayon.red)))
         self.greenField.placeholder = String(Int((self.crayon.green)))
         self.blueField.placeholder = String((Int(self.crayon.blue)))
-        self.alphaField.placeholder = "100"
+        self.alphaField.placeholder = "1.0"
     }
+    
+    @IBAction func sliderMoved(_ sender: UISlider) {
+        switch sender {
+        case self.redSlider:
+            self.redField.placeholder = String(sender.value)
+        case self.greenSlider:
+            self.greenField.placeholder = String(sender.value)
+        case self.blueSlider:
+            self.blueField.placeholder = String(sender.value)
+        default:
+            return
+        }
+    }
+    
 }
