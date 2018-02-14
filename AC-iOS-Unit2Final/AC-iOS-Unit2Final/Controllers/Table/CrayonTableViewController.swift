@@ -39,7 +39,7 @@ class CrayonTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         if segue.identifier == Identifier.segueToDetailScreen {
-            let newVC = segue.destinationViewController as CrayonDetailViewController
+            let newVC = segue.destination as! CrayonDetailViewController
             newVC
         }
         
