@@ -66,6 +66,18 @@ class CrayonDetailViewController: UIViewController {
         default:
             return
         }
+        
+        self.currentColor = self.createColor(red: self.redField.placeholder!, green: self.greenField.placeholder!, blue: self.blueField.placeholder!, alpha: self.alphaField.placeholder!)
+    }
+    
+    private func createColor(red: String, green: String, blue: String, alpha: String) -> UIColor {
+        
+        let cgRed = CGFloat(Double(red)!)
+        let cgGreen = CGFloat(Double(green)!)
+        let cgBlue = CGFloat(Double(blue)!)
+        let cgAlpha = CGFloat(Double(alpha)!)
+        
+        return UIColor(displayP3Red: cgRed, green: cgGreen, blue: cgBlue, alpha: cgAlpha)
     }
     
 }

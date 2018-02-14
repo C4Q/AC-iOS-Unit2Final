@@ -208,7 +208,7 @@
                                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" maximumValue="1" stepValue="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="ktM-2K-V8M">
                                                 <rect key="frame" x="0.0" y="0.0" width="94" height="29"/>
                                             </stepper>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="aRY-v6-mYB">
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aRY-v6-mYB">
                                                 <rect key="frame" x="0.0" y="37" width="92" height="30"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ALPHA:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NMB-8G-U1S">
@@ -218,21 +218,18 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qkz-dw-NBq">
-                                                        <rect key="frame" x="62" y="0.0" width="30" height="30"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="30" id="L4E-qs-oYY"/>
-                                                        </constraints>
+                                                        <rect key="frame" x="67" y="0.0" width="25" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="Qkz-dw-NBq" secondAttribute="trailing" id="6uv-4D-KcJ"/>
+                                                    <constraint firstItem="NMB-8G-U1S" firstAttribute="leading" secondItem="aRY-v6-mYB" secondAttribute="leading" id="qJG-eL-GAp"/>
+                                                </constraints>
                                             </stackView>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstItem="Qkz-dw-NBq" firstAttribute="trailing" secondItem="ktM-2K-V8M" secondAttribute="trailing" id="Wl6-C0-FCZ"/>
-                                            <constraint firstItem="NMB-8G-U1S" firstAttribute="leading" secondItem="ktM-2K-V8M" secondAttribute="leading" id="qrd-CF-p3f"/>
-                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
