@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		056D92692034D94B0066B21E /* CrayonTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D92682034D94B0066B21E /* CrayonTableViewController.swift */; };
 		056D926B2034D96B0066B21E /* CrayonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D926A2034D96B0066B21E /* CrayonDetailViewController.swift */; };
-		056D926E2034D9B00066B21E /* CrayonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D926D2034D9B00066B21E /* CrayonTableViewCell.swift */; };
 		056D92722034DA220066B21E /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D92712034DA220066B21E /* Identifier.swift */; };
 		C5E24D601FB2392D00578931 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E24D5F1FB2392D00578931 /* AppDelegate.swift */; };
 		C5E24D651FB2392D00578931 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5E24D631FB2392D00578931 /* Main.storyboard */; };
@@ -21,7 +20,6 @@
 /* Begin PBXFileReference section */
 		056D92682034D94B0066B21E /* CrayonTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrayonTableViewController.swift; sourceTree = "<group>"; };
 		056D926A2034D96B0066B21E /* CrayonDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrayonDetailViewController.swift; sourceTree = "<group>"; };
-		056D926D2034D9B00066B21E /* CrayonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrayonTableViewCell.swift; sourceTree = "<group>"; };
 		056D92712034DA220066B21E /* Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifier.swift; sourceTree = "<group>"; };
 		C5E24D5C1FB2392D00578931 /* AC-iOS-Unit2Final.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AC-iOS-Unit2Final.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5E24D5F1FB2392D00578931 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -70,18 +68,9 @@
 			path = "String Constants";
 			sourceTree = "<group>";
 		};
-		056D92732034DA940066B21E /* Crayon Cell */ = {
-			isa = PBXGroup;
-			children = (
-				056D926D2034D9B00066B21E /* CrayonTableViewCell.swift */,
-			);
-			path = "Crayon Cell";
-			sourceTree = "<group>";
-		};
 		056D92742034DAE70066B21E /* Table */ = {
 			isa = PBXGroup;
 			children = (
-				056D92732034DA940066B21E /* Crayon Cell */,
 				056D92682034D94B0066B21E /* CrayonTableViewController.swift */,
 			);
 			path = Table;
@@ -217,7 +206,6 @@
 				056D926B2034D96B0066B21E /* CrayonDetailViewController.swift in Sources */,
 				056D92692034D94B0066B21E /* CrayonTableViewController.swift in Sources */,
 				056D92722034DA220066B21E /* Identifier.swift in Sources */,
-				056D926E2034D9B00066B21E /* CrayonTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

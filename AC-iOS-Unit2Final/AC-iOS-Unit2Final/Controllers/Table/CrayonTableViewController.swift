@@ -29,8 +29,15 @@ class CrayonTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Identifier.crayonCell, for: indexPath) as! CrayonTableViewCell
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: Identifier.crayonCell, for: indexPath) as! UITableViewCell
+        let crayon = crayons[indexPath.row]
+        
+        cell.textLabel?.text = crayon.name
+        cell.detailTextLabel?.text = crayon.hex
+        
+        // color info
+        cell.backgroundColor = crayon.getUIColor()
+        
         return cell
     }
 
@@ -49,9 +56,7 @@ class CrayonTableViewController: UITableViewController {
         nextVC.crayon = selectedCrayon
         
         // send over color information
-        
-        guard let unwrappedCell = cell as? CrayonTableViewCell else { return }
-        
+                
         nextVC.red = selectedCrayon.red
         nextVC.green = selectedCrayon.green
         nextVC.blue = selectedCrayon.blue

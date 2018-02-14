@@ -6,7 +6,7 @@
 //  Copyright © 2017 Karen Fuentes. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class Crayon {
     var name: String
@@ -21,6 +21,7 @@ class Crayon {
         self.blue = blue
         self.hex = hex
     }
+    
     static let allTheCrayons = [
         Crayon(name: "Almond", red: 239, green: 222, blue: 205, hex: "#EFDECD"),
         Crayon(name: "Antique Brass", red: 205, green: 149, blue: 117, hex: "#CD9575"),
@@ -39,5 +40,22 @@ class Crayon {
         Crayon(name: "Blue Green", red: 13, green: 152, blue: 186, hex: "#0D98BA"),
         Crayon(name: "Blue Violet", red: 115, green: 102, blue: 189, hex: "#7366BD")
     ]
+    
+    private func getCGRed() -> CGFloat {
+        return CGFloat(self.red/255)
+    }
+    
+    private func getCGGreen() -> CGFloat {
+        return CGFloat(self.green/255)
+    }
+    
+    private func getCGBlue() -> CGFloat {
+        return CGFloat(self.blue/255)
+    }
+    
+    func getUIColor() -> UIColor {
+        print(UIColor(displayP3Red: self.getCGRed(), green: self.getCGGreen(), blue: self.getCGBlue(), alpha: 1.0))
+        return UIColor(displayP3Red: self.getCGRed(), green: self.getCGGreen(), blue: self.getCGBlue(), alpha: 1.0)
+    }
 }
 
