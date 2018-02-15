@@ -19,6 +19,11 @@ class CrayonDetailViewController: UIViewController {
     
     @IBOutlet weak var colorNameLabel: UILabel!
     
+    @IBOutlet weak var redLabel: UILabel!
+    @IBOutlet weak var greenLabel: UILabel!
+    @IBOutlet weak var blueLabel: UILabel!
+    @IBOutlet weak var alphaLabel: UILabel!
+    
     @IBOutlet weak var redSlider: UISlider!
     @IBOutlet weak var greenSlider: UISlider!
     @IBOutlet weak var blueSlider: UISlider!
@@ -79,7 +84,7 @@ class CrayonDetailViewController: UIViewController {
     }
     
     private func makeTextLegible(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> UIColor {
-        if red + green + blue <= 1.5 || alpha <= 0.7 {
+        if red + green + blue <= 1.5 || alpha <= 0.8 {
             return UIColor.white
         } else {
             return UIColor.black
@@ -97,7 +102,14 @@ class CrayonDetailViewController: UIViewController {
         let cgBlue = CGFloat(Double(blue)!)
         let cgAlpha = CGFloat(Double(alpha)!)
         
+        let legiblizedTextColor = self.makeTextLegible(red: cgRed, green: cgGreen, blue: cgBlue, alpha: cgAlpha)
+        
         self.currentColor = self.createColor(red: cgRed, green: cgGreen, blue: cgBlue, alpha: cgAlpha)
-        self.colorNameLabel.textColor = self.makeTextLegible(red: cgRed, green: cgGreen, blue: cgBlue, alpha: cgAlpha)
+        
+        self.colorNameLabel.textColor = legiblizedTextColor
+        self.redLabel.textColor = legiblizedTextColor
+        self.greenLabel.textColor = legiblizedTextColor
+        self.blueLabel.textColor = legiblizedTextColor
+        self.alphaLabel.textColor = legiblizedTextColor
     }
 }
