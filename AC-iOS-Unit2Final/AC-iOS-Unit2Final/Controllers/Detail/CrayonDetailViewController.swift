@@ -135,10 +135,34 @@ class CrayonDetailViewController: UIViewController {
     }
     
     private func updateColor() {
-        let red = self.redField.placeholder!
-        let green = self.greenField.placeholder!
-        let blue = self.blueField.placeholder!
-        let alpha = self.alphaField.placeholder!
+        var red: String
+        let green: String
+        let blue: String
+        let alpha: String
+        
+        if self.redField.text != "" {
+            red = self.redField.text!
+        } else {
+            red = self.redField.placeholder!
+        }
+        
+        if self.greenField.text != "" {
+            self.greenField.text!
+        } else {
+            self.greenField.placeholder!
+        }
+        
+        if self.blueField.text != "" {
+            self.blueField.text!
+        } else {
+            self.blueField.placeholder!
+        }
+        
+        if self.alphaField.text != "" {
+            self.alphaField.text!
+        } else {
+            self.alphaField.placeholder!
+        }
         
         let cgRed = CGFloat(Double(red)!)
         let cgGreen = CGFloat(Double(green)!)
