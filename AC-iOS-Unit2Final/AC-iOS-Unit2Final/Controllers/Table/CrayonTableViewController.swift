@@ -33,7 +33,7 @@ class CrayonTableViewController: UITableViewController {
         
         let crayon = crayons[indexPath.row]
         
-        if crayon.red + crayon.green + crayon.blue <= 1.25 {
+        if crayon.red + crayon.green + crayon.blue <= 1.35 {
             cell.textLabel?.textColor = UIColor.white
             cell.detailTextLabel?.textColor = UIColor.white
         } else {

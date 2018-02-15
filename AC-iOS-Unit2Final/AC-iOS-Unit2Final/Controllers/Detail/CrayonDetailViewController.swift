@@ -127,7 +127,7 @@ class CrayonDetailViewController: UIViewController {
     }
     
     private func makeTextLegible(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> UIColor {
-        if red + green + blue <= 1.25 || alpha <= 0.8 {
+        if red + green + blue <= 1.35 || alpha <= 0.8 {
             return UIColor.white
         } else {
             return UIColor.black
