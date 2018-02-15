@@ -45,6 +45,13 @@ class CrayonDetailViewController: UIViewController {
         self.blueField.placeholder = String(self.crayon.blue/255)
         self.alphaField.placeholder = "1.0"
         
+        let legiblizedTextColor = self.makeTextLegible(red: CGFloat(crayon.red), green: CGFloat(crayon.green), blue: CGFloat(crayon.blue), alpha: 1.0)
+            
+        self.colorNameLabel.textColor = legiblizedTextColor
+        self.redLabel.textColor = legiblizedTextColor
+        self.greenLabel.textColor = legiblizedTextColor
+        self.blueLabel.textColor = legiblizedTextColor
+        self.alphaLabel.textColor = legiblizedTextColor
     }
     
     @IBAction func resetButtonWasTapped(_ sender: UIButton) {
@@ -56,6 +63,14 @@ class CrayonDetailViewController: UIViewController {
         self.greenField.placeholder = String(Int((self.crayon.green)))
         self.blueField.placeholder = String((Int(self.crayon.blue)))
         self.alphaField.placeholder = "1.0"
+        
+        guard let red = self.redField.placeholder, let green = self.greenField.placeholder, let blue = self.blueField.placeholder else {
+            return
+        }
+        
+        self.redSlider.value = Float(red)!/255.0
+        self.greenSlider.value = Float(green)!/255.0
+        self.blueSlider.value = Float(blue)!/255.0
     }
     
     @IBAction func sliderMoved(_ sender: UISlider) {
@@ -84,7 +99,7 @@ class CrayonDetailViewController: UIViewController {
     }
     
     private func makeTextLegible(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> UIColor {
-        if red + green + blue <= 1.5 || alpha <= 0.8 {
+        if red + green + blue <= 1.25 || alpha <= 0.8 {
             return UIColor.white
         } else {
             return UIColor.black
