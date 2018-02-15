@@ -46,7 +46,7 @@ class CrayonDetailViewController: UIViewController {
         self.alphaField.placeholder = "1.0"
         
         let legiblizedTextColor = self.makeTextLegible(red: CGFloat(crayon.red), green: CGFloat(crayon.green), blue: CGFloat(crayon.blue), alpha: 1.0)
-            
+        
         self.colorNameLabel.textColor = legiblizedTextColor
         self.redLabel.textColor = legiblizedTextColor
         self.greenLabel.textColor = legiblizedTextColor
@@ -93,6 +93,34 @@ class CrayonDetailViewController: UIViewController {
         
         self.updateColor()
     }
+    
+    @IBAction func fieldEdited(_ sender: UITextField) {
+        guard let userInput = sender.text else {
+            return
+        }
+        
+        if userInput.isEmpty {
+            return
+        }
+        
+        guard let newValue = Float(userInput) else {
+            return
+        }
+        
+        switch sender {
+        case redField:
+            self.redSlider.value = newValue
+        case greenField:
+            self.greenSlider.value = newValue
+        case blueField:
+            self.blueSlider.value = newValue
+        default:
+            return
+        }
+        
+        self.updateColor()
+    }
+    
     
     private func createColor(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> UIColor {
         return UIColor(displayP3Red: red, green: green, blue: blue, alpha: alpha)
