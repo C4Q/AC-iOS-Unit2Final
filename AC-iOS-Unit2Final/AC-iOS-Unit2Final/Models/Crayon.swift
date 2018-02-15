@@ -22,6 +22,23 @@ class Crayon {
         self.hex = hex
     }
     
+    /*
+    convenience init(name: String, hex: String) {
+        let startIndex = hex.startIndex
+        let endOfRed = hex.index(startIndex, offsetBy: 2)
+        let endOfGreen = hex.index(endOfRed, offsetBy: 2)
+        let endOfBlue = hex.index(endOfGreen, offsetBy: 2)
+
+        let redVal = hex[startIndex...endOfRed]
+        let greenVal = hex[endOfRed...endOfGreen]
+        let blueVal = hex[endOfGreen...endOfBlue]
+        
+        // I started this, but I genuinely forget how to convert hex to decimal values, so this implementation is incomplete
+        
+        self.init(name: name, red: Double(redVal)!, green: Double(greenVal)!, blue: Double(blueVal)!, hex: hex)
+    }
+    */
+    
     static let allTheCrayons = [
         Crayon(name: "Almond", red: 239, green: 222, blue: 205, hex: "#EFDECD"),
         Crayon(name: "Antique Brass", red: 205, green: 149, blue: 117, hex: "#CD9575"),
