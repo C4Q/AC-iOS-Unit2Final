@@ -45,6 +45,10 @@ class CrayonDetailViewController: UIViewController {
         self.blueField.placeholder = String(self.crayon.blue/255)
         self.alphaField.placeholder = "1.0"
         
+        self.redSlider.value = Float(self.crayon.red/255)
+        self.greenSlider.value = Float(self.crayon.green/255)
+        self.blueSlider.value = Float(self.crayon.blue/255)
+        
         let legiblizedTextColor = self.makeTextLegible(red: CGFloat(crayon.red), green: CGFloat(crayon.green), blue: CGFloat(crayon.blue), alpha: 1.0)
         
         self.colorNameLabel.textColor = legiblizedTextColor
@@ -59,18 +63,14 @@ class CrayonDetailViewController: UIViewController {
         
         // also move sliders back in place
         
-        self.redField.placeholder = String((Int(self.crayon.red)))
-        self.greenField.placeholder = String(Int((self.crayon.green)))
-        self.blueField.placeholder = String((Int(self.crayon.blue)))
+        self.redField.placeholder = String((Float(self.crayon.red)/255.0))
+        self.greenField.placeholder = String(Float((self.crayon.green)/255.0))
+        self.blueField.placeholder = String((Float(self.crayon.blue)/255.0))
         self.alphaField.placeholder = "1.0"
         
-        guard let red = self.redField.placeholder, let green = self.greenField.placeholder, let blue = self.blueField.placeholder else {
-            return
-        }
-        
-        self.redSlider.value = Float(red)!/255.0
-        self.greenSlider.value = Float(green)!/255.0
-        self.blueSlider.value = Float(blue)!/255.0
+        self.redSlider.value = Float(self.crayon.red/255)
+        self.greenSlider.value = Float(self.crayon.green/255)
+        self.blueSlider.value = Float(self.crayon.blue/255)
     }
     
     @IBAction func sliderMoved(_ sender: UISlider) {
@@ -147,21 +147,21 @@ class CrayonDetailViewController: UIViewController {
         }
         
         if self.greenField.text != "" {
-            self.greenField.text!
+            green = self.greenField.text!
         } else {
-            self.greenField.placeholder!
+            green = self.greenField.placeholder!
         }
         
         if self.blueField.text != "" {
-            self.blueField.text!
+            blue = self.blueField.text!
         } else {
-            self.blueField.placeholder!
+            blue = self.blueField.placeholder!
         }
         
         if self.alphaField.text != "" {
-            self.alphaField.text!
+            alpha = self.alphaField.text!
         } else {
-            self.alphaField.placeholder!
+            alpha = self.alphaField.placeholder!
         }
         
         let cgRed = CGFloat(Double(red)!)
