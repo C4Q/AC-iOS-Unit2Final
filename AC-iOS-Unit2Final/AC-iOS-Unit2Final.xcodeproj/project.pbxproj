@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		81FAB9BB1FB5FA1B00918B8D /* CrayonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FAB9BA1FB5FA1B00918B8D /* CrayonViewController.swift */; };
+		81FAB9BD1FB5FA3600918B8D /* DetailedCrayonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FAB9BC1FB5FA3600918B8D /* DetailedCrayonViewController.swift */; };
+		81FAB9C21FB643ED00918B8D /* SettingsClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FAB9C11FB643ED00918B8D /* SettingsClass.swift */; };
 		C5E24D601FB2392D00578931 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E24D5F1FB2392D00578931 /* AppDelegate.swift */; };
 		C5E24D651FB2392D00578931 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5E24D631FB2392D00578931 /* Main.storyboard */; };
 		C5E24D671FB2392D00578931 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5E24D661FB2392D00578931 /* Assets.xcassets */; };
@@ -15,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		81FAB9BA1FB5FA1B00918B8D /* CrayonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrayonViewController.swift; sourceTree = "<group>"; };
+		81FAB9BC1FB5FA3600918B8D /* DetailedCrayonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedCrayonViewController.swift; sourceTree = "<group>"; };
+		81FAB9C11FB643ED00918B8D /* SettingsClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsClass.swift; sourceTree = "<group>"; };
 		C5E24D5C1FB2392D00578931 /* AC-iOS-Unit2Final.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AC-iOS-Unit2Final.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5E24D5F1FB2392D00578931 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C5E24D641FB2392D00578931 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -35,6 +41,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		81FAB9BE1FB5FA4B00918B8D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				81FAB9BC1FB5FA3600918B8D /* DetailedCrayonViewController.swift */,
+				81FAB9BA1FB5FA1B00918B8D /* CrayonViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		C5E24D531FB2392D00578931 = {
 			isa = PBXGroup;
 			children = (
@@ -54,6 +69,8 @@
 		C5E24D5E1FB2392D00578931 /* AC-iOS-Unit2Final */ = {
 			isa = PBXGroup;
 			children = (
+				C5E24D631FB2392D00578931 /* Main.storyboard */,
+				81FAB9BE1FB5FA4B00918B8D /* ViewControllers */,
 				C5E24D741FB23F8500578931 /* Models */,
 				C5E24D731FB23F6D00578931 /* Supporting Files */,
 				C5E24D6B1FB2392D00578931 /* Info.plist */,
@@ -66,7 +83,6 @@
 			children = (
 				C5E24D5F1FB2392D00578931 /* AppDelegate.swift */,
 				C5E24D661FB2392D00578931 /* Assets.xcassets */,
-				C5E24D631FB2392D00578931 /* Main.storyboard */,
 				C5E24D681FB2392D00578931 /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
@@ -75,6 +91,7 @@
 		C5E24D741FB23F8500578931 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				81FAB9C11FB643ED00918B8D /* SettingsClass.swift */,
 				C5E24D711FB2395900578931 /* Crayon.swift */,
 			);
 			path = Models;
@@ -152,8 +169,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81FAB9C21FB643ED00918B8D /* SettingsClass.swift in Sources */,
+				81FAB9BD1FB5FA3600918B8D /* DetailedCrayonViewController.swift in Sources */,
 				C5E24D601FB2392D00578931 /* AppDelegate.swift in Sources */,
 				C5E24D721FB2395900578931 /* Crayon.swift in Sources */,
+				81FAB9BB1FB5FA1B00918B8D /* CrayonViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
