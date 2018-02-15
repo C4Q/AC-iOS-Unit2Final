@@ -14,8 +14,6 @@ class CrayonDetailViewController: UIViewController {
     var currentColor: UIColor! {
         didSet {
             self.view.backgroundColor = currentColor
-            
-            
         }
     }
     
@@ -67,37 +65,39 @@ class CrayonDetailViewController: UIViewController {
             return
         }
         
-        let red = self.redField.placeholder!
-        let green = self.greenField.placeholder!
-        let blue = self.blueField.placeholder!
-        let alpha = self.alphaField.placeholder!
-        
-        self.colorNameLabel.textColor = self.makeTextLegible(red: red, green: green, blue: blue, alpha: alpha)
-        
-        self.currentColor = self.createColor(red: red, green: green, blue: blue, alpha: alpha)
+        self.updateColor()
     }
     
-    private func createColor(red: String, green: String, blue: String, alpha: String) -> UIColor {
+    @IBAction func stepperTapped(_ sender: UIStepper) {
+        self.alphaField.placeholder = String(sender.value)
         
-        let cgRed = CGFloat(Double(red)!)
-        let cgGreen = CGFloat(Double(green)!)
-        let cgBlue = CGFloat(Double(blue)!)
-        let cgAlpha = CGFloat(Double(alpha)!)
-        
-        return UIColor(displayP3Red: cgRed, green: cgGreen, blue: cgBlue, alpha: cgAlpha)
+        self.updateColor()
     }
     
-    private func makeTextLegible(red: String, green: String, blue: String, alpha: String) -> UIColor {
-        let cgRed = CGFloat(Double(red)!)
-        let cgGreen = CGFloat(Double(green)!)
-        let cgBlue = CGFloat(Double(blue)!)
-        let cgAlpha = CGFloat(Double(alpha)!)
-        
-        if cgRed + cgGreen + cgBlue <= 1.5 && cgAlpha > 0.7 {
+    private func createColor(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> UIColor {
+        return UIColor(displayP3Red: red, green: green, blue: blue, alpha: alpha)
+    }
+    
+    private func makeTextLegible(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> UIColor {
+        if red + green + blue <= 1.5 || alpha <= 0.7 {
             return UIColor.white
         } else {
             return UIColor.black
         }
     }
     
+    private func updateColor() {
+        let red = self.redField.placeholder!
+        let green = self.greenField.placeholder!
+        let blue = self.blueField.placeholder!
+        let alpha = self.alphaField.placeholder!
+        
+        let cgRed = CGFloat(Double(red)!)
+        let cgGreen = CGFloat(Double(green)!)
+        let cgBlue = CGFloat(Double(blue)!)
+        let cgAlpha = CGFloat(Double(alpha)!)
+        
+        self.currentColor = self.createColor(red: cgRed, green: cgGreen, blue: cgBlue, alpha: cgAlpha)
+        self.colorNameLabel.textColor = self.makeTextLegible(red: cgRed, green: cgGreen, blue: cgBlue, alpha: cgAlpha)
+    }
 }

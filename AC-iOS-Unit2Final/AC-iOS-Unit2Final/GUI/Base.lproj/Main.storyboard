@@ -207,6 +207,9 @@
                                         <subviews>
                                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" maximumValue="1" stepValue="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="ktM-2K-V8M">
                                                 <rect key="frame" x="0.0" y="0.0" width="94" height="29"/>
+                                                <connections>
+                                                    <action selector="stepperTapped:" destination="Pzf-ab-YIb" eventType="valueChanged" id="MBp-rQ-wRV"/>
+                                                </connections>
                                             </stepper>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aRY-v6-mYB">
                                                 <rect key="frame" x="0.0" y="37" width="92" height="30"/>
