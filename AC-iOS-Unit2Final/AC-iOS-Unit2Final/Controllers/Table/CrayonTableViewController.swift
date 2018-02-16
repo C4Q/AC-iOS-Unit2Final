@@ -32,18 +32,18 @@ class CrayonTableViewController: UITableViewController, Legibility {
         let cell = tableView.dequeueReusableCell(withIdentifier: Identifier.crayonCell, for: indexPath)
         
         let crayon = crayons[indexPath.row]
-        let legiblizedTextColor = self.makeTextLegibleOn(red: crayon.cgRed, green: crayon.cgGreen, blue: crayon.cgBlue, alpha: 1.0)
+        let legiblizedTextColor = self.makeTextLegibleOn(red: crayon!.cgRed, green: crayon!.cgGreen, blue: crayon!.cgBlue, alpha: 1.0)
         
         
         cell.textLabel?.textColor = legiblizedTextColor
         cell.detailTextLabel?.textColor = legiblizedTextColor
         
         
-        cell.textLabel?.text = crayon.name
-        cell.detailTextLabel?.text = crayon.hex
+        cell.textLabel?.text = crayon!.name
+        cell.detailTextLabel?.text = crayon!.hex
         
         // color info
-        cell.backgroundColor = crayon.getUIColor()
+        cell.backgroundColor = crayon!.getUIColor()
         
         return cell
     }

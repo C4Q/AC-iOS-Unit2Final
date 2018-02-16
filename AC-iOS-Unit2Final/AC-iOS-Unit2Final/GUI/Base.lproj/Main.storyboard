@@ -56,7 +56,9 @@
                             <outlet property="delegate" destination="bLN-NQ-aPx" id="CJa-5f-5eO"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="1UR-yY-uHX"/>
+                    <navigationItem key="navigationItem" title="Crayons" id="1UR-yY-uHX">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="Mdi-sg-LCR"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pLL-Bg-NTv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -224,13 +226,13 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aRY-v6-mYB">
                                                 <rect key="frame" x="0.0" y="37" width="76" height="30"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="ALPHA:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NMB-8G-U1S">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="ALPHA:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NMB-8G-U1S">
                                                         <rect key="frame" x="0.0" y="6" width="51" height="18"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qkz-dw-NBq">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qkz-dw-NBq">
                                                         <rect key="frame" x="51" y="0.0" width="25" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -253,6 +255,17 @@
                                     <constraint firstItem="6IS-aF-Gvz" firstAttribute="leading" secondItem="5eA-c1-Aa6" secondAttribute="leading" id="ffu-Wt-JJ6"/>
                                 </constraints>
                             </stackView>
+                            <segmentedControl contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="KS3-3J-MFr">
+                                <rect key="frame" x="127" y="192" width="121" height="29"/>
+                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <segments>
+                                    <segment title="Decimal"/>
+                                    <segment title="Hex"/>
+                                </segments>
+                                <connections>
+                                    <action selector="switchBaseTapped:" destination="Pzf-ab-YIb" eventType="valueChanged" id="AcE-25-N9w"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -261,12 +274,14 @@
                             <constraint firstItem="otF-VA-3hJ" firstAttribute="top" secondItem="eIb-FU-fAp" secondAttribute="bottom" constant="7" id="Oen-aF-hbB"/>
                             <constraint firstItem="aRY-v6-mYB" firstAttribute="centerX" secondItem="G0c-6S-JUg" secondAttribute="centerX" id="bS9-wi-cMh"/>
                             <constraint firstItem="otF-VA-3hJ" firstAttribute="centerX" secondItem="G0c-6S-JUg" secondAttribute="centerX" id="brs-6T-4im"/>
+                            <constraint firstItem="KS3-3J-MFr" firstAttribute="top" secondItem="otF-VA-3hJ" secondAttribute="bottom" constant="19" id="cML-DG-YXJ"/>
                             <constraint firstItem="otF-VA-3hJ" firstAttribute="width" secondItem="Yau-1L-qaU" secondAttribute="width" id="kMm-X5-Bm5"/>
                             <constraint firstItem="5eA-c1-Aa6" firstAttribute="top" secondItem="otF-VA-3hJ" secondAttribute="bottom" constant="69" id="lZ1-E4-9WC"/>
                             <constraint firstItem="ktM-2K-V8M" firstAttribute="centerX" secondItem="G0c-6S-JUg" secondAttribute="centerX" id="mhR-pg-Mep"/>
                             <constraint firstItem="eIb-FU-fAp" firstAttribute="width" secondItem="Yau-1L-qaU" secondAttribute="width" id="nOA-ke-yUQ"/>
                             <constraint firstItem="eIb-FU-fAp" firstAttribute="top" secondItem="G0c-6S-JUg" secondAttribute="top" constant="40" id="oDS-D7-vht"/>
                             <constraint firstItem="5eA-c1-Aa6" firstAttribute="width" secondItem="G0c-6S-JUg" secondAttribute="width" constant="-16" id="oaq-wg-MvF"/>
+                            <constraint firstItem="KS3-3J-MFr" firstAttribute="centerX" secondItem="G0c-6S-JUg" secondAttribute="centerX" id="wYH-ID-wVQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="G0c-6S-JUg"/>
                     </view>

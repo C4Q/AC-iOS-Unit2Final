@@ -18,9 +18,16 @@ extension CrayonDetailViewController: Legibility {
     }
     
     func setUpValues(with crayon: Crayon) {
-        self.resetPlaceholder(for: self.redField, with: String(crayon.red/255))
-        self.resetPlaceholder(for: self.greenField, with: String(crayon.green/255))
-        self.resetPlaceholder(for: self.blueField, with: String(crayon.blue/255))
+        if self.base == NumberBase.ten {
+            self.resetPlaceholder(for: self.redField, with: String(crayon.red/255))
+            self.resetPlaceholder(for: self.greenField, with: String(crayon.green/255))
+            self.resetPlaceholder(for: self.blueField, with: String(crayon.blue/255))
+        } else if self.base == NumberBase.hex {
+            self.resetPlaceholder(for: self.redField, with: crayon.hexRed)
+            self.resetPlaceholder(for: self.greenField, with: crayon.hexGreen)
+            self.resetPlaceholder(for: self.blueField, with: crayon.hexBlue)
+        }
+        
         self.resetPlaceholder(for: self.alphaField, with: "1.0")
         
         self.redSlider.value = Float(crayon.red/255)
@@ -40,14 +47,17 @@ extension CrayonDetailViewController: Legibility {
     }
     
     func updateCrayon() {
-        // our sliders are our source of truth
+        let intRed = Int(self.redSlider.value * 255)
+        let intGreen = Int(self.greenSlider.value * 255)
+        let intBlue = Int(self.blueSlider.value * 255)
         
-        let red = Double(self.redSlider.value) * 255
-        let blue = Double(self.blueSlider.value) * 255
-        let green = Double(self.greenSlider.value) * 255
-        let alpha = Double(self.alphaStepper.value)
+        let red = String(intRed, radix: 16)
+        let green = String(intGreen, radix: 16)
+        let blue = String(intBlue, radix: 16)
         
-        let newCrayon = Crayon(name: "", red: red, green: green, blue: blue, alpha: alpha, hex: "")
+        let hexString = "#\(red)\(green)\(blue)"
+        
+        let newCrayon = Crayon(name: "", hex: hexString)
         
         self.currentCrayon = newCrayon
     }

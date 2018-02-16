@@ -9,6 +9,7 @@
 import UIKit
 
 class CrayonDetailViewController: UIViewController {
+    var base = NumberBase.ten
     var originalCrayon: Crayon!
     var currentCrayon: Crayon! {
         didSet {
@@ -39,9 +40,9 @@ class CrayonDetailViewController: UIViewController {
         super.viewDidLoad()
         
         self.currentCrayon = self.originalCrayon
-
+        
         self.colorNameLabel.text = self.currentCrayon.name
-                
+        
         // we will only be using original crayon to reset colors
         
         self.setUpValues(with: currentCrayon)
@@ -58,15 +59,30 @@ class CrayonDetailViewController: UIViewController {
     }
     
     @IBAction func sliderMoved(_ sender: UISlider) {
-        switch sender {
-        case self.redSlider:
-            self.redField.text = String(sender.value)
-        case self.greenSlider:
-            self.greenField.text = String(sender.value)
-        case self.blueSlider:
-            self.blueField.text = String(sender.value)
-        default:
-            return
+        if self.base == NumberBase.ten {
+            switch sender {
+            case self.redSlider:
+                self.redField.text = String(sender.value)
+            case self.greenSlider:
+                self.greenField.text = String(sender.value)
+            case self.blueSlider:
+                self.blueField.text = String(sender.value)
+            default:
+                return
+            }
+        } else if self.base == NumberBase.hex {
+            let intValue = Int(sender.value * 255)
+            
+            switch sender {
+            case self.redSlider:
+                self.redField.text = String(intValue, radix: base.rawValue)
+            case self.greenSlider:
+                self.greenField.text = String(intValue, radix: base.rawValue)
+            case self.blueSlider:
+                self.blueField.text = String(intValue, radix: base.rawValue)
+            default:
+                return
+            }
         }
         
         self.updateCrayon()
@@ -99,5 +115,19 @@ class CrayonDetailViewController: UIViewController {
         }
         
         self.updateCrayon()
+    }
+    
+    @IBAction func switchBaseTapped(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            if self.base == NumberBase.hex {
+                self.base = NumberBase.ten
+            }
+        } else if sender.selectedSegmentIndex == 1 {
+            if self.base == NumberBase.ten {
+                self.base = NumberBase.hex
+            } 
+        }
+        
+        self.setUpValues(with: currentCrayon)
     }
 }
