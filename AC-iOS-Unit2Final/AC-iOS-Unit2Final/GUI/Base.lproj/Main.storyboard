@@ -103,13 +103,13 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="5eA-c1-Aa6">
-                                <rect key="frame" x="0.0" y="242" width="375" height="337"/>
+                                <rect key="frame" x="8" y="242" width="359" height="337"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="6IS-aF-Gvz">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="220"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="220"/>
                                         <subviews>
                                             <slider contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="LaH-6t-egL">
-                                                <rect key="frame" x="-2" y="0.0" width="379" height="31"/>
+                                                <rect key="frame" x="-2" y="0.0" width="363" height="31"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
                                                     <action selector="sliderMoved:" destination="Pzf-ab-YIb" eventType="valueChanged" id="e1m-Hh-xfQ"/>
@@ -139,7 +139,7 @@
                                                 </subviews>
                                             </stackView>
                                             <slider contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="JKa-Yf-Fb7">
-                                                <rect key="frame" x="-2" y="76" width="379" height="31"/>
+                                                <rect key="frame" x="-2" y="76" width="363" height="31"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
                                                     <action selector="sliderMoved:" destination="Pzf-ab-YIb" eventType="valueChanged" id="gCz-KJ-Blu"/>
@@ -169,7 +169,7 @@
                                                 </subviews>
                                             </stackView>
                                             <slider contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="eLo-0K-0mI">
-                                                <rect key="frame" x="-2" y="152" width="379" height="31"/>
+                                                <rect key="frame" x="-2" y="152" width="363" height="31"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
                                                     <action selector="sliderMoved:" destination="Pzf-ab-YIb" eventType="valueChanged" id="3eZ-fL-YY4"/>
@@ -211,8 +211,8 @@
                                             <constraint firstAttribute="trailing" secondItem="LaH-6t-egL" secondAttribute="trailing" id="wE3-55-mQk"/>
                                         </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="6qL-tf-orv">
-                                        <rect key="frame" x="141.5" y="270" width="92" height="67"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="6qL-tf-orv">
+                                        <rect key="frame" x="141.5" y="270" width="76" height="67"/>
                                         <subviews>
                                             <stepper contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" maximumValue="1.1000000000000001" stepValue="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="ktM-2K-V8M">
                                                 <rect key="frame" x="0.0" y="0.0" width="94" height="29"/>
@@ -222,16 +222,16 @@
                                                 </connections>
                                             </stepper>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aRY-v6-mYB">
-                                                <rect key="frame" x="0.0" y="37" width="92" height="30"/>
+                                                <rect key="frame" x="0.0" y="37" width="76" height="30"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ALPHA:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NMB-8G-U1S">
-                                                        <rect key="frame" x="0.0" y="6" width="52.5" height="18"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="ALPHA:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NMB-8G-U1S">
+                                                        <rect key="frame" x="0.0" y="6" width="51" height="18"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qkz-dw-NBq">
-                                                        <rect key="frame" x="67" y="0.0" width="25" height="30"/>
+                                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qkz-dw-NBq">
+                                                        <rect key="frame" x="51" y="0.0" width="25" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad" enablesReturnKeyAutomatically="YES"/>
@@ -266,7 +266,7 @@
                             <constraint firstItem="ktM-2K-V8M" firstAttribute="centerX" secondItem="G0c-6S-JUg" secondAttribute="centerX" id="mhR-pg-Mep"/>
                             <constraint firstItem="eIb-FU-fAp" firstAttribute="width" secondItem="Yau-1L-qaU" secondAttribute="width" id="nOA-ke-yUQ"/>
                             <constraint firstItem="eIb-FU-fAp" firstAttribute="top" secondItem="G0c-6S-JUg" secondAttribute="top" constant="40" id="oDS-D7-vht"/>
-                            <constraint firstItem="5eA-c1-Aa6" firstAttribute="width" secondItem="Yau-1L-qaU" secondAttribute="width" id="oaq-wg-MvF"/>
+                            <constraint firstItem="5eA-c1-Aa6" firstAttribute="width" secondItem="G0c-6S-JUg" secondAttribute="width" constant="-16" id="oaq-wg-MvF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="G0c-6S-JUg"/>
                     </view>
