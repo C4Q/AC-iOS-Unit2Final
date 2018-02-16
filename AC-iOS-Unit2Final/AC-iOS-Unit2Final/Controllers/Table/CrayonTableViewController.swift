@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CrayonTableViewController: UITableViewController {
+class CrayonTableViewController: UITableViewController, Legibility {
     let crayons = Crayon.allTheCrayons
     
     override func viewDidLoad() {
@@ -29,17 +29,15 @@ class CrayonTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Identifier.crayonCell, for: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Identifier.crayonCell, for: indexPath)
         
         let crayon = crayons[indexPath.row]
+        let legiblizedTextColor = self.makeTextLegibleOn(red: crayon.cgRed, green: crayon.cgGreen, blue: crayon.cgBlue, alpha: 1.0)
         
-        if crayon.red + crayon.green + crayon.blue <= 1.35 {
-            cell.textLabel?.textColor = UIColor.white
-            cell.detailTextLabel?.textColor = UIColor.white
-        } else {
-            cell.textLabel?.textColor = UIColor.black
-            cell.detailTextLabel?.textColor = UIColor.black
-        }
+        
+        cell.textLabel?.textColor = legiblizedTextColor
+        cell.detailTextLabel?.textColor = legiblizedTextColor
+        
         
         cell.textLabel?.text = crayon.name
         cell.detailTextLabel?.text = crayon.hex
@@ -62,10 +60,7 @@ class CrayonTableViewController: UITableViewController {
         
         let selectedCrayon = self.crayons[indexPath.row]
         
-        nextVC.crayon = selectedCrayon
-        
-        // send over color information
-        
-        nextVC.currentColor = selectedCrayon.getUIColor()
+        nextVC.originalCrayon = selectedCrayon
+
     }
 }

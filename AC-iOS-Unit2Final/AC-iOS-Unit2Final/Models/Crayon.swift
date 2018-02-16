@@ -13,13 +13,18 @@ class Crayon {
     var red: Double
     var green: Double
     var blue: Double
+    var alpha: Double
     var hex: String
-    init(name: String, red: Double, green: Double, blue: Double, hex: String) {
+    
+    init(name: String, red: Double, green: Double, blue: Double, alpha: Double = 1.0, hex: String) {
         self.name = name
         self.red = red
         self.green = green
         self.blue = blue
+        self.alpha = alpha
         self.hex = hex
+        
+        print(self.name)
     }
     
     /*
@@ -58,21 +63,25 @@ class Crayon {
         Crayon(name: "Blue Violet", red: 115, green: 102, blue: 189, hex: "#7366BD")
     ]
     
-    private func getCGRed() -> CGFloat {
+    var cgRed: CGFloat {
         return CGFloat(self.red/255)
     }
     
-    private func getCGGreen() -> CGFloat {
+    var cgGreen: CGFloat {
         return CGFloat(self.green/255)
     }
     
-    private func getCGBlue() -> CGFloat {
+    var cgBlue: CGFloat {
         return CGFloat(self.blue/255)
     }
     
+    var cgAlpha: CGFloat {
+        return CGFloat(self.alpha)
+    }
+    
     func getUIColor() -> UIColor {
-        print(UIColor(displayP3Red: self.getCGRed(), green: self.getCGGreen(), blue: self.getCGBlue(), alpha: 1.0))
-        return UIColor(displayP3Red: self.getCGRed(), green: self.getCGGreen(), blue: self.getCGBlue(), alpha: 1.0)
+        print(UIColor(displayP3Red: cgRed, green: cgGreen, blue: cgBlue, alpha: cgAlpha))
+        return UIColor(displayP3Red: cgRed, green: cgGreen, blue: cgBlue, alpha: cgAlpha)
     }
 }
 
