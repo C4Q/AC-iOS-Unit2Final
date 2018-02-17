@@ -28,7 +28,7 @@ class Crayon {
     }
     
     
-    convenience init?(name: String, hex: String) {
+    convenience init?(name: String, hex: String, alpha: Double) {
         let startIndex = hex.startIndex
         let startOfRed = hex.index(after: startIndex)
         let endOfRed = hex.index(startOfRed, offsetBy: 1)
@@ -53,7 +53,7 @@ class Crayon {
         let doubleGreen = Double(green)
         let doubleBlue = Double(blue)
         
-        self.init(name: name, red: doubleRed, green: doubleGreen, blue: doubleBlue, hex: hex)
+        self.init(name: name, red: doubleRed, green: doubleGreen, blue: doubleBlue, alpha: alpha, hex: hex)
     }
     
     static let allTheCrayons = [
@@ -73,7 +73,7 @@ class Crayon {
         Crayon(name: "Blue Gray", red: 102, green: 153, blue: 204, hex: "#6699CC"),
         Crayon(name: "Blue Green", red: 13, green: 152, blue: 186, hex: "#0D98BA"),
         Crayon(name: "Blue Violet", red: 115, green: 102, blue: 189, hex: "#7366BD"),
-        Crayon(name: "Violet", hex: "#9966CC")
+        Crayon(name: "Violet", hex: "#9966CC", alpha: 1.0)
     ]
     
     var cgRed: CGFloat {

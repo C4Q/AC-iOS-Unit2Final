@@ -10,7 +10,7 @@ import UIKit
 
 extension CrayonDetailViewController: Legibility {
     func setLegibleTextColors(for crayon: Crayon) {
-        let legiblizedTextColor = self.makeTextLegibleOn(red: crayon.cgRed, green: crayon.cgGreen, blue: crayon.cgBlue, alpha: 1.0)
+        let legiblizedTextColor = self.makeTextLegibleOn(red: crayon.cgRed, green: crayon.cgGreen, blue: crayon.cgBlue, alpha: crayon.cgAlpha)
         
         self.colorNameLabel.textColor = legiblizedTextColor
         self.alphaLabel.textColor = legiblizedTextColor
@@ -27,8 +27,7 @@ extension CrayonDetailViewController: Legibility {
         
         let hexString = "#\(red)\(green)\(blue)"
         
-        let newCrayon = Crayon(name: "", hex: hexString)
-        
+        let newCrayon = Crayon(name: "", hex: hexString, alpha: self.alphaStepper.value)
         self.currentCrayon = newCrayon
     }
 }

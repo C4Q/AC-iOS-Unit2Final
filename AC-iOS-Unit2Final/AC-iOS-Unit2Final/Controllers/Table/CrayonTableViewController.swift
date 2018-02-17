@@ -14,7 +14,7 @@ class CrayonTableViewController: UITableViewController, Legibility {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-         self.clearsSelectionOnViewWillAppear = false
+         self.tableView.estimatedRowHeight = 100.0
     }
 
     // MARK: - Table view data source
@@ -29,21 +29,22 @@ class CrayonTableViewController: UITableViewController, Legibility {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Identifier.crayonCell, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: Identifier.crayonCell, for: indexPath) as! CrayonTableViewCell
         
         let crayon = crayons[indexPath.row]
         let legiblizedTextColor = self.makeTextLegibleOn(red: crayon!.cgRed, green: crayon!.cgGreen, blue: crayon!.cgBlue, alpha: 1.0)
         
         
-        cell.textLabel?.textColor = legiblizedTextColor
-        cell.detailTextLabel?.textColor = legiblizedTextColor
+        cell.colorName?.textColor = legiblizedTextColor
+        cell.colorHex?.textColor = legiblizedTextColor
         
         
-        cell.textLabel?.text = crayon!.name.uppercased()
-        cell.detailTextLabel?.text = crayon!.hex
+        cell.colorName?.text = crayon!.name.uppercased()
+        cell.colorHex?.text = crayon!.hex
         
         // color info
-        cell.backgroundColor = crayon!.getUIColor()
+        cell.contentView.backgroundColor = crayon!.getUIColor()
+        cell.wrapper.backgroundColor = crayon!.getUIColor()
         
         return cell
     }
