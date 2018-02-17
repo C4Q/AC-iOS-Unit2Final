@@ -39,7 +39,7 @@ class CrayonTableViewController: UITableViewController, Legibility {
         cell.detailTextLabel?.textColor = legiblizedTextColor
         
         
-        cell.textLabel?.text = crayon!.name
+        cell.textLabel?.text = crayon!.name.uppercased()
         cell.detailTextLabel?.text = crayon!.hex
         
         // color info
