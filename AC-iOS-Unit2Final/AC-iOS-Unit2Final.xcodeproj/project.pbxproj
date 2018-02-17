@@ -13,6 +13,7 @@
 		056D926B2034D96B0066B21E /* CrayonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D926A2034D96B0066B21E /* CrayonDetailViewController.swift */; };
 		056D92722034DA220066B21E /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D92712034DA220066B21E /* Identifier.swift */; };
 		05B4E9C62036ECC600EECED8 /* NumberBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B4E9C52036ECC600EECED8 /* NumberBase.swift */; };
+		05B6C9CA20386F1300D01C97 /* CrayonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B6C9C920386F1300D01C97 /* CrayonTableViewCell.swift */; };
 		05FBFD012036B94900A12AAB /* CrayonDetailViewController+Legibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FBFD002036B94900A12AAB /* CrayonDetailViewController+Legibility.swift */; };
 		05FBFD032036D19B00A12AAB /* Legibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FBFD022036D19B00A12AAB /* Legibility.swift */; };
 		C5E24D601FB2392D00578931 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E24D5F1FB2392D00578931 /* AppDelegate.swift */; };
@@ -29,6 +30,7 @@
 		056D926A2034D96B0066B21E /* CrayonDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrayonDetailViewController.swift; sourceTree = "<group>"; };
 		056D92712034DA220066B21E /* Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifier.swift; sourceTree = "<group>"; };
 		05B4E9C52036ECC600EECED8 /* NumberBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberBase.swift; sourceTree = "<group>"; };
+		05B6C9C920386F1300D01C97 /* CrayonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrayonTableViewCell.swift; sourceTree = "<group>"; };
 		05FBFD002036B94900A12AAB /* CrayonDetailViewController+Legibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CrayonDetailViewController+Legibility.swift"; sourceTree = "<group>"; };
 		05FBFD022036D19B00A12AAB /* Legibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Legibility.swift; sourceTree = "<group>"; };
 		C5E24D5C1FB2392D00578931 /* AC-iOS-Unit2Final.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AC-iOS-Unit2Final.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				056D92682034D94B0066B21E /* CrayonTableViewController.swift */,
+				05B6C9C920386F1300D01C97 /* CrayonTableViewCell.swift */,
 			);
 			path = Table;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5E24D601FB2392D00578931 /* AppDelegate.swift in Sources */,
+				05B6C9CA20386F1300D01C97 /* CrayonTableViewCell.swift in Sources */,
 				C5E24D721FB2395900578931 /* Crayon.swift in Sources */,
 				05FBFD012036B94900A12AAB /* CrayonDetailViewController+Legibility.swift in Sources */,
 				056D926B2034D96B0066B21E /* CrayonDetailViewController.swift in Sources */,

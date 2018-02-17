@@ -37,8 +37,10 @@ class CrayonDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.currentCrayon = self.originalCrayon
+        self.navigationController?.navigationBar.barTintColor = originalCrayon.getUIColor()
+        self.navigationController?.navigationBar.tintColor = self.makeTextLegibleOn(red: originalCrayon.cgRed, green: originalCrayon.cgGreen, blue: originalCrayon.cgBlue, alpha: 1.0)
         
+        self.currentCrayon = self.originalCrayon
         self.colorNameLabel.text = self.currentCrayon.name.uppercased()
         
         // we will only be using original crayon to reset colors
@@ -89,6 +91,7 @@ class CrayonDetailViewController: UIViewController {
     
     @IBAction func stepperTapped(_ sender: UIStepper) {
         self.alphaField.text = String(sender.value)
+        print(sender.value)
         
         self.updateCrayon()
     }
@@ -175,7 +178,5 @@ class CrayonDetailViewController: UIViewController {
         
         self.setKeyboards()
         self.setUpValues(with: currentCrayon)
-        self.disableStepper()
-        self.showDisabled()
     }
 }
