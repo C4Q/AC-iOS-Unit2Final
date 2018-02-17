@@ -19,10 +19,8 @@ class CrayonDetailViewController: UIViewController {
     }
     
     @IBOutlet weak var colorNameLabel: UILabel!
-    
-    @IBOutlet weak var redLabel: UILabel!
-    @IBOutlet weak var greenLabel: UILabel!
-    @IBOutlet weak var blueLabel: UILabel!
+    @IBOutlet weak var resetButton: UIButton!
+    @IBOutlet weak var baseSwitcher: UISegmentedControl!
     @IBOutlet weak var alphaLabel: UILabel!
     
     @IBOutlet weak var redSlider: UISlider!
@@ -41,11 +39,12 @@ class CrayonDetailViewController: UIViewController {
         
         self.currentCrayon = self.originalCrayon
         
-        self.colorNameLabel.text = self.currentCrayon.name
+        self.colorNameLabel.text = self.currentCrayon.name.uppercased()
         
         // we will only be using original crayon to reset colors
         
         self.setUpValues(with: currentCrayon)
+        self.setShadows()
     }
     
     // MARK: - Button Actions
@@ -99,19 +98,65 @@ class CrayonDetailViewController: UIViewController {
             return
         }
         
-        guard let newValue = Float(userInput) else {
-            return
-        }
-        
-        switch sender {
-        case redField:
-            self.redSlider.value = newValue
-        case greenField:
-            self.greenSlider.value = newValue
-        case blueField:
-            self.blueSlider.value = newValue
-        default:
-            return
+        if self.base == NumberBase.ten {
+            guard let newValue = Float(userInput) else { 
+                let alert = self.errorAlert(with: "You must enter a decimal value.")
+                
+                self.present(alert, animated: true, completion: nil)
+                
+                return
+            }
+            
+            guard newValue <= 1 else { 
+                let alert = self.errorAlert(with: "You must enter a decimal value less than or equal to 1.")
+                
+                self.present(alert, animated: true, completion: nil)
+                
+                return
+            }
+            
+            switch sender {
+            case redField:
+                self.redSlider.value = newValue
+            case greenField:
+                self.greenSlider.value = newValue
+            case blueField:
+                self.blueSlider.value = newValue
+            default:
+                return
+            }
+        } else if self.base == NumberBase.hex {
+            let legalCharacters = ["a", "b", "c", "d", "e", "f", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
+            
+            guard userInput.count == 2 else { 
+                let alert = self.errorAlert(with: "You must enter a hex code two characters long.")
+                
+                self.present(alert, animated: true, completion: nil)
+                
+                return 
+            }
+            
+            let filteredInput = userInput.lowercased().filter {legalCharacters.contains(String($0))}
+            
+            guard filteredInput.count == 2 else { 
+                let alert = self.errorAlert(with: "You must enter only digits, or letter between a & f in the alphabet.")
+                
+                self.present(alert, animated: true, completion: nil)
+                
+                return 
+            }
+            
+            switch sender {
+            case redField:
+                print(Float(Int(userInput, radix: self.base.rawValue)!)/255.0)
+                self.redSlider.value = Float(Int(userInput, radix: self.base.rawValue)!)/255.0
+            case greenField:
+                self.greenSlider.value = Float(Int(userInput, radix: self.base.rawValue)!)/255.0
+            case blueField:
+                self.blueSlider.value = Float(Int(userInput, radix: self.base.rawValue)!)/255.0
+            default:
+                return
+            }
         }
         
         self.updateCrayon()
@@ -128,6 +173,9 @@ class CrayonDetailViewController: UIViewController {
             } 
         }
         
+        self.setKeyboards()
         self.setUpValues(with: currentCrayon)
+        self.disableStepper()
+        self.showDisabled()
     }
 }
