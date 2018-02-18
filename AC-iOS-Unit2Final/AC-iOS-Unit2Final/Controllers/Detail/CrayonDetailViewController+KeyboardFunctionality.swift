@@ -34,14 +34,4 @@ extension CrayonDetailViewController {
         
         return alert
     }
-    
-    func disableStepper() {
-        if self.base == NumberBase.hex {
-            self.alphaStepper.isEnabled = false
-            self.alphaField.isEnabled = false
-        } else if self.base == NumberBase.ten {
-            self.alphaStepper.isEnabled = true
-            self.alphaField.isEnabled = true
-        }
-    }
 }

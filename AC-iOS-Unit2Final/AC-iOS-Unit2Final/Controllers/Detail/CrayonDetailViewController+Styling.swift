@@ -73,14 +73,4 @@ extension CrayonDetailViewController {
             self.alphaStepper
         ].map { $0.layer.shadowRadius = CGFloat(2) }
     }
-    
-    func showDisabled() {
-        if self.base == NumberBase.hex {
-            self.alphaStepper.alpha = 0.5
-            self.alphaField.alpha = 0.5
-        } else if self.base == NumberBase.ten {
-            self.alphaStepper.alpha = 1.0
-            self.alphaField.alpha = 1.0
-        }
-    }
 }
