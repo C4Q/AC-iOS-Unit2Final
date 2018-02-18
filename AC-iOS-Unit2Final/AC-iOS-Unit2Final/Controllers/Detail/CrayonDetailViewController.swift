@@ -13,6 +13,9 @@ class CrayonDetailViewController: UIViewController {
     var originalCrayon: Crayon!
     var currentCrayon: Crayon! {
         didSet {
+            self.navigationController?.navigationBar.barTintColor = currentCrayon.getUIColor()
+            self.navigationController?.navigationBar.tintColor = self.makeTextLegibleOn(red: currentCrayon.cgRed, green: currentCrayon.cgGreen, blue: currentCrayon.cgBlue, alpha: 1.0)
+            
             self.view.backgroundColor = currentCrayon.getUIColor()
             self.setLegibleTextColors(for: currentCrayon)
         }
@@ -36,9 +39,6 @@ class CrayonDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.navigationController?.navigationBar.barTintColor = originalCrayon.getUIColor()
-        self.navigationController?.navigationBar.tintColor = self.makeTextLegibleOn(red: originalCrayon.cgRed, green: originalCrayon.cgGreen, blue: originalCrayon.cgBlue, alpha: 1.0)
         
         self.currentCrayon = self.originalCrayon
         self.colorNameLabel.text = self.currentCrayon.name.uppercased()

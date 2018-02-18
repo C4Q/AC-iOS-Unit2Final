@@ -12,6 +12,7 @@
         <array key="Avenir.ttc">
             <string>Avenir-Black</string>
             <string>Avenir-Light</string>
+            <string>Avenir-Roman</string>
         </array>
     </customFonts>
     <scenes>
@@ -24,7 +25,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="crayon" rowHeight="100" id="6cv-2b-gCJ" customClass="CrayonTableViewCell" customModule="AC_iOS_Unit2Final" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" indentationWidth="10" reuseIdentifier="crayon" rowHeight="100" id="6cv-2b-gCJ" customClass="CrayonTableViewCell" customModule="AC_iOS_Unit2Final" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6cv-2b-gCJ" id="6Dg-r5-xfg">
@@ -82,7 +83,7 @@
                             <outlet property="delegate" destination="bLN-NQ-aPx" id="CJa-5f-5eO"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Crayons" id="1UR-yY-uHX">
+                    <navigationItem key="navigationItem" title="CRAYONS" id="1UR-yY-uHX">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="Mdi-sg-LCR"/>
                     </navigationItem>
                 </tableViewController>
@@ -106,17 +107,17 @@
             </objects>
             <point key="canvasLocation" x="-1119" y="61"/>
         </scene>
-        <!--Your Color-->
+        <!--Crayon Detail View Controller-->
         <scene sceneID="bbV-nu-dIo">
             <objects>
-                <viewController title="Your Color" id="Pzf-ab-YIb" customClass="CrayonDetailViewController" customModule="AC_iOS_Unit2Final" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Pzf-ab-YIb" customClass="CrayonDetailViewController" customModule="AC_iOS_Unit2Final" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Yau-1L-qaU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIb-FU-fAp">
                                 <rect key="frame" x="0.0" y="104" width="375" height="52.5"/>
-                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="36"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -141,6 +142,7 @@
                                             <slider contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="LaH-6t-egL">
                                                 <rect key="frame" x="-2" y="0.0" width="363" height="31"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="minimumTrackTintColor" red="1" green="0.14939361810684204" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="thumbTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <connections>
                                                     <action selector="sliderMoved:" destination="Pzf-ab-YIb" eventType="valueChanged" id="e1m-Hh-xfQ"/>
@@ -166,6 +168,7 @@
                                             <slider contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="JKa-Yf-Fb7">
                                                 <rect key="frame" x="-2" y="76" width="363" height="31"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="minimumTrackTintColor" red="0.0" green="0.97800916433334351" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="thumbTintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <connections>
                                                     <action selector="sliderMoved:" destination="Pzf-ab-YIb" eventType="valueChanged" id="gCz-KJ-Blu"/>
@@ -191,6 +194,7 @@
                                             <slider contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="eLo-0K-0mI">
                                                 <rect key="frame" x="-2" y="152" width="363" height="31"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="minimumTrackTintColor" red="0.015120233409106731" green="0.19928276538848877" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="thumbTintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <connections>
                                                     <action selector="sliderMoved:" destination="Pzf-ab-YIb" eventType="valueChanged" id="3eZ-fL-YY4"/>

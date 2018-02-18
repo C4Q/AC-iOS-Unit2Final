@@ -72,8 +72,7 @@ class Crayon {
         Crayon(name: "Blue Bell", red: 162, green: 162, blue: 208, hex: "#A2A2D0"),
         Crayon(name: "Blue Gray", red: 102, green: 153, blue: 204, hex: "#6699CC"),
         Crayon(name: "Blue Green", red: 13, green: 152, blue: 186, hex: "#0D98BA"),
-        Crayon(name: "Blue Violet", red: 115, green: 102, blue: 189, hex: "#7366BD"),
-        Crayon(name: "Violet", hex: "#9966CC", alpha: 1.0)
+        Crayon(name: "Blue Violet", red: 115, green: 102, blue: 189, hex: "#7366BD")
     ]
     
     var cgRed: CGFloat {
