@@ -12,8 +12,10 @@
 		056D92692034D94B0066B21E /* CrayonTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D92682034D94B0066B21E /* CrayonTableViewController.swift */; };
 		056D926B2034D96B0066B21E /* CrayonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D926A2034D96B0066B21E /* CrayonDetailViewController.swift */; };
 		056D92722034DA220066B21E /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D92712034DA220066B21E /* Identifier.swift */; };
-		05B4E9C62036ECC600EECED8 /* NumberBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B4E9C52036ECC600EECED8 /* NumberBase.swift */; };
 		05B6C9CA20386F1300D01C97 /* CrayonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B6C9C920386F1300D01C97 /* CrayonTableViewCell.swift */; };
+		05B6C9CD203A025300D01C97 /* Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B6C9CC203A025300D01C97 /* Hex.swift */; };
+		05B6C9CF203A026D00D01C97 /* BaseTen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B6C9CE203A026D00D01C97 /* BaseTen.swift */; };
+		05B6C9D1203A029400D01C97 /* NumberSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B6C9D0203A029400D01C97 /* NumberSystem.swift */; };
 		05FBFD012036B94900A12AAB /* CrayonDetailViewController+Legibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FBFD002036B94900A12AAB /* CrayonDetailViewController+Legibility.swift */; };
 		05FBFD032036D19B00A12AAB /* Legibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FBFD022036D19B00A12AAB /* Legibility.swift */; };
 		C5E24D601FB2392D00578931 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E24D5F1FB2392D00578931 /* AppDelegate.swift */; };
@@ -29,8 +31,10 @@
 		056D92682034D94B0066B21E /* CrayonTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrayonTableViewController.swift; sourceTree = "<group>"; };
 		056D926A2034D96B0066B21E /* CrayonDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrayonDetailViewController.swift; sourceTree = "<group>"; };
 		056D92712034DA220066B21E /* Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifier.swift; sourceTree = "<group>"; };
-		05B4E9C52036ECC600EECED8 /* NumberBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberBase.swift; sourceTree = "<group>"; };
 		05B6C9C920386F1300D01C97 /* CrayonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrayonTableViewCell.swift; sourceTree = "<group>"; };
+		05B6C9CC203A025300D01C97 /* Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hex.swift; sourceTree = "<group>"; };
+		05B6C9CE203A026D00D01C97 /* BaseTen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTen.swift; sourceTree = "<group>"; };
+		05B6C9D0203A029400D01C97 /* NumberSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberSystem.swift; sourceTree = "<group>"; };
 		05FBFD002036B94900A12AAB /* CrayonDetailViewController+Legibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CrayonDetailViewController+Legibility.swift"; sourceTree = "<group>"; };
 		05FBFD022036D19B00A12AAB /* Legibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Legibility.swift; sourceTree = "<group>"; };
 		C5E24D5C1FB2392D00578931 /* AC-iOS-Unit2Final.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AC-iOS-Unit2Final.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,6 +104,16 @@
 			path = Detail;
 			sourceTree = "<group>";
 		};
+		05B6C9CB203A023600D01C97 /* Number Systems */ = {
+			isa = PBXGroup;
+			children = (
+				05B6C9D0203A029400D01C97 /* NumberSystem.swift */,
+				05B6C9CC203A025300D01C97 /* Hex.swift */,
+				05B6C9CE203A026D00D01C97 /* BaseTen.swift */,
+			);
+			path = "Number Systems";
+			sourceTree = "<group>";
+		};
 		C5E24D531FB2392D00578931 = {
 			isa = PBXGroup;
 			children = (
@@ -131,9 +145,9 @@
 		C5E24D731FB23F6D00578931 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				05B6C9CB203A023600D01C97 /* Number Systems */,
 				056D92702034D9E80066B21E /* String Constants */,
 				05FBFD022036D19B00A12AAB /* Legibility.swift */,
-				05B4E9C52036ECC600EECED8 /* NumberBase.swift */,
 				C5E24D5F1FB2392D00578931 /* AppDelegate.swift */,
 			);
 			path = "Supporting Files";
@@ -219,6 +233,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05B6C9CF203A026D00D01C97 /* BaseTen.swift in Sources */,
+				05B6C9D1203A029400D01C97 /* NumberSystem.swift in Sources */,
 				C5E24D601FB2392D00578931 /* AppDelegate.swift in Sources */,
 				05B6C9CA20386F1300D01C97 /* CrayonTableViewCell.swift in Sources */,
 				C5E24D721FB2395900578931 /* Crayon.swift in Sources */,
@@ -228,8 +244,8 @@
 				056D92692034D94B0066B21E /* CrayonTableViewController.swift in Sources */,
 				056D92722034DA220066B21E /* Identifier.swift in Sources */,
 				0508FFE0203824F000497205 /* CrayonDetailViewController+KeyboardFunctionality.swift in Sources */,
+				05B6C9CD203A025300D01C97 /* Hex.swift in Sources */,
 				0508FFE220382BF300497205 /* CrayonDetailViewController+Styling.swift in Sources */,
-				05B4E9C62036ECC600EECED8 /* NumberBase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

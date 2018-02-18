@@ -9,7 +9,10 @@
 import UIKit
 
 class CrayonDetailViewController: UIViewController {
-    var base = NumberBase.ten
+    var numberSystem: NumberSystem!
+    let hex = Hex()
+    let baseTen = BaseTen()
+    
     var originalCrayon: Crayon!
     var currentCrayon: Crayon! {
         didSet {
@@ -42,10 +45,13 @@ class CrayonDetailViewController: UIViewController {
         
         self.currentCrayon = self.originalCrayon
         self.colorNameLabel.text = self.currentCrayon.name.uppercased()
+                
+        self.numberSystem = BaseTen()
         
-        // we will only be using original crayon to reset colors
+        self.numberSystem.crayonToText(for: (red: self.redField, green: self.greenField, self.blueField, alpha: self.alphaField), crayon: self.currentCrayon)
         
-        self.setUpValues(with: currentCrayon)
+        self.numberSystem.crayonToValue(sliders: (red: self.redSlider, green: self.greenSlider, blue: self.blueSlider), stepper: self.alphaStepper, crayon: self.currentCrayon)
+        
         self.setShadows()
     }
     
@@ -54,36 +60,21 @@ class CrayonDetailViewController: UIViewController {
     @IBAction func resetButtonWasTapped(_ sender: UIButton) {
         self.currentCrayon = self.originalCrayon
         
-        // also move sliders back in place
+        self.numberSystem.crayonToText(for: (red: self.redField, green: self.greenField, self.blueField, alpha: self.alphaField), crayon: self.currentCrayon)
         
-        self.setUpValues(with: self.currentCrayon)
+        self.numberSystem.crayonToValue(sliders: (red: self.redSlider, green: self.greenSlider, blue: self.blueSlider), stepper: self.alphaStepper, crayon: self.currentCrayon)
     }
     
     @IBAction func sliderMoved(_ sender: UISlider) {
-        if self.base == NumberBase.ten {
-            switch sender {
-            case self.redSlider:
-                self.redField.text = String(sender.value)
-            case self.greenSlider:
-                self.greenField.text = String(sender.value)
-            case self.blueSlider:
-                self.blueField.text = String(sender.value)
-            default:
-                return
-            }
-        } else if self.base == NumberBase.hex {
-            let intValue = Int(sender.value * 255)
-            
-            switch sender {
-            case self.redSlider:
-                self.redField.text = String(intValue, radix: base.rawValue)
-            case self.greenSlider:
-                self.greenField.text = String(intValue, radix: base.rawValue)
-            case self.blueSlider:
-                self.blueField.text = String(intValue, radix: base.rawValue)
-            default:
-                return
-            }
+        switch sender {
+        case self.redSlider:
+            self.redField.text = self.numberSystem.textfieldSafe(value: sender.value)
+        case self.greenSlider:
+            self.greenField.text = self.numberSystem.textfieldSafe(value: sender.value)
+        case self.blueSlider:
+            self.blueField.text = self.numberSystem.textfieldSafe(value: sender.value)
+        default:
+            return
         }
         
         self.updateCrayon()
@@ -101,65 +92,23 @@ class CrayonDetailViewController: UIViewController {
             return
         }
         
-        if self.base == NumberBase.ten {
-            guard let newValue = Float(userInput) else { 
-                let alert = self.errorAlert(with: "You must enter a decimal value.")
-                
-                self.present(alert, animated: true, completion: nil)
-                
-                return
-            }
+        let newValue = self.numberSystem.validateAndConvert(text: userInput, errorHandler: { (message) in
+            let alert = self.numberSystem.errorAlert(with: message)
             
-            guard newValue <= 1 else { 
-                let alert = self.errorAlert(with: "You must enter a decimal value less than or equal to 1.")
-                
-                self.present(alert, animated: true, completion: nil)
-                
-                return
-            }
+            self.present(alert, animated: true, completion: nil)
             
-            switch sender {
-            case redField:
-                self.redSlider.value = newValue
-            case greenField:
-                self.greenSlider.value = newValue
-            case blueField:
-                self.blueSlider.value = newValue
-            default:
-                return
-            }
-        } else if self.base == NumberBase.hex {
-            let legalCharacters = ["a", "b", "c", "d", "e", "f", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
-            
-            guard userInput.count == 2 else { 
-                let alert = self.errorAlert(with: "You must enter a hex code two characters long.")
-                
-                self.present(alert, animated: true, completion: nil)
-                
-                return 
-            }
-            
-            let filteredInput = userInput.lowercased().filter {legalCharacters.contains(String($0))}
-            
-            guard filteredInput.count == 2 else { 
-                let alert = self.errorAlert(with: "You must enter only digits, or letter between a & f in the alphabet.")
-                
-                self.present(alert, animated: true, completion: nil)
-                
-                return 
-            }
-            
-            switch sender {
-            case redField:
-                print(Float(Int(userInput, radix: self.base.rawValue)!)/255.0)
-                self.redSlider.value = Float(Int(userInput, radix: self.base.rawValue)!)/255.0
-            case greenField:
-                self.greenSlider.value = Float(Int(userInput, radix: self.base.rawValue)!)/255.0
-            case blueField:
-                self.blueSlider.value = Float(Int(userInput, radix: self.base.rawValue)!)/255.0
-            default:
-                return
-            }
+            return
+        })
+        
+        switch sender {
+        case redField:
+            self.redSlider.value = newValue!
+        case greenField:
+            self.greenSlider.value = newValue!
+        case blueField:
+            self.blueSlider.value = newValue!
+        default:
+            return
         }
         
         self.updateCrayon()
@@ -167,16 +116,13 @@ class CrayonDetailViewController: UIViewController {
     
     @IBAction func switchBaseTapped(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
-            if self.base == NumberBase.hex {
-                self.base = NumberBase.ten
-            }
+            self.numberSystem = self.baseTen
         } else if sender.selectedSegmentIndex == 1 {
-            if self.base == NumberBase.ten {
-                self.base = NumberBase.hex
-            } 
+            self.numberSystem = self.hex
         }
         
         self.setKeyboards()
-        self.setUpValues(with: currentCrayon)
+        
+        self.numberSystem.crayonToText(for: (red: self.redField, green: self.greenField, self.blueField, alpha: self.alphaField), crayon: self.currentCrayon)
     }
 }
