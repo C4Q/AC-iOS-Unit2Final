@@ -21,7 +21,7 @@ struct Hex: NumberSystem {
         return String(intValue, radix: hexadecimal)
     }
     
-    func crayonToText(for fields: (red: UITextField, green: UITextField, blue: UITextField, alpha: UITextField), crayon: Crayon) {
+    func fillInText(for fields: (red: UITextField, green: UITextField, blue: UITextField, alpha: UITextField), withDataFrom crayon: Crayon) {
         resetPlaceholder(for: fields.red, with: crayon.hexRed)
         resetPlaceholder(for: fields.green, with: crayon.hexGreen)
         resetPlaceholder(for: fields.blue, with: crayon.hexBlue)

@@ -37,7 +37,7 @@ struct BaseTen: NumberSystem {
         return floatedText
     }
     
-    func crayonToText(for fields: (red: UITextField, green: UITextField, blue: UITextField, alpha: UITextField), crayon: Crayon) {
+    func fillInText(for fields: (red: UITextField, green: UITextField, blue: UITextField, alpha: UITextField), withDataFrom crayon: Crayon) {
         resetPlaceholder(for: fields.red, with: String(crayon.red/255))
         resetPlaceholder(for: fields.green, with: String(crayon.green/255))
         resetPlaceholder(for: fields.blue, with: String(crayon.blue/255))

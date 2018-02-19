@@ -12,8 +12,7 @@ protocol NumberSystem {
     func validateAndConvert(text: String, errorHandler: (String) -> Void) -> Float?
     func textfieldSafe(value: Float) -> String
     func properKeyboard() -> UIKeyboardType
-    func crayonToText(for fields: (red: UITextField, green: UITextField, blue: UITextField, alpha: UITextField), crayon: Crayon) -> Void
-    func crayonToValue(sliders: (red: UISlider, green: UISlider, blue: UISlider), stepper alpha: UIStepper, crayon: Crayon) -> Void
+    func fillInText(for fields: (red: UITextField, green: UITextField, blue: UITextField, alpha: UITextField), withDataFrom crayon: Crayon) -> Void
 }
 
 extension NumberSystem {
@@ -34,7 +33,7 @@ extension NumberSystem {
         textfield.placeholder = text
     }
     
-    func crayonToValue(sliders: (red: UISlider, green: UISlider, blue: UISlider), stepper alpha: UIStepper, crayon: Crayon) {
+    func setValues(for sliders: (red: UISlider, green: UISlider, blue: UISlider), andStepper alpha: UIStepper, withDataFrom crayon: Crayon) {
         sliders.red.value = Float(crayon.red/255)
         sliders.green.value = Float(crayon.green/255)
         sliders.blue.value = Float(crayon.blue/255) 

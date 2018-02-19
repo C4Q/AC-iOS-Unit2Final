@@ -48,9 +48,9 @@ class CrayonDetailViewController: UIViewController {
                 
         self.numberSystem = BaseTen()
         
-        self.numberSystem.crayonToText(for: (red: self.redField, green: self.greenField, self.blueField, alpha: self.alphaField), crayon: self.currentCrayon)
+        self.numberSystem.fillInText(for: (red: self.redField, green: self.greenField, self.blueField, alpha: self.alphaField), withDataFrom: self.currentCrayon)
         
-        self.numberSystem.crayonToValue(sliders: (red: self.redSlider, green: self.greenSlider, blue: self.blueSlider), stepper: self.alphaStepper, crayon: self.currentCrayon)
+        self.numberSystem.setValues(for: (red: self.redSlider, green: self.greenSlider, blue: self.blueSlider), andStepper: self.alphaStepper, withDataFrom: self.currentCrayon)
         
         self.setShadows()
     }
@@ -60,9 +60,9 @@ class CrayonDetailViewController: UIViewController {
     @IBAction func resetButtonWasTapped(_ sender: UIButton) {
         self.currentCrayon = self.originalCrayon
         
-        self.numberSystem.crayonToText(for: (red: self.redField, green: self.greenField, self.blueField, alpha: self.alphaField), crayon: self.currentCrayon)
+        self.numberSystem.fillInText(for: (red: self.redField, green: self.greenField, self.blueField, alpha: self.alphaField), withDataFrom: self.currentCrayon)
         
-        self.numberSystem.crayonToValue(sliders: (red: self.redSlider, green: self.greenSlider, blue: self.blueSlider), stepper: self.alphaStepper, crayon: self.currentCrayon)
+        self.numberSystem.setValues(for: (red: self.redSlider, green: self.greenSlider, blue: self.blueSlider), andStepper: self.alphaStepper, withDataFrom: self.currentCrayon)
     }
     
     @IBAction func sliderMoved(_ sender: UISlider) {
@@ -95,18 +95,24 @@ class CrayonDetailViewController: UIViewController {
         let newValue = self.numberSystem.validateAndConvert(text: userInput, errorHandler: { (message) in
             let alert = self.numberSystem.errorAlert(with: message)
             
-            self.present(alert, animated: true, completion: nil)
+            if self.presentedViewController == nil {
+                self.present(alert, animated: true, completion: nil)
+            }
             
             return
         })
         
+        guard let validValue = newValue else {
+            return
+        }
+        
         switch sender {
         case redField:
-            self.redSlider.value = newValue!
+            self.redSlider.value = validValue
         case greenField:
-            self.greenSlider.value = newValue!
+            self.greenSlider.value = validValue
         case blueField:
-            self.blueSlider.value = newValue!
+            self.blueSlider.value = validValue
         default:
             return
         }
@@ -123,6 +129,6 @@ class CrayonDetailViewController: UIViewController {
         
         self.setKeyboards()
         
-        self.numberSystem.crayonToText(for: (red: self.redField, green: self.greenField, self.blueField, alpha: self.alphaField), crayon: self.currentCrayon)
+        self.numberSystem.fillInText(for: (red: self.redField, green: self.greenField, self.blueField, alpha: self.alphaField), withDataFrom: self.currentCrayon)
     }
 }
