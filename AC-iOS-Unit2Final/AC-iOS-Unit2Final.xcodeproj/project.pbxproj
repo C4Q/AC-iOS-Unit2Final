@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0508FFE0203824F000497205 /* CrayonDetailViewController+KeyboardFunctionality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0508FFDF203824F000497205 /* CrayonDetailViewController+KeyboardFunctionality.swift */; };
 		0508FFE220382BF300497205 /* CrayonDetailViewController+Styling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0508FFE120382BF300497205 /* CrayonDetailViewController+Styling.swift */; };
+		0539DC8D203AD05300CF608F /* NumberSystemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0539DC8C203AD05300CF608F /* NumberSystemManager.swift */; };
 		056D92692034D94B0066B21E /* CrayonTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D92682034D94B0066B21E /* CrayonTableViewController.swift */; };
 		056D926B2034D96B0066B21E /* CrayonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D926A2034D96B0066B21E /* CrayonDetailViewController.swift */; };
 		056D92722034DA220066B21E /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D92712034DA220066B21E /* Identifier.swift */; };
@@ -28,6 +29,7 @@
 /* Begin PBXFileReference section */
 		0508FFDF203824F000497205 /* CrayonDetailViewController+KeyboardFunctionality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CrayonDetailViewController+KeyboardFunctionality.swift"; sourceTree = "<group>"; };
 		0508FFE120382BF300497205 /* CrayonDetailViewController+Styling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CrayonDetailViewController+Styling.swift"; sourceTree = "<group>"; };
+		0539DC8C203AD05300CF608F /* NumberSystemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberSystemManager.swift; sourceTree = "<group>"; };
 		056D92682034D94B0066B21E /* CrayonTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrayonTableViewController.swift; sourceTree = "<group>"; };
 		056D926A2034D96B0066B21E /* CrayonDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrayonDetailViewController.swift; sourceTree = "<group>"; };
 		056D92712034DA220066B21E /* Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifier.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				05B6C9D0203A029400D01C97 /* NumberSystem.swift */,
 				05B6C9CC203A025300D01C97 /* Hex.swift */,
 				05B6C9CE203A026D00D01C97 /* BaseTen.swift */,
+				0539DC8C203AD05300CF608F /* NumberSystemManager.swift */,
 			);
 			path = "Number Systems";
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 				C5E24D601FB2392D00578931 /* AppDelegate.swift in Sources */,
 				05B6C9CA20386F1300D01C97 /* CrayonTableViewCell.swift in Sources */,
 				C5E24D721FB2395900578931 /* Crayon.swift in Sources */,
+				0539DC8D203AD05300CF608F /* NumberSystemManager.swift in Sources */,
 				05FBFD012036B94900A12AAB /* CrayonDetailViewController+Legibility.swift in Sources */,
 				056D926B2034D96B0066B21E /* CrayonDetailViewController.swift in Sources */,
 				05FBFD032036D19B00A12AAB /* Legibility.swift in Sources */,

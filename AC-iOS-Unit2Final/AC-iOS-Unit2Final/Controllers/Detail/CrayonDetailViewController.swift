@@ -9,9 +9,7 @@
 import UIKit
 
 class CrayonDetailViewController: UIViewController {
-    var numberSystem: NumberSystem!
-    let hex = Hex()
-    let baseTen = BaseTen()
+    var numberSystemManager = NumberSystemManager()
     
     var originalCrayon: Crayon!
     var currentCrayon: Crayon! {
@@ -46,11 +44,9 @@ class CrayonDetailViewController: UIViewController {
         self.currentCrayon = self.originalCrayon
         self.colorNameLabel.text = self.currentCrayon.name.uppercased()
                 
-        self.numberSystem = BaseTen()
+        self.numberSystemManager.currentSystem.fillInText(for: (red: self.redField, green: self.greenField, self.blueField, alpha: self.alphaField), withDataFrom: self.currentCrayon)
         
-        self.numberSystem.fillInText(for: (red: self.redField, green: self.greenField, self.blueField, alpha: self.alphaField), withDataFrom: self.currentCrayon)
-        
-        self.numberSystem.setValues(for: (red: self.redSlider, green: self.greenSlider, blue: self.blueSlider), andStepper: self.alphaStepper, withDataFrom: self.currentCrayon)
+        self.numberSystemManager.currentSystem.setValues(for: (red: self.redSlider, green: self.greenSlider, blue: self.blueSlider), andStepper: self.alphaStepper, withDataFrom: self.currentCrayon)
         
         self.setShadows()
     }
@@ -60,19 +56,19 @@ class CrayonDetailViewController: UIViewController {
     @IBAction func resetButtonWasTapped(_ sender: UIButton) {
         self.currentCrayon = self.originalCrayon
         
-        self.numberSystem.fillInText(for: (red: self.redField, green: self.greenField, self.blueField, alpha: self.alphaField), withDataFrom: self.currentCrayon)
+        self.numberSystemManager.currentSystem.fillInText(for: (red: self.redField, green: self.greenField, self.blueField, alpha: self.alphaField), withDataFrom: self.currentCrayon)
         
-        self.numberSystem.setValues(for: (red: self.redSlider, green: self.greenSlider, blue: self.blueSlider), andStepper: self.alphaStepper, withDataFrom: self.currentCrayon)
+        self.numberSystemManager.currentSystem.setValues(for: (red: self.redSlider, green: self.greenSlider, blue: self.blueSlider), andStepper: self.alphaStepper, withDataFrom: self.currentCrayon)
     }
     
     @IBAction func sliderMoved(_ sender: UISlider) {
         switch sender {
         case self.redSlider:
-            self.redField.text = self.numberSystem.textfieldSafe(value: sender.value)
+            self.redField.text = self.numberSystemManager.currentSystem.textfieldSafe(value: sender.value)
         case self.greenSlider:
-            self.greenField.text = self.numberSystem.textfieldSafe(value: sender.value)
+            self.greenField.text = self.numberSystemManager.currentSystem.textfieldSafe(value: sender.value)
         case self.blueSlider:
-            self.blueField.text = self.numberSystem.textfieldSafe(value: sender.value)
+            self.blueField.text = self.numberSystemManager.currentSystem.textfieldSafe(value: sender.value)
         default:
             return
         }
@@ -82,7 +78,6 @@ class CrayonDetailViewController: UIViewController {
     
     @IBAction func stepperTapped(_ sender: UIStepper) {
         self.alphaField.text = String(sender.value)
-        print(sender.value)
         
         self.updateCrayon()
     }
@@ -92,8 +87,8 @@ class CrayonDetailViewController: UIViewController {
             return
         }
         
-        let newValue = self.numberSystem.validateAndConvert(text: userInput, errorHandler: { (message) in
-            let alert = self.numberSystem.errorAlert(with: message)
+        let newValue = self.numberSystemManager.currentSystem.validateAndConvert(text: userInput, errorHandler: { (message) in
+            let alert = self.numberSystemManager.currentSystem.errorAlert(with: message)
             
             if self.presentedViewController == nil {
                 self.present(alert, animated: true, completion: nil)
@@ -122,13 +117,13 @@ class CrayonDetailViewController: UIViewController {
     
     @IBAction func switchBaseTapped(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
-            self.numberSystem = self.baseTen
+            self.numberSystemManager.switchSystemToBaseTen()
         } else if sender.selectedSegmentIndex == 1 {
-            self.numberSystem = self.hex
+            self.numberSystemManager.switchSystemToHex()
         }
         
         self.setKeyboards()
         
-        self.numberSystem.fillInText(for: (red: self.redField, green: self.greenField, self.blueField, alpha: self.alphaField), withDataFrom: self.currentCrayon)
+        self.numberSystemManager.currentSystem.fillInText(for: (red: self.redField, green: self.greenField, self.blueField, alpha: self.alphaField), withDataFrom: self.currentCrayon)
     }
 }

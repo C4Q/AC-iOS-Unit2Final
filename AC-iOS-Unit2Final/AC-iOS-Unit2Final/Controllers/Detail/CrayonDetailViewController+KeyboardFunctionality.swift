@@ -11,9 +11,9 @@ import UIKit
 extension CrayonDetailViewController {
     
     func setKeyboards() {
-        self.redField.keyboardType = self.numberSystem.properKeyboard()
-        self.greenField.keyboardType = self.numberSystem.properKeyboard()
-        self.blueField.keyboardType = self.numberSystem.properKeyboard()
+        self.redField.keyboardType = self.numberSystemManager.currentSystem.properKeyboard()
+        self.greenField.keyboardType = self.numberSystemManager.currentSystem.properKeyboard()
+        self.blueField.keyboardType = self.numberSystemManager.currentSystem.properKeyboard()
         
         self.redField.autocorrectionType = .no
         self.greenField.autocorrectionType = .no

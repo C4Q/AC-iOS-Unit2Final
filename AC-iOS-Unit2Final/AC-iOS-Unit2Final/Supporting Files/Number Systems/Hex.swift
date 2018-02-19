@@ -25,6 +25,7 @@ struct Hex: NumberSystem {
         resetPlaceholder(for: fields.red, with: crayon.hexRed)
         resetPlaceholder(for: fields.green, with: crayon.hexGreen)
         resetPlaceholder(for: fields.blue, with: crayon.hexBlue)
+        resetPlaceholder(for: fields.alpha, with: String(crayon.alpha))
     }
     
     func validateAndConvert(text: String, errorHandler: (String) -> Void) -> Float? {

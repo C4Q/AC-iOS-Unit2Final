@@ -16,6 +16,8 @@ protocol NumberSystem {
 }
 
 extension NumberSystem {
+    // helpers
+    
     func errorAlert(with title: String) -> UIAlertController {
         let alert = UIAlertController(title: title, message: "Please try again.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action: UIAlertAction!) in
