@@ -6,21 +6,56 @@
 //  Copyright © 2017 Karen Fuentes. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class Crayon {
     var name: String
     var red: Double
     var green: Double
     var blue: Double
+    var alpha: Double
     var hex: String
-    init(name: String, red: Double, green: Double, blue: Double, hex: String) {
+    
+    init(name: String, red: Double, green: Double, blue: Double, alpha: Double = 1.0, hex: String) {
         self.name = name
         self.red = red
         self.green = green
         self.blue = blue
+        self.alpha = alpha
         self.hex = hex
+        
+        print(self.name)
     }
+    
+    
+    convenience init?(name: String, hex: String, alpha: Double) {
+        let startIndex = hex.startIndex
+        let startOfRed = hex.index(after: startIndex)
+        let endOfRed = hex.index(startOfRed, offsetBy: 1)
+        let startOfGreen = hex.index(after: endOfRed)
+        let endOfGreen = hex.index(startOfGreen, offsetBy: 1)
+        let startOfBlue = hex.index(after: endOfGreen)
+        let endOfBlue = hex.index(startOfBlue, offsetBy: 1)
+
+        let redVal = String(hex[startOfRed...endOfRed])
+        let greenVal = String(hex[startOfGreen...endOfGreen])
+        let blueVal = String(hex[startOfBlue...endOfBlue])
+        
+        let redHex = Int(redVal, radix: 16)
+        let greenHex = Int(greenVal, radix: 16)
+        let blueHex = Int(blueVal, radix: 16)
+        
+        guard let red = redHex, let green = greenHex, let blue = blueHex else {
+            return nil
+        }
+        
+        let doubleRed = Double(red)
+        let doubleGreen = Double(green)
+        let doubleBlue = Double(blue)
+        
+        self.init(name: name, red: doubleRed, green: doubleGreen, blue: doubleBlue, alpha: alpha, hex: hex)
+    }
+    
     static let allTheCrayons = [
         Crayon(name: "Almond", red: 239, green: 222, blue: 205, hex: "#EFDECD"),
         Crayon(name: "Antique Brass", red: 205, green: 149, blue: 117, hex: "#CD9575"),
@@ -39,5 +74,57 @@ class Crayon {
         Crayon(name: "Blue Green", red: 13, green: 152, blue: 186, hex: "#0D98BA"),
         Crayon(name: "Blue Violet", red: 115, green: 102, blue: 189, hex: "#7366BD")
     ]
+    
+    var cgRed: CGFloat {
+        return CGFloat(self.red/255)
+    }
+    
+    var cgGreen: CGFloat {
+        return CGFloat(self.green/255)
+    }
+    
+    var cgBlue: CGFloat {
+        return CGFloat(self.blue/255)
+    }
+    
+    var cgAlpha: CGFloat {
+        return CGFloat(self.alpha)
+    }
+    
+    var hexRed: String {
+        print(self.hex)
+        let startIndex = self.hex.startIndex
+        let startOfRed = self.hex.index(after: startIndex)
+        let endOfRed = self.hex.index(startOfRed, offsetBy: 1)
+        
+        let redVal = String(hex[startOfRed...endOfRed])
+        
+        return redVal
+    }
+    
+    var hexGreen: String {
+        let startIndex = self.hex.startIndex
+        let startOfGreen = self.hex.index(startIndex, offsetBy: 3)
+        let endOfGreen = self.hex.index(startOfGreen, offsetBy: 1)
+        
+        let greenVal = String(hex[startOfGreen...endOfGreen])
+        
+        return greenVal
+    }
+    
+    var hexBlue: String {
+        let startIndex = self.hex.startIndex
+        let startOfBlue = self.hex.index(startIndex, offsetBy: 5)
+        let endOfBlue = self.hex.index(startOfBlue, offsetBy: 1)
+        
+        let blueVal = String(hex[startOfBlue...endOfBlue])
+        
+        return blueVal
+    }
+    
+    func getUIColor() -> UIColor {
+        print(UIColor(displayP3Red: cgRed, green: cgGreen, blue: cgBlue, alpha: cgAlpha))
+        return UIColor(displayP3Red: cgRed, green: cgGreen, blue: cgBlue, alpha: cgAlpha)
+    }
 }
 

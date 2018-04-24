@@ -1,5 +1,9 @@
 # AC-iOS-Unit2Final
 
+<img src = "https://raw.githubusercontent.com/martyav/AC-iOS-Unit2Final/master/Screen%20Shot%202018-02-19%20at%2004.54.48.png" width = "250"> <img src = "https://raw.githubusercontent.com/martyav/AC-iOS-Unit2Final/master/Screen%20Shot%202018-02-19%20at%2004.57.37.png" width = "250"> <img src = "https://raw.githubusercontent.com/martyav/AC-iOS-Unit2Final/master/Screen%20Shot%202018-02-19%20at%2005.06.09.png" width = "250">
+
+---
+
 # Setup
 
 1. Clone **your fork** locally to your laptop.
